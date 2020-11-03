@@ -1,0 +1,6 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_URI} !^https://admin.willcloudy.com
+RewriteCond %{HTTP_HOST} ^willcloudy.com [NC]
+RewriteRule ^(.*)$ https://www.willcloudy.com/$1 [L,R=301]
+
