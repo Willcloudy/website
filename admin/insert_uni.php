@@ -19,14 +19,21 @@
             $uni_country = $_GET['uni_country'];
             $uni_location = $_GET['uni_location'];
             $uni_link = $_GET['uni_link'];
-
-            $insert_uni = "INSERT INTO `university` (uni_name_en, uni_name_zh, uni_country, uni_location, uni_link) 
+            $qs_rank = $_GET['qs_rank'];
+            $insert_uni = "INSERT INTO university (uni_name_en, uni_name_zh, uni_country, uni_location, uni_link) 
             VALUES ('$uni_name_en','$uni_name_zh','$uni_country','$uni_location','$uni_link')";
             $run_insert= mysqli_query($con, $insert_uni);
-
-            $insert_rank = "INSERT INTO `rank` (uni_name_zh) VALUES ('$uni_name_zh')";
+            
+            $insert_rank = "INSERT INTO rank (uni_name_zh, qs_rank) VALUES ('$uni_name_zh', '$qs_rank')";
             $run_rank= mysqli_query($con, $insert_rank);
-            echo "<script>window.open('in_img.php?uni_name_zh=$uni_name_zh', '_self')</script>";
+
+            if ($run_rank) {
+                echo "<script>window.open('in_img.php?uni_name_zh=$uni_name_zh', '_self')</script>";
+            }else {
+                echo "<script>alert('insert rank failed')</script>";
+                echo mysqli_error($con);
+            }
+            
         }
     }
 ?>

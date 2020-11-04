@@ -33,20 +33,19 @@
                                             <?php
                                                 $search_rank_query = "SELECT * FROM rank order by search_rank desc ";
                                                 $run_search_rank = mysqli_query($con, $search_rank_query);
-                                                while($row = mysqli_fetch_array($run_search_rank)) {
+                                                while(@$row = mysqli_fetch_array($run_search_rank)) {
                                                     $uni_name_zh = $row['uni_name_zh'];
                                                     $qs_rank = $row['qs_rank'];
                                                     $search_rank = $row['search_rank'];
                                                     
-                                                    $uni_info_query = "SELECT * FROM `university` where uni_name_zh = '$uni_name_zh'";
-                                                    $run_uni_info = mysqli_query($con, $uni_info_query);
-                                                    $uni_info = mysqli_fetch_array($run_uni_info);
-                                                    $uni_name_en = $uni_info['uni_name_en'];
-                                                    $uni_country = $uni_info['uni_country'];
-                                                    $uni_location = $uni_info['uni_location'];
-                                                    $uni_img = $uni_info['uni_img'];
-                                                    $uni_icon = $uni_info['uni_icon'];
-                                                    $uni_link = $uni_info['uni_link'];
+                                                    @$uni_info_query = "SELECT * FROM `university` where uni_name_zh = '$uni_name_zh'";
+                                                    @$run_uni_info = mysqli_query($con, $uni_info_query);
+                                                    @$uni_info = mysqli_fetch_array($run_uni_info);
+                                                    @$uni_name_en = $uni_info['uni_name_en'];
+                                                    @$uni_country = $uni_info['uni_country'];
+                                                    @$uni_location = $uni_info['uni_location'];
+                                                    @$uni_icon = $uni_info['uni_icon'];
+                                                    @$uni_link = $uni_info['uni_link'];
                                                     echo "
                                                     <li>
                                                         <div class='toprank'>
@@ -96,7 +95,6 @@
                                                 $uni_name_en = $uni_info['uni_name_en'];
                                                 $uni_country = $uni_info['uni_country'];
                                                 $uni_location = $uni_info['uni_location'];
-                                                $uni_img = $uni_info['uni_img'];
                                                 $uni_icon = $uni_info['uni_icon'];
                                                 $uni_link = $uni_info['uni_link'];
                                                 echo "

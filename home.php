@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <title>主页 - WillCloudy</title>
+    <title>动态 - WillCloudy</title>
     <link rel="stylesheet" href="home.css">
 </head>
 <body>
@@ -42,7 +42,7 @@
             <?php require('include/leftbar.php');?>
             <div class="col-md-6">
                 <div class="box">
-                    <h3 style='font-weight:bold;'>Home/主页</h3>
+                    <h3 style='font-weight:bold;'>Home/动态</h3>
                     <hr>
                     
                 </div>  

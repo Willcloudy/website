@@ -36,16 +36,16 @@
                                     <li>
                                         <div class='toprank'>
                                             <div >
-                                                <a href='search.php?country=AUS'><img src='img/auland.jpg' alt='' class='img-responsive'></a>
+                                                <a href='country.php?country=AUS'><img src='img/auland.jpg' alt='' class='img-responsive'></a>
                                             </div>
-                                            <a href="search.php?country=AUS"><h4 style='text-align:center'>澳大利亚/Prices in Australia</h4></a>
+                                            <a href="search.php?country=AUS"><h4 style='text-align:center'>Prices in Australia</h4></a>
                                         </div>
                                     </li>
                                 </ul>
                             </div>
                             
                         </div>
-                        </div>
+                    </div>
                 </div>
                 <br>
             </div>

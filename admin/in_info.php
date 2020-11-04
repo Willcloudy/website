@@ -38,7 +38,11 @@
                     <input type="text" name='uni_name_zh' placeholder="中文大学名称" class='form-control' id='uni_name_zh'required="required">
                     
                     <label for="uni_country">学校所在国家</label>
-                    <input type="text" name='uni_country' placeholder="大学所在国家" class='form-control' id='uni_country'required="required">
+                    <select name='uni_country' class='form-control' id='uni_country'required="required">
+                        <option value="UK">England</option>
+                        <option value="CAN">Canada</option>
+                        <option value="AUS">Australia</option>
+                    </select>
                     
                     <label for="uni_location">学校所在城市</label>
                     <input type="text" name='uni_location' placeholder="大学所在城市" class='form-control' id='uni_location'required="required">
@@ -46,7 +50,10 @@
                     
                     <label for="uni_link">学校官网链接</label>
                     <input type="text" name='uni_link' class='form-control' id='uni_link' required="required">
-
+                    
+                    <label for="qs_rank">qs排名</label>
+                    <input type="text" name='qs_rank' class='form-control' id='qs_rank' required="required">
+                    
                     <button type='submit'>提交</button>
                 </div>
             </form>

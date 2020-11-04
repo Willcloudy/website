@@ -8,6 +8,17 @@
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>关于我们 - WillCloudy</title>
     <link rel="stylesheet" href="home.css">
+    <style>
+    .willcloudy{
+            border: 1px solid white;
+            box-shadow: 0px 2px 10px rgb(181,212,213);
+            margin-bottom:20px;
+    }
+        .willcloudy:hover{
+            border:1px solid  #00BFFF;
+            box-shadow: 0px 2px 20px rgb(181,212,213);
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -17,7 +28,7 @@
                     <h3 style='font-weight:bold;'>About/关于</h3>
                     <hr>
                     <div class="row">
-                        <div class="col-md-6" style='margin-left:30px;width:90%'>
+                        <div class="willcloudy col-md-7 " style='margin-left:30px;width:90%;'>
                             <h4 style='font-weight:bold;'>About the site/关于WillCloudy</h4>
                             <hr>
                             "WillCloudy"是一个可以帮助想要出国留学的学生快速获取心仪学校的环境和入学条件及各种信息的网站，并在将来开放一个面向留学生的社交性质的交流平台。<hr>
@@ -25,11 +36,11 @@
                             <hr>
                         </div>
                         <hr>
-                        <div class="col-md-6" style='margin-left:30px;width:90%'>
+                        <div class="willcloudy col-md-7 " style='margin-left:30px;width:90%;'>
                             <h4 style='font-weight:bold;'>About the people/关于创始人</h4>
                             <hr>
                             <div><a href="">Mark He zhe/和喆</a> -- 创始人兼首席执行官/Founder & CEO</div><br>
-                            <div><a href="" target='_blank'>Dragon Chen Long Xin/陈龙鑫</a> -- 共同创始人兼首席财务官/Co-Founder & CFO</div>
+                            <div><a href="">Dragon Chen Long Xin/陈龙鑫</a> -- 共同创始人兼首席财务官/Co-Founder & CFO</div>
                             <hr>
                         </div>
                     </div>

@@ -79,10 +79,12 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <hr>
-                                    <h5 style='font-weight:bold;text-align:center'>没有你想要的学校？<a href=#>点此反馈</h5>
+                                    
                                         ";
                             }
+                            
+                            echo "<hr>
+                            <h5 style='font-weight:bold;text-align:center'>没有你想要的学校？<a href=#>点此反馈</h5>";
                         }
                         
                     ?>

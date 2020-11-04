@@ -9,7 +9,7 @@
     <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-    <title>寻找心仪大学 - WillCloudy</title>
+    <title>找人 - WillCloudy</title>
     <!-- <link rel="stylesheet" href="home.css"> -->
 </head>
 <body>
@@ -76,7 +76,6 @@
             <?php
                 require('include/rightbar.php');
             ?>
-            
     </div>
 </body>
 </html>

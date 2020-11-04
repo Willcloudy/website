@@ -1,6 +1,5 @@
 <?php
     $uni_name_zh = $_GET['uni_name_zh'];
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,17 +14,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.css" integrity="sha512-949FvIQOibfhLTgmNws4F3DVlYz3FmCRRhJznR22hx76SKkcpZiVV5Kwo0iwK9L6BFuY+6mpdqB2+vDIGVuyHg==" crossorigin="anonymous" />
 </head>
 <body>
-    <form action="insert_img.php" method='POST' enctype='multipart/form-data'>
+    <form action="in_info.php" method='POST' enctype='multipart/form-data'>
         <div class='form-group' style='width:500px; margin:0 auto;margin-top:60px;'>
             <h2><?php echo "<div id='uni_name_zh'>$uni_name_zh</div>";?>的图片</h2>
             <input type="text"  name='uni_name_zh' value=<?php echo $uni_name_zh ?> readonly>
             <label for="uni_icon">学校校徽</label>
             <input type="file" name='uni_icon' class='form-control' id='uni_icon' accept="image/*">
             
-            <label for="uni_img">学校背景图</label>
-            <input type="file" name='uni_img' class='form-control' id='uni_img' accept="image/*">
-            
-            <button type='submit' name='submit'>提交</button>
+            <a href="in_info.php"><button type='submit' name='submit'>提交</button></a>
         </div>
     </form>
             <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
