@@ -12,7 +12,9 @@
                 </svg> 
                 Home/首页
             </a></li>
+            
         <li>
+        
             <a id='search' href="search.php">
                 <span class="glyphicon glyphicon-globe"></span> 
                 Search/搜索
@@ -24,7 +26,6 @@
             </a>
         </li>
         <li><a id='group' href="group.php" style='font-size:19px'><span class="glyphicon glyphicon-user"></span> Group/兴趣组</a></li>
-        <li><a id='about' href="about.php"><span class="glyphicon glyphicon-question-sign"></span> About/关于</a></li>
         <li>
             <a id='sign' href="javascript:volid(0);"data-toggle="modal" data-target="#myModal">
                 <span><!-- <img src="" alt="" width='40px' height='40px'>--> 
@@ -32,6 +33,8 @@
                 </span>
             </a>
         </li>
+        <li><a id='about' href="about.php"><span class="glyphicon glyphicon-question-sign"></span> About/关于</a></li>
+        
     </ul>
     <br>
     <br>
@@ -80,7 +83,7 @@
                     </form>
                     
                     <div class="text-center small" 
-                    style="color: #191970;background-color:	#FFD700;
+                    style="font-size:14px;color: #191970;background-color:	#FFD700;
                     border-radius: 3px;
                     background: white;
                     padding:1px;margin-bottom:20px">

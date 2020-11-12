@@ -17,7 +17,7 @@
             <?php require('include/leftbar.php');?>
             <div class="col-md-6">
                 <div class="box">
-                    <h3 style='font-weight:bold;'>Prices in England/英国物价</h3>
+                    <h3 style='font-weight:bold;'>England/英国</h3>
                     <hr>
                 </div>
             </div>

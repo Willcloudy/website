@@ -168,16 +168,15 @@
                         <div class="row">
                             <div class='col-md-11'>
                                 <?php
-                                    for ($i=0; $i < 3; $i++) { 
+                                    for ($i=0; $i < 2; $i++) { 
                                             echo "
                                             <div >
                                                 <div style='float:left;'>
-                                                    <a href='#'><img src='#' alt='' width='80px' height='80px' style='margin-left:10px;margin-bottom:15px;margin-right:20px;margin-top:0px;'></a>
+                                                    <a href='#'><img src='#' alt='' width='50px' height='50px' style='margin-left:10px;margin-bottom:15px;margin-right:20px;margin-top:0px;'></a>
                                                 </div>
                                                 <div>
                                                     <h5 style='font-weight:bold'><a href='#'>用户姓名</a></h5>
                                                     <p>目标专业:</p>
-                                                    <p>目标学位:</p>
                                                 </div>
                                                 <div style='clear:both'></div>
                                             </div>";

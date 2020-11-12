@@ -89,7 +89,7 @@
                     </h3>
                 </div>
                 <div class="l-part">
-                    <form action="" method="POST">
+                    <form action="" method="POST" onsubmit="return checkForm(this);">
                         <div class="form-group">
                             <label for="">Username/昵称</label>
                             <input type="text" class="form-control"
@@ -99,6 +99,15 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="">Email/邮箱</label>
+                            <input type="email" id='email' class="form-control"
+                            name="user_email" placeholder="例如:123456@site.com"
+                            autocomplete="off" required
+                            >
+                            <div id="checkEmail"></div>
+                        </div>
+                        
+                        <div class="form-group">
                             <label for="">Password/密码</label>
                             <input type="password" class="form-control"
                             name="user_password"
@@ -107,12 +116,14 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="">Email/邮箱</label>
-                            <input type="email" class="form-control"
-                            name="user_email" placeholder="例如:123456@site.com"
+                            <label for="">Repeat Password/重复密码</label>
+                            <input type="password" class="form-control"
+                            name="user_password2"
                             autocomplete="off" required
                             >
                         </div>
+
+                        
 
                         <div class="form-group">
                             <label for="" class="checkbox-inline">
@@ -141,7 +152,7 @@
                     margin-top:0px;
                     margin-bottom:1px;">
                     已经有账户了?
-                    <a href="signin.php">在这里登录</a>
+                    <a href="home.php">在这里登录</a>
                     </div>
                     
                 </div>
@@ -150,4 +161,118 @@
         </div>
     </div>
 </body>
-</html
+</html>
+<script>
+	email.onchange = function(){
+		var email = this.value;
+		var reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+		if(reg.test(email)){
+            document.getElementById("checkEmail").style.color = "green" ;
+            document.getElementById("checkEmail").innerHTML= "邮箱格式正确";
+		}else{
+            document.getElementById("checkEmail").style.color = "red" ;
+			document.getElementById("checkEmail").innerHTML= "邮箱格式不正确";
+		}
+	}
+    function checkForm(form) {
+
+        if(form.user_name.value == "") {
+
+            alert("错误：用户名不能为空！");
+
+            form.username.focus();
+
+            return false;
+
+        }
+
+        re = /^\w+$/;
+
+        if(!re.test(form.user_name.value)) {
+
+            alert("错误：用户名必须只包含字母、数字和下划线！");
+
+            form.user_name.focus();
+
+            return false;
+
+        }
+
+
+
+        if(form.user_password.value != "" && form.user_password.value == form.user_password2.value) {
+
+            if(form.user_password.value.length < 6) {
+
+                alert("错误：密码必须至少包含六个字符！");
+
+                form.user_password.focus();
+
+                return false;
+
+            }
+
+            if(form.user_password.value == form.user_name.value) {
+
+                alert("错误：密码必须与用户名不同！");
+
+                form.user_password.focus();
+
+                return false;
+
+            }
+
+            re = /[0-9]/;
+
+            if(!re.test(form.user_password.value)) {
+
+                alert("错误：密码必须包含至少一个数字（0至9）！");
+
+                form.user_password.focus();
+
+                return false;
+
+            }
+
+            re = /[a-z]/;
+
+            if(!re.test(form.user_password.value)) {
+
+                alert("错误：密码必须包含至少一个小写字母(a-z)!");
+
+                form.user_password.focus();
+
+                return false;
+
+            }
+
+            re = /[A-Z]/;
+
+            if(!re.test(form.user_password.value)) {
+
+                alert("错误：密码必须包含至少一个大写字母(A-Z)!");
+
+                form.user_password.focus();
+
+                return false;
+
+            }
+
+        } else {
+
+            alert("错误：请检查并确认您输入的密码是否一致！");
+
+            form.user_password.focus();
+
+            return false;
+
+        }
+
+
+
+        alert(""" + form.user_password.value);
+
+        return true;
+
+        }
+</script>
