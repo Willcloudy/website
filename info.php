@@ -32,7 +32,7 @@
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title><?php echo $uni_name_zh.'- WillCloudy'?> </title>
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="css/home.css">
 <style>
     .info{
         font-weight:bold;
@@ -65,6 +65,7 @@
         background-color:white;
         box-shadow: 0px 2px 5px rgb(181,212,213);
         border:1px solid #00BFFF;
+        border-radius: 15px;
     }
 </style>
 </head>
@@ -146,10 +147,24 @@
             </div>  
         </div>
        
-        <div class="col-md-3">
+        <div class="col-md-3" id='tuijian' style='margin-top: 15px'>
+                <form action="result.php" method="POST">
+                    <span>
+                        <input class='form-control' type="text" name='searchcontent' style='font-size:1em;width:80%;float:left;display:inline-block;
+                        height:39px;margin-right:0;border-radius:5px 0px 0px 5px;' placeholder='搜索大学/文章/用户'>
+                    </span>
+                    <span class='span2'>
+                        <a href="result.php"><button class='form-control btn btn-primary'type='submit' style='float:right;
+                        height:38.5px;display:inline-block;width:20%;margin-left:0;border-radius:0px 5px 5px 0px;font-weight:bold;
+                        background-color: #00BFFF;'><span class="glyphicon glyphicon-search"></span></button></a>
+                    </span>
+                    <div style="clear:both;"></div>
+                    <br>
+                </form>
             <div class='tuijian'>
+                
                 <div class='ulist'>
-                    <h4 style='font-weight:bold;text-align:center;margin-top:20px;'>志愿/Who interest in</h4>
+                    <h4 style='font-weight:bold;text-align:center;margin-top:20px;'>Who interest in</h4>
                         <div class="row">
                             <div class='col-md-11'>
                                 <?php
@@ -252,3 +267,40 @@
 </div>
 </body>
 </html>
+<script>
+    $.fn.smartFloat = function() {
+    var position = function(element) {
+    var top = element.position().top, pos = element.css("position");
+    var more = top + 80;
+    $(window).scroll(function() {
+    var scrolls = $(this).scrollTop();
+    if (scrolls > more) {
+        if (window.XMLHttpRequest) {
+        element.css({
+        "width" : "19.4%",
+        "marginTop": "15px",
+        position: "fixed",
+        top: 0,
+        left: 1050
+        }); 
+        } else {
+        element.css({
+        top: scrolls
+        }); 
+        }
+    }else {
+        element.css({
+        width:"25%",
+        position: pos,
+        left:0
+        }); 
+    }
+    });
+    };
+    return $(this).each(function() {
+    position($(this));      
+    });
+    };
+    $('#tuijian').smartFloat();
+
+</script>

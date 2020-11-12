@@ -8,7 +8,7 @@
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>综合排名 - WillCloudy</title>
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
     <div class="container">
@@ -136,3 +136,13 @@
     </div>
 </body>
 </html>
+
+<script>
+    var ele = document.getElementById("ranking");
+    ele.href="javascript:volid(0);";
+    ele.style.color ="#00BFFF";
+    ele.onmouseover =  function () {
+    this.style.backgroundColor = "white";
+    }
+    
+</script>

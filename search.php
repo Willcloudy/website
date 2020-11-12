@@ -6,16 +6,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>寻找心仪大学 - WillCloudy</title>
-    <!-- <link rel="stylesheet" href="home.css"> -->
+    <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
     <div class="container">
             <?php require('include/leftbar.php');?>
-            <div class="col-md-6">
+            <div class="col-md-6" id='mid'>
                 <div class="box">
                     <h3 style='font-weight:bold;'>Search/搜索</h3>
                     <hr>
@@ -32,7 +32,7 @@
                     <hr>
                     <h4 style='font-weight:bold;text-align:center'>University RCMD/学校推荐</h4>
                     <?php
-                        $recommend_query = "SELECT * FROM `university` ORDER BY Rand() LIMIT 3";
+                        $recommend_query = "SELECT * FROM `university` ORDER BY Rand() LIMIT 2";
                         $run_recommend = mysqli_query($con, $recommend_query);
                         while($row = mysqli_fetch_array($run_recommend)){
                             $uni_name_en = $row['uni_name_en'];
@@ -80,3 +80,12 @@
     </div>
 </body>
 </html>
+<script>
+    var ele = document.getElementById("search");
+    ele.href="javascript:volid(0);";
+    //ele.style.backgroundColor = "rgb(181,212,213)";
+    ele.style.color ="#00BFFF";
+    ele.onmouseover =  function () {
+    this.style.backgroundColor = "white";
+    }
+</script>
