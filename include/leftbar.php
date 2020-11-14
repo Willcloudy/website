@@ -1,6 +1,10 @@
 <link rel="stylesheet" href="css/signform.css">
 <!-- <a href="./admin/in_info.php" style='float:right'>Admin</a> --> 
-<div class="col-md-3 logo"><a id='logo'href="home.php"><img class='img-responsive' width='80%' src="img/logo.png" alt="logo"></a></div>
+<div class="logo">
+    <a id='logo'href="home.php">
+        <img class='img-responsive' width='60%' src="img/logo.png" alt="logo">
+    </a>
+</div>
 
 <div class="col-md-3" role="navigation">
     <ul class="list-unstyled leftbar nav nav-pills nav-stacked">
@@ -26,15 +30,21 @@
             </a>
         </li>
         <li><a id='group' href="group.php" style='font-size:19px'><span class="glyphicon glyphicon-user"></span> Group/兴趣组</a></li>
-        <li>
-            <a id='sign' href="javascript:volid(0);"data-toggle="modal" data-target="#myModal">
+        <li id='sign'>
+            <a  href="javascript:volid(0);"data-toggle="modal" data-target="#myModal">
                 <span><!-- <img src="" alt="" width='40px' height='40px'>--> 
                     登录/注册
                 </span>
             </a>
         </li>
-        <li><a id='about' href="about.php"><span class="glyphicon glyphicon-question-sign"></span> About/关于</a></li>
-        
+        <li id='profile' style='display:none;'>
+            <a href="profile.php">
+                <span>
+                    <img src="" alt="" width='40px' height='40px'> 
+                    <?php echo $user_name; ?>
+                </span>
+            </a>
+        </li>
     </ul>
     <br>
     <br>
@@ -48,7 +58,7 @@
                     &times;
                 </button>
                 <div class="signin-form">
-                    <form action="index.php" method='POST'>
+                    <form action="" method='POST'>
 
                         <div class="form-header">
                             <h2>Sign In/登录</h2>
@@ -79,9 +89,9 @@
                             <button type="submit" 
                             class="btn1 btn btn-primary btn-block btn-lg" 
                             name="sign_in">登录</button>
+                            <?php include("include/login.php");?>
                         </div>
                     </form>
-                    
                     <div class="text-center small" 
                     style="font-size:14px;color: #191970;background-color:	#FFD700;
                     border-radius: 3px;

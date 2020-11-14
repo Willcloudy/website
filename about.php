@@ -58,7 +58,4 @@
     var ele = document.getElementById("about");
     ele.href="javascript:volid(0);";
     ele.style.color ="#00BFFF";
-    ele.onmouseover =  function () {
-    this.style.backgroundColor = "white";
-    }
 </script>

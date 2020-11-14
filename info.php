@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include('include/connection.php');
     if (!isset($_GET['uni_name_zh'])) {
         header('location:home.php');
@@ -71,7 +72,25 @@
 </head>
 <body>
 <div class="container">
-        <?php require('include/leftbar.php');?>
+            <?php 
+                if (isset($_SESSION['user_email'])) {
+                    $user = $_SESSION['user_email'];
+                    $get_user = "select * from users where user_email = '$user'";
+                    $run_user = mysqli_query($con, $get_user);
+                    $row = mysqli_fetch_array($run_user);
+                    $user_name = $row['user_name'];
+                    $user_image = $row['user_image'];
+                    require('include/leftbar.php');
+                    echo "
+                        <script>
+                            var profile = document.getElementById('profile');
+                            profile.style.display='block';
+                            document.getElementById('sign').style.display='none' 
+                        </script>";
+                }else {
+                    require('include/leftbar.php');
+                }
+            ?>
         <div class="col-md-6" style='padding:0px'>
             <div class="box">
                 <h3 style='font-weight:bold;padding:10px;'>
@@ -189,7 +208,7 @@
             <br>
             <div class='tuijian'>
                 <div class='ulist'>
-                    <h4 style='font-weight:bold;text-align:center;margin-top:20px;'>对比<?php echo $uni_country?> 和中国物价</h4>
+                    <h4 id='duibi'style='font-weight:bold;text-align:center;margin-top:20px;'>对比<?php echo $uni_country?> 和中国物价</h4>
                         <div class="row">
                             <div class='col-md-11'>
                                 <ul style='list-style:none;padding-left:20px;padding-top:2px'>
@@ -222,28 +241,29 @@
                                             </div>
                                         </li>";
                                         }else {
-                                            echo "<li>
-                                            <div class='toprank'>
-                                                <div >
-                                                    <a href='country.php?country=UK'><img src='img/enland.jpg' alt='' class='img-responsive'></a>
-                                                </div>
-                                                <a href='country.php?country=UK'><h4 style='text-align:center'>英国/Prices in British</h4></a>
-                                            </div>
-                                        </li><li>
-                                        <div class='toprank'>
-                                            <div >
-                                                <a href='country.php?country=CAN'><img src='img/caland.jpg' alt='' class='img-responsive'></a>
-                                            </div>
-                                            <a href='country.php?country=CAN'><h4 style='text-align:center'>加拿大/Prices in Canada</h4></a>
-                                        </div>
-                                    </li><li>
-                                    <div class='toprank'>
-                                        <div >
-                                            <a href='country.php?country=AUS'><img src='img/auland.jpg' alt='' class='img-responsive'></a>
-                                        </div>
-                                        <a href='search.php?country=AUS'><h4 style='text-align:center'>澳大利亚/Prices in Australia</h4></a>
-                                    </div>
-                                </li>";
+                                            echo "<script>document.getElementById('duibi').style.display ='none'</script>";
+                                //             echo "<li>
+                                //             <div class='toprank'>
+                                //                 <div >
+                                //                     <a href='country.php?country=UK'><img src='img/enland.jpg' alt='' class='img-responsive'></a>
+                                //                 </div>
+                                //                 <a href='country.php?country=UK'><h4 style='text-align:center'>英国/Prices in British</h4></a>
+                                //             </div>
+                                //         </li><li>
+                                //         <div class='toprank'>
+                                //             <div >
+                                //                 <a href='country.php?country=CAN'><img src='img/caland.jpg' alt='' class='img-responsive'></a>
+                                //             </div>
+                                //             <a href='country.php?country=CAN'><h4 style='text-align:center'>加拿大/Prices in Canada</h4></a>
+                                //         </div>
+                                //     </li><li>
+                                //     <div class='toprank'>
+                                //         <div >
+                                //             <a href='country.php?country=AUS'><img src='img/auland.jpg' alt='' class='img-responsive'></a>
+                                //         </div>
+                                //         <a href='search.php?country=AUS'><h4 style='text-align:center'>澳大利亚/Prices in Australia</h4></a>
+                                //     </div>
+                                // </li>";
                                         }
                                     ?>
                                 </ul>

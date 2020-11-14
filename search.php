@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include('include/connection.php');
 ?>
 <!DOCTYPE html>
@@ -14,11 +15,29 @@
 </head>
 <body>
     <div class="container">
-            <?php require('include/leftbar.php');?>
+            <?php 
+                if (isset($_SESSION['user_email'])) {
+                    $user = $_SESSION['user_email'];
+                    $get_user = "select * from users where user_email = '$user'";
+                    $run_user = mysqli_query($con, $get_user);
+                    $row = mysqli_fetch_array($run_user);
+                    $user_name = $row['user_name'];
+                    $user_image = $row['user_image'];
+                    require('include/leftbar.php');
+                    echo "
+                        <script>
+                            var profile = document.getElementById('profile');
+                            profile.style.display='block';
+                            document.getElementById('sign').style.display='none' 
+                        </script>";
+                }else {
+                    require('include/leftbar.php');
+                }
+            ?>
             <div class="col-md-6" id='mid'>
                 <div class="box">
                     <h3 style='font-weight:bold;'>Search/搜索</h3>
-                    <hr>
+                    <hr class='hrmargin'>
                     <form action="result.php" method="POST">
                         <span>
                             <input class='form-control search' type="text" name='searchcontent' style='font-size:20px'placeholder='搜索你心仪大学(中英文名字都可)'>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>注册&nbsp;|&nbsp;ConnectU</title>
+    <title>注册&nbsp;|&nbsp;Willcloudy</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -128,21 +128,20 @@
                         <div class="form-group">
                             <label for="" class="checkbox-inline">
                                 <input type="checkbox" required>
-                                我接受 <a href="#">使用条款</a>
+                                我接受 <a href="">使用条款</a>
                                 &amp; <a href="#">隐私政策</a>
                             </label>
                         </div>
                         <br>
 
                         <div class="form-group">
-                            <a href="index.php">
                                 <button type="submit" 
                                 class="btn btn-primary btn-block btn-lg" 
                                 name="sign_up">注册</button>
-                            </a>
                         </div>
 
                     </form>
+                    <?php include('include/insert_user.php')?>
 
                     <div class="text-center small" 
                     style="color: #999;background-color:	#FFD700;
@@ -152,7 +151,7 @@
                     margin-top:0px;
                     margin-bottom:1px;">
                     已经有账户了?
-                    <a href="home.php">在这里登录</a>
+                    <a href="home.php?from=login">在这里登录</a>
                     </div>
                     
                 </div>
@@ -163,116 +162,64 @@
 </body>
 </html>
 <script>
-	email.onchange = function(){
-		var email = this.value;
-		var reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
-		if(reg.test(email)){
-            document.getElementById("checkEmail").style.color = "green" ;
-            document.getElementById("checkEmail").innerHTML= "邮箱格式正确";
-		}else{
-            document.getElementById("checkEmail").style.color = "red" ;
-			document.getElementById("checkEmail").innerHTML= "邮箱格式不正确";
-		}
-	}
+	// email.onchange = function(){
+	// 	var email = this.value;
+	// 	var reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+	// 	if(reg.test(email)){
+    //         document.getElementById("checkEmail").style.color = "green" ;
+    //         document.getElementById("checkEmail").innerHTML= "邮箱格式正确";
+	// 	}else{
+    //         document.getElementById("checkEmail").style.color = "red" ;
+	// 		document.getElementById("checkEmail").innerHTML= "邮箱格式不正确";
+	// 	}
+	// }
     function checkForm(form) {
-
         if(form.user_name.value == "") {
-
             alert("错误：用户名不能为空！");
-
             form.username.focus();
-
             return false;
-
         }
-
         re = /^\w+$/;
-
-        if(!re.test(form.user_name.value)) {
-
+        se = /[\u4e00-\u9fa5]/;
+        if(!re.test(form.user_name.value) && !se.test(form.user_name.value)) {
             alert("错误：用户名必须只包含字母、数字和下划线！");
-
             form.user_name.focus();
-
             return false;
-
         }
-
-
-
         if(form.user_password.value != "" && form.user_password.value == form.user_password2.value) {
-
             if(form.user_password.value.length < 6) {
-
                 alert("错误：密码必须至少包含六个字符！");
-
                 form.user_password.focus();
-
                 return false;
-
             }
-
             if(form.user_password.value == form.user_name.value) {
-
                 alert("错误：密码必须与用户名不同！");
-
                 form.user_password.focus();
-
                 return false;
-
             }
-
             re = /[0-9]/;
-
             if(!re.test(form.user_password.value)) {
-
                 alert("错误：密码必须包含至少一个数字（0至9）！");
-
                 form.user_password.focus();
-
                 return false;
-
             }
-
             re = /[a-z]/;
-
             if(!re.test(form.user_password.value)) {
-
                 alert("错误：密码必须包含至少一个小写字母(a-z)!");
-
                 form.user_password.focus();
-
                 return false;
-
             }
-
             re = /[A-Z]/;
-
             if(!re.test(form.user_password.value)) {
-
                 alert("错误：密码必须包含至少一个大写字母(A-Z)!");
-
                 form.user_password.focus();
-
                 return false;
-
             }
-
         } else {
-
             alert("错误：请检查并确认您输入的密码是否一致！");
-
             form.user_password.focus();
-
             return false;
-
         }
-
-
-
-        alert(""" + form.user_password.value);
-
         return true;
-
         }
 </script>

@@ -1,3 +1,3 @@
 <?php
-    include("search.php");
+    header("Location:home.php");
 ?>

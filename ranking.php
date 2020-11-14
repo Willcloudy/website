@@ -1,4 +1,7 @@
-<?php include('include/connection.php');?>
+<?php 
+    session_start();
+    include('include/connection.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +15,25 @@
 </head>
 <body>
     <div class="container">
-        <?php require('include/leftbar.php');?>
+            <?php 
+                if (isset($_SESSION['user_email'])) {
+                    $user = $_SESSION['user_email'];
+                    $get_user = "select * from users where user_email = '$user'";
+                    $run_user = mysqli_query($con, $get_user);
+                    $row = mysqli_fetch_array($run_user);
+                    $user_name = $row['user_name'];
+                    $user_image = $row['user_image'];
+                    require('include/leftbar.php');
+                    echo "
+                        <script>
+                            var profile = document.getElementById('profile');
+                            profile.style.display='block';
+                            document.getElementById('sign').style.display='none' 
+                        </script>";
+                }else {
+                    require('include/leftbar.php');
+                }
+            ?>
             <div class="col-md-6" >
                 <div class="box" >
                     <h3 style='font-weight:bold;'>Ranking/综合排名</h3>
@@ -25,7 +46,7 @@
                             </ul>
                             <div id="myTabContent" class="tab-content">
                                 <div class="tab-pane fade in active" id="trend">
-                                    <img src="img/toprankbc.jpg" alt="" class='img-responsive' style='margin:0;margin-top:1px;padding:0;'>
+                                    <img src="img/toprankbc.jpg" alt="" class='img-responsive' style='margin:0;padding:0;'>
                                     <h4 class='des'>搜索次数排名</h4>
                                     <div style='clear:both'></div>
                                     <div class="col-md-13">
