@@ -8,6 +8,7 @@
         $row = mysqli_fetch_array($run_user);
         $user_name = $row['user_name'];
         $user_image = $row['user_image'];
+        $user_cover = $row['user_cover'];
     }else {
         header('location:home.php?from=login');
     }
@@ -20,7 +21,7 @@
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <title>首页 - WillCloudy</title>
+    <title><?php echo $user_name?> - WillCloudy</title>
     <link rel="stylesheet" href="css/home.css">
     <style>
     </style>
@@ -35,11 +36,10 @@
                         profile.style.display='block';
                         document.getElementById('sign').style.display='none';
                     </script>";
-                
             ?>
-            <div class="col-md-6">
-                <div class="box">
-                    
+            <div class="col-md-6" style='padding:0;'>
+                <div class="box" style='margin-top:0;'>
+                    <img src="<?php echo $user_cover;?>" alt="cover" width='100%' height='250px'style='margin:0;padding:0;'>
                 </div>  
             </div>
             <?php

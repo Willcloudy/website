@@ -17,12 +17,14 @@
             font-weight:bold;
             font-size:20px;
             margin:7px;
-            
         }
-        .nav1,.nav2,.nav3{
-            margin:10px;
+        span{
+            margin:4px;
         }
         .nav1 a,.nav2 a,.nav3 a{
+            color:black;
+        }
+        a{
             color:black;
         }
     </style>
@@ -44,6 +46,8 @@
                         var profile = document.getElementById('profile');
                         profile.style.display='block';
                         document.getElementById('sign').style.display='none'; 
+                        var profileMo = document.getElementById('profileMo');
+                        profileMo.style.display='block';
                     </script>";
             }else {
                 require('include/leftbar.php');
@@ -54,7 +58,9 @@
                 <nav class='hometop'>
                     <span class='nav1'><a href='' id='active'>推荐</a></span>
                     <span class='nav2'><a href="follow.php">关注</a></span>
-                    <span class='nav3'><a href="trend.php">趋势</a></span> 
+                    <span class='nav3'><a href="trend.php">趋势</a></span>
+                    <span id='sjrank'><a href='ranking'>大学排名</a></span>
+                    <span id='sjsearch'><a href="search.php">搜索</a></span> 
                 </nav>
                 <hr class='hrmargin'>
             </div>  

@@ -1,29 +1,45 @@
 <link rel="stylesheet" href="css/signform.css">
 <!-- <a href="./admin/in_info.php" style='float:right'>Admin</a> --> 
-<script>
-    var isClick=false;  //判断按钮是否被点击
-    function wenduqueryInfo()
-    {
-        isClick = true;
-    （此处省略。。。。。。。）；
-
-    }
-
-    function exportTable(i)
-    {
-        if(isClick == false)
-        {
-        window.open('logout.php');
-        }else
-        {
-    }
-
-    }
-</script>
 <style type="text/css">
-    a.popup{position:relative;}
-    a.popup span{display:none;position:absolute;top:-45px;left:2px;z-index: 99;border: 1px solid; padding:4px;width:100px;}
-    a.popup:hover span{display:block;}
+
+#sjrank{display:none}
+    #sjlogin{display:none}
+    #sjsearch{display:none}
+@media(max-width:1400px)
+{
+     /* 网页全屏显示 */
+    body {width:100%;} 
+
+    /* 正文全屏显示 */
+    #divMain{width:100%} 
+    .leftbar{left:100px}
+    /* 为了避免正文图片超出屏幕宽度 */
+    /* 正文图片宽度最多是屏幕宽度的90% */
+    /*img{max-width:90%} 
+
+    /* 隐藏头部、导航、侧栏、页脚 */
+}
+@media(max-width:990px)
+{
+     /* 网页全屏显示 */
+    body {width:100%;} 
+
+    /* 正文全屏显示 */
+    #divMain{width:100%} 
+    .leftbar{left:100px}
+    /* 为了避免正文图片超出屏幕宽度 */
+    /* 正文图片宽度最多是屏幕宽度的90% */
+    /*img{max-width:90%} 
+
+    /* 隐藏头部、导航、侧栏、页脚 */
+
+    #leftbar{display:none}
+    #tuijian{display:none}
+    
+    #sjrank{display:inline-block}
+    #sjlogin{display:inline-block}
+    #sjsearch{display:inline-block}
+}
 </style>
 <div class="logo">
     <a id='logo'href="home.php">
@@ -31,7 +47,7 @@
     </a>
 </div>
 
-<div class="col-md-3" role="navigation">
+<div class="col-md-3" role="navigation" id='leftbar'>
     <ul class="list-unstyled leftbar nav nav-pills nav-stacked">
         <li>
             <a id='home' href="home.php">

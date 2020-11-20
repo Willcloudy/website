@@ -19,10 +19,13 @@
             margin:7px;
             
         }
-        .nav1,.nav2,.nav3{
-            margin:10px;
+        span{
+            margin:5px;
         }
         .nav1 a,.nav2 a,.nav3 a{
+            color:black;
+        }
+        a{
             color:black;
         }
     </style>
@@ -48,16 +51,18 @@
                     require('include/leftbar.php');
                 }
             ?>
-            <div class="col-md-6">
-                <div class="box">
-                    <nav class='hometop'>
-                        <span class='nav1'><a href="../website">推荐</a></span>
-                        <span class='nav2' ><a href='follow.php'>关注</a></span>
-                        <span class='nav3'><a href='' id='active'>趋势</a></span> 
-                    </nav>
-                    <hr class='hrmargin'>
-                </div>  
-            </div>
+        <div class="col-md-6">
+            <div class="box">
+                <nav class='hometop'>
+                    <span class='nav1'><a href='home.php'>推荐</a></span>
+                    <span class='nav2'><a href="follow.php">关注</a></span>
+                    <span class='nav3'><a href="trend.php"  id='active'>趋势</a></span>
+                    <span id='sjrank'><a href='ranking'>大学排名</a></span>
+                    <span id='sjsearch'><a href="search.php">搜索</a></span> 
+                </nav>
+                <hr class='hrmargin'>
+            </div>  
+        </div>
             <?php
                 require('include/rightbar.php');
             ?>
