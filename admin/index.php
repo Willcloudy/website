@@ -1,3 +1,3 @@
 <?php
-include('in_info.php');
+header('Location:in_info.php');
 ?>

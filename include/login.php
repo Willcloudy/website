@@ -14,7 +14,7 @@ include("include/connection.php");
             $_SESSION['user_email'] = $email;
             echo "<script>window.open('home.php', '_self')</script>";
         }else{
-            echo "<script>alert('Your Email or Password is incorrect $pass 和 $pass')</script>";
+            echo "<script>alert('邮箱或者密码错误(或是账号妹有激活)')</script>";
             echo "<script>window.open('home.php?from=login', '_self')</script>";
         }
     }

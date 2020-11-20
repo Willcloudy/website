@@ -1,6 +1,8 @@
+<?php header("Content-Security-Policy: upgrade-insecure-requests"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>注册&nbsp;|&nbsp;Willcloudy</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -94,8 +96,10 @@
                             <label for="">Username/昵称</label>
                             <input type="text" class="form-control"
                             name="user_name" placeholder="例如:MarkHe"
-                            autocomplete="off" required
+                            autocomplete="off"  id='fuckingname' required 
                             >
+                            <div id="checkEmail"></div>
+                            <small>用户名必须只包含汉语、字母、数字和下划线！</small>
                         </div>
 
                         <div class="form-group">
@@ -104,7 +108,7 @@
                             name="user_email" placeholder="例如:123456@site.com"
                             autocomplete="off" required
                             >
-                            <div id="checkEmail"></div>
+                            
                         </div>
                         
                         <div class="form-group">
@@ -113,6 +117,7 @@
                             name="user_password"
                             autocomplete="off" required
                             >
+                            <small>密码必须至少包含六个字符，至少一个小写字母，一个大写字母</small>
                         </div>
 
                         <div class="form-group">
@@ -162,15 +167,18 @@
 </body>
 </html>
 <script>
-	// email.onchange = function(){
-	// 	var email = this.value;
-	// 	var reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
-	// 	if(reg.test(email)){
+	// fuckingname.onchange = function(){
+	// 	var name = this.value;
+	// 	re = /^\w+$/;
+    //     se = /[\u4e00-\u9fa5]/;
+	// 	if(re.test(name) && se.test(name)){
     //         document.getElementById("checkEmail").style.color = "green" ;
-    //         document.getElementById("checkEmail").innerHTML= "邮箱格式正确";
+    //         document.getElementById("checkEmail").innerHTML= "用户名格式正确";
 	// 	}else{
+    //         this.focus();
     //         document.getElementById("checkEmail").style.color = "red" ;
-	// 		document.getElementById("checkEmail").innerHTML= "邮箱格式不正确";
+	// 		document.getElementById("checkEmail").innerHTML= "用户名格式不正确,必须只包含字母、数字和下划线！";
+    //         document.getElementById("fuckingname").value= "";
 	// 	}
 	// }
     function checkForm(form) {
@@ -182,7 +190,7 @@
         re = /^\w+$/;
         se = /[\u4e00-\u9fa5]/;
         if(!re.test(form.user_name.value) && !se.test(form.user_name.value)) {
-            alert("错误：用户名必须只包含字母、数字和下划线！");
+            alert("错误：用户名必须只包含汉语、字母、数字和下划线！");
             form.user_name.focus();
             return false;
         }

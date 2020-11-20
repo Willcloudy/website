@@ -52,7 +52,7 @@
             <div class="col-md-6">
                 <div class="box">
                     <nav class='hometop'>
-                        <span class='nav1'><a href="../website">推荐</a></span>
+                        <span class='nav1'><a href="https://www.willcloudy.com">推荐</a></span>
                         <span class='nav2' ><a href='' id='active'>关注</a></span>
                         <span class='nav3'><a href="trend.php">趋势</a></span> 
                     </nav>

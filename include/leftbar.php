@@ -1,5 +1,30 @@
 <link rel="stylesheet" href="css/signform.css">
 <!-- <a href="./admin/in_info.php" style='float:right'>Admin</a> --> 
+<script>
+    var isClick=false;  //判断按钮是否被点击
+    function wenduqueryInfo()
+    {
+        isClick = true;
+    （此处省略。。。。。。。）；
+
+    }
+
+    function exportTable(i)
+    {
+        if(isClick == false)
+        {
+        window.open('logout.php');
+        }else
+        {
+    }
+
+    }
+</script>
+<style type="text/css">
+    a.popup{position:relative;}
+    a.popup span{display:none;position:absolute;top:-45px;left:2px;z-index: 99;border: 1px solid; padding:4px;width:100px;}
+    a.popup:hover span{display:block;}
+</style>
 <div class="logo">
     <a id='logo'href="home.php">
         <img class='img-responsive' width='60%' src="img/logo.png" alt="logo">
@@ -31,18 +56,19 @@
         </li>
         <li><a id='group' href="group.php" style='font-size:19px'><span class="glyphicon glyphicon-user"></span> Group/兴趣组</a></li>
         <li id='sign'>
-            <a  href="javascript:volid(0);"data-toggle="modal" data-target="#myModal">
+            <a href="javascript:volid(0);"data-toggle="modal" data-target="#myModal">
                 <span><!-- <img src="" alt="" width='40px' height='40px'>--> 
                     登录/注册
                 </span>
             </a>
         </li>
         <li id='profile' style='display:none;'>
-            <a href="profile.php">
-                <span>
-                    <img src="" alt="" width='40px' height='40px'> 
-                    <?php echo $user_name; ?>
-                </span>
+            <a id='profileA'href="profile.php" class='popup'style='padding:2%'>
+                <img src="<?php echo $user_image?>" alt="avatar" width='50px' height='50px'> 
+                <?php echo '&nbsp;&nbsp;&nbsp;'.$user_name; ?>
+                <!-- <span style="background-color:#F1867C;color:black;width:100%;height:80%;">
+                <button onclick="exportTable(1)"href="logout">登出当前账号</button>
+                </span> -->
             </a>
         </li>
     </ul>
@@ -80,7 +106,7 @@
                             autocomplete="off" required
                             >
                         </div>
-
+                        <div id="checkEmail"></div>
                         <div class="small">忘记密码?
                         <a href="forget_pass.php">点击这里</a>
                         </div><br>
