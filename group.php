@@ -46,11 +46,11 @@
 </body>
 </html>
 <script>
-    var ele = document.getElementById("group");
-    ele.href="javascript:volid(0);";
+    var group = document.getElementById("group");
+    group.href="javascript:volid(0);";
     //ele.style.backgroundColor = "rgb(181,212,213)";
-    ele.style.color ="#00BFFF";
-    ele.onmouseover =  function () {
+    group.style.color ="#00BFFF";
+    group.onmouseover =  function () {
     this.style.backgroundColor = "white";
     }
 </script>

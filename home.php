@@ -5,6 +5,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="description" content="WillCloudy是一个可以帮助想要出国留学的学生快速获取心仪学校的环境和入学条件及各种信息的网站，并且有很多毕业大学生来分享他们个人的亲身经历，这是一个面向留学生的社交性质的交流平台。" />
+    <meta name="keywords" content="留学,qs大学排名,论坛,英国留学,加拿大留学,澳大利亚留学,出国留学,留学生" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">  
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
@@ -13,18 +15,15 @@
     <title>首页 - WillCloudy</title>
     <link rel="stylesheet" href="css/home.css">
     <style>
-        .hometop{
+        #hometop{
             font-weight:bold;
             font-size:20px;
             margin:7px;
         }
-        span{
+        .homespan{
             margin:4px;
         }
         .nav1 a,.nav2 a,.nav3 a{
-            color:black;
-        }
-        a{
             color:black;
         }
     </style>
@@ -55,12 +54,12 @@
         ?>
         <div class="col-md-6">
             <div class="box">
-                <nav class='hometop'>
-                    <span class='nav1'><a href='' id='active'>推荐</a></span>
-                    <span class='nav2'><a href="follow.php">关注</a></span>
-                    <span class='nav3'><a href="trend.php">趋势</a></span>
-                    <span id='sjrank'><a href='ranking'>大学排名</a></span>
-                    <span id='sjsearch'><a href="search.php">搜索</a></span> 
+                <nav id='hometop'>
+                    <span class='nav1 homespan'><a href='' id='active'>推荐</a></span>
+                    <span class='nav2 homespan'><a href="follow.php">关注</a></span>
+                    <span class='nav3 homespan'><a href="trend.php">趋势</a></span>
+                    <span class='nav3 homespan'id='sjrank'><a href='ranking'>大学排名</a></span>
+                    <span class='nav3 homespan'id='sjsearch'><a href="search.php">搜索</a></span> 
                 </nav>
                 <hr class='hrmargin'>
             </div>  
@@ -73,11 +72,11 @@
 </html>
 <script>
     document.getElementById("logo").href = "javascript:volid(0);";
-    var ele = document.getElementById("home");
-    ele.href="javascript:volid(0);";
-    ele.style.color ="#00BFFF";
-    ele.onmouseover =  function () {
-    this.style.backgroundColor = "white";
+    var home = document.getElementById("home");
+    home.href="javascript:volid(0);";
+    home.style.color ="#00BFFF";
+    home.onmouseover =  function () {
+        this.style.backgroundColor = "white";
     }
     document.getElementById("active").style.color = "#00BFFF";
 </script>

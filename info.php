@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <title><?php echo $uni_name_zh.'- WillCloudy'?> </title>
+    <title><?php echo $uni_name_zh.' - WillCloudy'?> </title>
     <link rel="stylesheet" href="css/home.css">
 <style>
     .info{
@@ -119,7 +119,7 @@
                     </div>
                     <div class="col-md-12">
                         <h4 style='font-weight:bold;margin-left:1em;margin-bottom:20px;border-left:5px solid #00BFFF'>&nbsp;学校简介</h4>
-                        <p style='width:37em;margin:0 auto;font-weight:bold'><?php echo $uni_description;?></p>
+                        <p style='width:80%;margin:0 auto;font-weight:bold'><?php echo $uni_description;?></p>
                         <hr>
                         <h4 style='font-weight:bold;margin-left:1em;margin-bottom:20px;border-left:5px solid #00BFFF'>&nbsp;校友/Schoolmate</h4>
                         <div class='schoolmate'>

@@ -20,6 +20,9 @@ session_destroy();
     <title>登出 - WillCloudy</title>
 </head>
 <body>
-    已经成功登出点击这里返回 <a href="home.php">主页</a> 
+    已经成功登出,2秒后进行重定向,如果浏览器没有反应请点击这里返回 <a href="home.php">主页</a> 
 </body>
 </html>
+<script>
+setTimeout("self.location = '/home.php'", 2000);
+</script>

@@ -65,14 +65,14 @@
             $mail->SMTPDebug = 0;  
             $address = $email;
             $mail->IsSMTP(); // 使用SMTP方式发送
-            $mail->Host = "mail.163.com"; // 您的企业邮局域名
+            $mail->Host = "smtp.163.com"; // 您的企业邮局域名
             $mail->SMTPAuth = true; // 启用SMTP验证功能
-            $mail->Username = "hezheee666@163.com"; // 邮局用户名(请填写完整的email地址)
-            $mail->Password = "GWVAZTXQPSOURCYB"; // 邮局密码
+            $mail->Username = "willcloudy@163.com"; // 邮局用户名(请填写完整的email地址)
+            $mail->Password = "HSUOJDNMILDIBCLC"; // 邮局密码
             $mail->SMTPSecure = 'ssl';                    // 允许 TLS 或者ssl协议
-            $mail->Port = 587; 
+            $mail->Port = 465; 
 
-            $mail->setFrom("hezheee666@163.com","Willcloudy"); //邮件发送者email地址
+            $mail->setFrom("willcloudy@163.com","Willcloudy"); //邮件发送者email地址
             $mail->AddAddress("$address", "$user_name");//收件人地址，可以替换成任何想要接收邮件的email信箱,格式是AddAddress("收件人email","收件人姓名")
             //$mail->AddReplyTo("", "");
 

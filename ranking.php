@@ -46,7 +46,7 @@
                             </ul>
                             <div id="myTabContent" class="tab-content">
                                 <div class="tab-pane fade in active" id="trend">
-                                    <img src="img/toprankbc.jpg" alt="toprankbc" class='img-responsive' style='margin:0;padding:0;'>
+                                    <img src="img/toprankbc.jpg" alt="" class='img-responsive' style='margin:0;padding:0;'>
                                     <h4 class='des'>搜索次数排名</h4>
                                     <div style='clear:both'></div>
                                     <div class="col-md-13">

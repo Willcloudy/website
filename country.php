@@ -14,8 +14,6 @@
         }elseif ($country == 'Australia' || $country == 'AUS') {
             $en_country = 'Australia';
             $cn_country = '澳大利亚';
-        }else {
-            
         }
     }
 ?>

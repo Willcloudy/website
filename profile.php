@@ -9,6 +9,7 @@
         $user_name = $row['user_name'];
         $user_image = $row['user_image'];
         $user_cover = $row['user_cover'];
+        $user_des = $row['user_des'];
     }else {
         header('location:home.php?from=login');
     }
@@ -24,6 +25,26 @@
     <title><?php echo $user_name?> - WillCloudy</title>
     <link rel="stylesheet" href="css/home.css">
     <style>
+        .avatar{
+            margin:0px;
+            padding:0px;
+            position:absolute;
+            top:70px;
+            left:20px;
+            border:3px solid white;
+        }
+        .info{
+            color:black;
+            font-weight: bold;
+            font-size:2em;
+            margin-left:25%;
+        }
+        .des{
+            color:black;
+            font-weight:normal;
+            font-size:1.4em;
+            margin-left:40%;
+        }
     </style>
 </head>
 <body>
@@ -38,8 +59,13 @@
                     </script>";
             ?>
             <div class="col-md-6" style='padding:0;'>
-                <div class="box" style='margin-top:0;'>
-                    <img src="<?php echo $user_cover;?>" alt="cover" width='100%' height='250px'style='margin:0;padding:0;'>
+                <div class="box" style='margin-top:0;position:relative'>
+                    <img src="<?php echo $user_cover;?>" alt="cover" width='100%' height='100px'style='margin:0;padding:0;'>
+                    <img src="<?php echo $user_image;?>" alt="avatar" width='15%' class='img-circle avatar'>
+                    <div>
+                        <span class='info'><?php echo $user_name;?></span>
+                        <span class="des"><?php echo $user_des;?></span>
+                    </div>
                 </div>  
             </div>
             <?php

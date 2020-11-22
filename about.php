@@ -31,7 +31,7 @@
                         <div class="willcloudy col-md-7 " style='margin-left:30px;width:90%;'>
                             <h4 style='font-weight:bold;'>About the site/关于WillCloudy</h4>
                             <hr>
-                            "WillCloudy"是一个可以帮助想要出国留学的学生快速获取心仪学校的环境和入学条件及各种信息的网站，并在将来开放一个面向留学生的社交性质的交流平台。<hr>
+                            "WillCloudy"是一个可以帮助想要出国留学的学生快速获取心仪学校的环境和入学条件及各种信息的网站，并且有很多毕业大学生来分享他们个人的亲身经历，这是一个面向留学生的社交性质的交流平台。<hr>
                             "WillCloudy" is an online directory that can help the students who want study aboard quickly get the information about their dream university, and we will open a new function that can connect the student who are already study aboard through social network.
                             <hr>
                         </div>
