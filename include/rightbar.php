@@ -3,12 +3,16 @@
     <form action="result.php" method="POST">
         <span>
             <input class='form-control' type="text" name='searchcontent' style='font-size:1em;width:80%;float:left;display:inline-block;
-            height:39px;margin-right:0;border-radius:15px 0px 0px 15px;' placeholder='搜索大学/文章/用户'>
+            height:39px;margin-right:0;border-radius:15px 0px 0px 15px;' placeholder='搜索大学/文章/用户'/>
         </span>
         <span class='span2'>
-            <a href="result.php"><button class='form-control btn btn-primary'type='submit' style='float:right;
-            height:38.5px;display:inline-block;width:20%;margin-left:0;border-radius:0px 15px 15px 0px;font-weight:bold;
-            background-color: #00BFFF;'><span class="glyphicon glyphicon-search"></span></button></a>
+            <a href="result.php">
+                <button class='form-control btn btn-primary'type='submit' style='float:right;
+                height:38.5px;display:inline-block;width:20%;margin-left:0;border-radius:0px 15px 15px 0px;font-weight:bold;
+                background-color: #00BFFF;'>
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </a>
         </span>
         <div style="clear:both;"></div>
         <br>
@@ -22,7 +26,7 @@
                         <li>
                             <div class='toprank'>
                                 <div >
-                                    <a href='country.php?country=UK'><img src='img/enland.jpg' alt='' class='img-responsive'></a>
+                                    <a href='country.php?country=UK'><img src='img/enland.jpg' alt='' class='img-responsive'/></a>
                                 </div>
                                     <a href="country.php?country=UK"><h4 style='text-align:center'>英国/Prices in British</h4></a>
                                 </div>
@@ -30,7 +34,7 @@
                         <li>
                             <div class='toprank'>
                                 <div>
-                                    <a href='country.php?country=CAN'><img src='img/caland.jpg' alt='' class='img-responsive'></a>
+                                    <a href='country.php?country=CAN'><img src='img/caland.jpg' alt='' class='img-responsive'/></a>
                                 </div>
                                     <a href="country.php?country=CAN"><h4 style='text-align:center'>加拿大/Prices in Canada</h4></a>
                             </div>

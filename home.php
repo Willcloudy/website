@@ -7,10 +7,10 @@
 <head>
     <meta name="description" content="WillCloudy是一个可以帮助想要出国留学的学生快速获取心仪学校的环境和入学条件及各种信息的网站，并且有很多毕业大学生来分享他们个人的亲身经历，这是一个面向留学生的社交性质的交流平台。" />
     <meta name="keywords" content="留学,qs大学排名,论坛,英国留学,加拿大留学,澳大利亚留学,出国留学,留学生" />
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">  
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>  
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>首页 - WillCloudy</title>
     <link rel="stylesheet" href="css/home.css">
@@ -50,6 +50,7 @@
                     </script>";
             }else {
                 require('include/leftbar.php');
+                echo "<script>document.getElementById('sign').click()</script>";
             }
         ?>
         <div class="col-md-6">
@@ -71,19 +72,12 @@
 </body>
 </html>
 <script>
-    document.getElementById("logo").href = "javascript:volid(0);";
+    document.getElementById("logo").href = "javascript:void(0);";
     var home = document.getElementById("home");
-    home.href="javascript:volid(0);";
+    home.href="javascript:void(0);";
     home.style.color ="#00BFFF";
     home.onmouseover =  function () {
         this.style.backgroundColor = "white";
     }
     document.getElementById("active").style.color = "#00BFFF";
 </script>
-<?php
-    if (isset($_GET['from'])) {
-        if ($_GET['from'] == "login") {
-            echo "<script>document.getElementById('sign').click()</script>";
-        }
-    }
-?>

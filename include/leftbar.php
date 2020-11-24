@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="css/signform.css">
 <!-- <a href="./admin/in_info.php" style='float:right'>Admin</a> --> 
 <style type="text/css">
 
@@ -43,7 +42,7 @@
 </style>
 <div class="logo">
     <a id='logo'href="home.php">
-        <img class='img-responsive' width='60%' src="img/logo.png" alt="logo">
+        <img class='img-responsive' width='60%' src="img/logo.png" alt="logo"/>
     </a>
 </div>
 
@@ -56,35 +55,43 @@
                     <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
                 </svg> 
                 Home/首页
-            </a></li>
+            </a>
+        </li>
             
         <li>
         
             <a id='search' href="search.php">
                 <span class="glyphicon glyphicon-globe"></span> 
                 Search/搜索
-            </a></li>
+            </a>
+        </li>
+
         <li>
             <a id='ranking' href="ranking.php">
                 <span class="glyphicon glyphicon-edit"></span> 
                 Ranking/大学排名
             </a>
         </li>
-        <li><a id='group' href="group.php" style='font-size:19px'><span class="glyphicon glyphicon-user"></span> Group/兴趣组</a></li>
+
+        <li>
+            <a id='group' href="group.php" style='font-size:19px'>
+                <span class="glyphicon glyphicon-user"></span> 
+                Group/兴趣组
+            </a>
+        </li>
+
         <li id='sign'>
-            <a href="javascript:volid(0);"data-toggle="modal" data-target="#myModal">
-                <span><!-- <img src="" alt="" width='40px' height='40px'>--> 
+            <a href="javascript:void(0);"data-toggle="modal" data-target="#myModal">
+                <span>
                     登录/注册
                 </span>
             </a>
         </li>
+
         <li id='profile' style='display:none;'>
             <a id='profileA'href="profile.php" class='popup'style='padding:2%'>
-                <img src="<?php echo $user_image?>" alt="avatar" width='50px' height='50px'> 
+                <img src="<?php echo $user_image?>" alt="avatar" width='50px' height='50px'/> 
                 <?php echo '&nbsp;&nbsp;&nbsp;'.$user_name; ?>
-                <!-- <span style="background-color:#F1867C;color:black;width:100%;height:80%;">
-                <button onclick="exportTable(1)"href="logout">登出当前账号</button>
-                </span> -->
             </a>
         </li>
     </ul>
@@ -111,16 +118,14 @@
                             <label for="">Email/邮箱</label>
                             <input type="email" class="form-control sign"
                             name="email" placeholder="anyemail@site.com"
-                            autocomplete="off" required
-                            >
+                            autocomplete="off" required/>
                         </div>
 
                         <div class="form-group">
                             <label for="">Password/密码</label>
                             <input type="password" class="form-control sign"
                             name="password" placeholder="Password/密码"
-                            autocomplete="off" required
-                            >
+                            autocomplete="off" required/>
                         </div>
                         <div id="checkEmail"></div>
                         <div class="small">忘记密码?
