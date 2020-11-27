@@ -1,15 +1,12 @@
 
-<div class="col-md-3" id='tuijian' style='margin-top: 15px'>
+<div class="col-md-3" id='rightbar' style='margin-top: 15px'>
     <form action="result.php" method="POST">
         <span>
-            <input class='form-control' type="text" name='searchcontent' style='font-size:1em;width:80%;float:left;display:inline-block;
-            height:39px;margin-right:0;border-radius:15px 0px 0px 15px;' placeholder='搜索大学/文章/用户'/>
+            <input class='form-control search' type="text" name='searchcontent' placeholder='搜索大学/文章/用户'/>
         </span>
         <span class='span2'>
             <a href="result.php">
-                <button class='form-control btn btn-primary'type='submit' style='float:right;
-                height:38.5px;display:inline-block;width:20%;margin-left:0;border-radius:0px 15px 15px 0px;font-weight:bold;
-                background-color: #00BFFF;'>
+                <button class='form-control btn btn-primary'type='submit'>
                     <span class="glyphicon glyphicon-search"></span>
                 </button>
             </a>
@@ -17,14 +14,14 @@
         <div style="clear:both;"></div>
         <br>
     </form>
-    <div class='tuijian' >
+    <div class='rightbar' >
         <div class='ulist'>
             <h4 style='font-weight:bold;text-align:center;margin-top:20px;'>对比国内外物价</h4>
             <div class="row">
                 <div class='col-md-11' style='border:0px;box-shadow:none;'>
                     <ul style='list-style:none;padding-left:20px;'>
                         <li>
-                            <div class='toprank'>
+                            <div class='unimini-info''>
                                 <div >
                                     <a href='country.php?country=UK'><img src='img/enland.jpg' alt='' class='img-responsive'/></a>
                                 </div>
@@ -32,21 +29,13 @@
                                 </div>
                         </li>
                         <li>
-                            <div class='toprank'>
+                            <div class='uni-mini-info'>
                                 <div>
                                     <a href='country.php?country=CAN'><img src='img/caland.jpg' alt='' class='img-responsive'/></a>
                                 </div>
                                     <a href="country.php?country=CAN"><h4 style='text-align:center'>加拿大/Prices in Canada</h4></a>
                             </div>
                         </li>
-                        <!-- <li>
-                            <div class='toprank'>
-                                <div >
-                                    <a href='country.php?country=AUS'><img src='img/auland.jpg' alt='' class='img-responsive' width='80px'></a>
-                                </div>
-                                <a href="search.php?country=AUS"><h4 style='text-align:center'>Prices in Australia</h4></a>
-                            </div>
-                        </li> -->
                     </ul>
                 </div>           
             </div>
@@ -58,13 +47,6 @@
     <a href="#" style='color:grey'><span class="glyphicon glyphicon-question-sign"></span> 隐私政策</a>
 </div>
 
-<!-- <div class="col-md-3">
-    <div class='tuijian'>
-        <div class="plist">
-            <h3 style='font-weight:bold;'>Who to follow</h3>
-        </div>
-    </div>
-</div> -->
 
 <script>
     $.fn.smartFloat = function() {
@@ -100,7 +82,7 @@
     position($(this));      
     });
     };
-    $('#tuijian').smartFloat();
+    $('#rightbar').smartFloat();
 
 
 </script>

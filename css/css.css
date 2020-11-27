@@ -1,0 +1,370 @@
+/* 手机响应式设置 */
+#sjrank{
+    display:none;
+}
+#sjlogin{
+    display:none;
+}
+#sjsearch{
+    display:none;
+}
+@media(max-width:1400px)
+{
+     /* 网页全屏显示 */
+    body {
+        width:100%;
+    }
+    /* 正文全屏显示 */
+    #divMain{
+        width:100%
+    } 
+    .leftbar{
+        left:100px
+    }
+}
+@media(max-width:990px)
+{
+     /* 网页全屏显示 */
+    body {
+        width:100%;
+    }
+    /* 正文全屏显示 */
+    #divMain{
+        width:100%
+    } 
+    .leftbar{
+        left:100px
+    }
+    /* 隐藏头部、导航、侧栏、页脚 */
+    #leftbar{
+        display:none
+    }
+    #rightbar{
+        display:none
+    }
+    #sjrank{
+        display:inline-block
+    }
+    #sjlogin{
+        display:inline-block
+    }
+    #sjsearch{
+        display:inline-block
+    }
+    .logo{
+        width:100%;
+        position: fixed;
+        left:10px;
+    }
+}
+
+
+/* 设置全局hr横线的外边距 */
+.hrmargin{
+    margin:0 0;
+}
+
+/* 综合排名中的导航栏字体样式 */
+.nav-tabs li a{
+    font-weight: bold;
+    border-radius: 0;
+    color:black;
+    margin: 0%;
+}
+/* 鼠标悬浮时综合排名中的导航栏字体样式 */
+.nav li a:hover{
+    border-bottom: 3px solid #00BFFF;
+    background-color:#ffffff;
+    transition-duration: 0.5s;
+}
+/* 综合排名导航栏初始样式 */
+.nav-tabs li.active a{
+    margin: 0;
+    border-bottom: 3px solid #00BFFF;
+    background-color:#ffffff;
+    color: 	#00BFFF;
+}
+/* 综合排名导航栏选中样式 */
+.nav-tabs li.active a:focus{
+    margin: 0;
+    border-bottom: 3px solid #00BFFF;
+    background-color:#ffffff;
+    color: 	#00BFFF;
+}
+/* 全局页面背景 */
+body{
+    background-color:#f6f6f6;
+    /* font-family:system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif; */
+}
+/* 设置全局logo位置与大小 */
+#logo{
+    margin-bottom:20px;
+    position:fixed;
+    left:14%;
+}
+/* 左侧导航栏整体样式 */
+.leftbar{
+    overflow: hidden;
+    position: fixed;
+    top: 10%;
+    width: 17%;
+    left:200px;
+    background-color:white;
+    border:1px solid #e6e6e6;
+    box-shadow: 0px 2px 5px rgb(181,212,213);
+    border-radius: 10px;
+}
+/* 左侧导航栏a标签样式 */
+.leftbar li a{
+    color:black;
+    font-size:20px;
+    display:block;
+    font-weight:bold;
+    margin-left:10px;
+    margin-top:10px;
+    margin-bottom:40px;
+    text-decoration:none;
+    padding:13px;
+    border-radius:10px;
+    width:92%;
+}
+/* 左侧导航栏鼠标悬停样式 */
+.leftbar li a:hover{
+    color:rgb(181,212,213);
+    border-bottom: 0px;
+    background-color:#00BFFF;
+    transition-duration: 0.2s;
+}
+/* 中部主体部分的样式 */
+.midbar{
+    background-color:white;
+    box-shadow: 0px 2px 5px rgb(181,212,213);
+    border:1px solid #e6e6e6;
+    margin-bottom:20px;
+    margin:0 auto;
+    border-radius: 10px;
+    margin-top:75px;
+}
+/* 搜索页面搜索框样式 */
+.search{
+    margin-top:20px;
+    float:left;
+    display:inline-block;
+    width:80%;
+    height:39px;
+    margin-right:0;
+    border-radius:15px 0px 0px 15px;
+}
+/* 搜索页面搜索框选中样式 */
+.search:focus{
+    box-shadow: 0px 0px 5px rgb(181,212,213);
+    border:1px solid #e6e6e6;
+}
+/* 搜索页面按钮样式 */
+.search-btn{
+    margin-top:20px;
+    float:right;
+    height:38.5px;
+    display:inline-block;
+    width:20%;
+    margin-left:0;
+    border-radius:0px 15px 15px 0px;
+    font-weight:bold;
+    background-color:#00BFFF;
+}
+/* 搜索页面按钮悬停样式 */
+.search-btn:hover{
+    background-color:#20738f;
+}
+/* 右侧小型搜索栏 */
+.col-md-3 .search{
+    font-size:1em;
+    width:80%;
+    float:left;
+    display:inline-block;
+    height:39px;
+    margin-right:0;
+    border-radius:15px 0px 0px 15px;
+    margin-top:0;
+}
+/* 右侧小型搜索栏按钮 */
+.col-md-3 .btn{
+    float:right;
+    height:38.5px;
+    display:inline-block;
+    width:20%;
+    margin-left:0;
+    border-radius:0px 15px 15px 0px;
+    font-weight:bold;
+    background-color: #00BFFF;
+}
+.col-md-3 .btn:hover{
+    background-color:#20738f;
+}
+/* 右侧广告栏 */
+.col-md-3{
+    margin-bottom:40px;
+}
+/* 右侧广告栏（除小型搜索栏） */
+.rightbar{
+    background-color:white;
+    border:0.5px solid #e6e6e6;
+    box-shadow: 0px 2px 5px rgb(181,212,213);
+    border-radius: 0px;
+}
+.col-md-13{ 
+    margin-top: 0px;
+    margin: 0px;
+    padding-right:10px;
+}
+.col-md-13 .uni-mini-info{
+    border: 1px solid  white;
+    box-shadow: 0px 0px 5px rgb(181,212,213);
+    border-radius: 10px;
+    width:100%;
+    margin:5px auto 10px;
+}
+.col-md-13 .uni-mini-info:hover{
+    box-shadow: 0px 2px 20px rgb(181,212,213);
+    border:1px solid  #e6e6e6;
+}
+.col-md-12{
+    padding: 0px;
+}
+.uni-mini-word-info{
+    margin-left:100px;
+}
+.des{
+    color:white;
+    float:left;
+    position:absolute;
+    top:180px;
+    left:20px;
+    display:inline; 
+    margin:0;
+    padding:0;
+    font-weight:bold;
+    font-size:25px;
+}
+.rankhover{
+    box-shadow:0;
+}
+.col-md-11{ 
+    margin-top: 0px;
+    margin: 0px;
+    padding-right:10px;
+}
+.col-md-11 .uni-mini-info{
+    border: 1px solid  white;
+    box-shadow: 0px 0px 5px rgb(181,212,213);
+    margin:15px 0;
+}
+.col-md-11 .uni-mini-info:hover{
+    box-shadow: 0px 2px 20px rgb(181,212,213);
+    border:1px solid#00BFFF;
+}
+.nav-tabs {
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-height: 46px;
+    }
+/* 首页导航栏 */
+#hometop{
+    font-weight:bold;
+    font-size:20px;
+    margin:7px;
+}
+.homespan a{
+    color:black;
+    margin:2px;
+    width:30%;
+}
+
+
+/* 登陆界面样式 */
+.modal-content{
+    margin:50px auto 0;
+    width:70%;
+}
+.modal-body{
+    padding:0;
+}
+.sign{
+    min-height: 41px;
+    border-color:#e1e1e1;
+}
+
+.sign:focus{
+    border-color:  #00bdfc;
+}
+
+.sign, .btn1{
+    border-radius:7px;
+    font-weight:bold;
+}
+.btn1{
+    border-radius:7px;
+    font-weight:bold;
+    background-color: #00bdfc;
+}
+
+.form-header{
+    padding: 30px 30px 10px;
+    text-align: center;
+    background: white;
+    border-bottom: 1px solid #eee;
+    color: black;
+    
+}
+.form-header h2{
+    font-size: 34px;
+    font-weight: bold;
+    margin:0 0 10px;
+    font-family: 'Pacifico', sans-serif;
+}
+.form-header p{
+    margin:20px 0 15px;
+    font-size:17px;
+    line-height:normal;
+    font-family: 'Courgette', sans-serif;
+}
+.signin-form{
+    margin:50px auto 60px;
+    width: 70%;
+}
+.signin-form form{
+    color: #999;
+    border-radius: 3px;
+    background: white;
+}
+.sign-form .form-group{
+    margin-bottom:20px;
+}
+.sign-form label{
+    font-size:13px;
+    font-weight:normal;
+}
+.sign-form .btn{
+    font-size:16px;
+    font-weight:bold;
+    background: #00cb82;
+    border:none;
+    min-width: 200px;
+}
+.sign-form .btn:hover, .sign-form .btn:focus{
+    background: #00b073 !important;
+    outline:none;
+}
+.signin-form a{
+    color:  #00BFFF;
+}
+.signin-form a:hover{
+    text-decoration: underline;
+}
+
+.close{
+    position:absolute;
+    top:-42px;
+    left:390px;
+}

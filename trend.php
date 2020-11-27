@@ -11,20 +11,7 @@
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>首页 - WillCloudy</title>
-    <link rel="stylesheet" href="css/home.css">
-    <style>
-        #hometop{
-            font-weight:bold;
-            font-size:20px;
-            margin:7px;
-        }
-        .homespan{
-            margin:4px;
-        }
-        .nav1 a,.nav2 a,.nav3 a{
-            color:black;
-        }
-    </style>
+    <link rel="stylesheet" href="css/css.css">
 </head>
 <body>
 <div class="container">
@@ -47,14 +34,14 @@
                     require('include/leftbar.php');
                 }
             ?>
-        <div class="col-md-6">
+        <div class="col-md-6 midbar">
             <div class="box">
                 <nav id='hometop'>
-                <span class='nav1 homespan'><a href='home.php'>推荐</a></span>
+                    <span class='homespan'><a href='home.php'>推荐</a></span>
                     <span class='nav2 homespan'><a href="follow.php">关注</a></span>
-                    <span class='nav3 homespan'><a href="trend.php"id='active'>趋势</a></span>
-                    <span class='nav3 homespan'id='sjrank'><a href='ranking'>大学排名</a></span>
-                    <span class='nav3 homespan'id='sjsearch'><a href="search.php">搜索</a></span> 
+                    <span class='homespan'><a href="trend.php"id='active'>趋势</a></span>
+                    <span class='homespan'id='sjrank'><a href='ranking'>大学排名</a></span>
+                    <span class='homespan'id='sjsearch'><a href="search.php">搜索</a></span> 
                 </nav>
                 <hr class='hrmargin'>
             </div>  

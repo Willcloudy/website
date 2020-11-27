@@ -7,7 +7,7 @@
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>关于我们 - WillCloudy</title>
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/css.css">
     <style>
     .willcloudy{
         border: 1px solid white;
@@ -23,7 +23,7 @@
 <body>
     <div class="container">
         <?php require('include/leftbar.php');?>
-            <div class="col-md-6">
+            <div class="col-md-6 midbar">
                 <div class="box">
                     <h3 style='font-weight:bold;'>About/关于</h3>
                     <hr>

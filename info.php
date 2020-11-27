@@ -33,7 +33,7 @@
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title><?php echo $uni_name_zh.' - WillCloudy'?> </title>
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/css.css">
 <style>
     .info{
         font-weight:bold;
@@ -91,7 +91,7 @@
                     require('include/leftbar.php');
                 }
             ?>
-        <div class="col-md-6" style='padding:0px'>
+        <div class="col-md-6 midbar" style='padding:0px'>
             <div class="box">
                 <h3 style='font-weight:bold;padding:10px;'>
                     <?php echo 'University Info / '.$uni_name_zh?>
@@ -165,124 +165,6 @@
                 </div>
             </div>  
         </div>
-       
-        <div class="col-md-3" id='tuijian' style='margin-top: 15px'>
-                <form action="result.php" method="POST">
-                    <span>
-                        <input class='form-control' type="text" name='searchcontent' style='font-size:1em;width:80%;float:left;display:inline-block;
-                        height:39px;margin-right:0;border-radius:5px 0px 0px 5px;' placeholder='搜索大学/文章/用户'>
-                    </span>
-                    <span class='span2'>
-                        <a href="result.php"><button class='form-control btn btn-primary'type='submit' style='float:right;
-                        height:38.5px;display:inline-block;width:20%;margin-left:0;border-radius:0px 5px 5px 0px;font-weight:bold;
-                        background-color: #00BFFF;'><span class="glyphicon glyphicon-search"></span></button></a>
-                    </span>
-                    <div style="clear:both;"></div>
-                    <br>
-                </form>
-            <div class='tuijian'>
-                
-                <div class='ulist'>
-                    <h4 style='font-weight:bold;text-align:center;margin-top:20px;'>Who interest in</h4>
-                        <div class="row">
-                            <div class='col-md-11'>
-                                <?php
-                                    for ($i=0; $i < 2; $i++) { 
-                                            echo "
-                                            <div >
-                                                <div style='float:left;'>
-                                                    <a href='#'><img src='#' alt='' width='50px' height='50px' style='margin-left:10px;margin-bottom:15px;margin-right:20px;margin-top:0px;'></a>
-                                                </div>
-                                                <div>
-                                                    <h5 style='font-weight:bold'><a href='#'>用户姓名</a></h5>
-                                                    <p>目标专业:</p>
-                                                </div>
-                                                <div style='clear:both'></div>
-                                            </div>";
-                                    }
-                                ?>
-                            </div> 
-                        </div>
-                </div>
-            </div>
-            <br>
-            <div class='tuijian'>
-                <div class='ulist'>
-                    <h4 id='duibi'style='font-weight:bold;text-align:center;margin-top:20px;'>对比<?php echo $uni_country?> 和中国物价</h4>
-                        <div class="row">
-                            <div class='col-md-11'>
-                                <ul style='list-style:none;padding-left:20px;padding-top:2px'>
-                                    <?php 
-                                        if ($uni_country == 'England') {
-                                            echo "<li>
-                                            <div class='toprank'>
-                                                <div >
-                                                    <a href='country.php?country=UK'><img src='img/enland.jpg' alt='' class='img-responsive'></a>
-                                                </div>
-                                                <a href='country.php?country=UK'><h4 style='text-align:center'>英国/Prices in British</h4></a>
-                                            </div>
-                                        </li>";
-                                        }elseif ($uni_country == 'Canada') {
-                                            echo " <li>
-                                            <div class='toprank'>
-                                                <div >
-                                                    <a href='country.php?country=CAN'><img src='img/caland.jpg' alt='' class='img-responsive'></a>
-                                                </div>
-                                                <a href='country.php?country=CAN'><h4 style='text-align:center'>加拿大/Prices in Canada</h4></a>
-                                            </div>
-                                        </li>";
-                                        }elseif ($uni_country == 'Australia') {
-                                            echo "<li>
-                                            <div class='toprank'>
-                                                <div >
-                                                    <a href='country.php?country=AUS'><img src='img/auland.jpg' alt='' class='img-responsive'></a>
-                                                </div>
-                                                <a href='search.php?country=AUS'><h4 style='text-align:center'>澳大利亚/Prices in Australia</h4></a>
-                                            </div>
-                                        </li>";
-                                        }else {
-                                            echo "<script>document.getElementById('duibi').style.display ='none'</script>";
-                                //             echo "<li>
-                                //             <div class='toprank'>
-                                //                 <div >
-                                //                     <a href='country.php?country=UK'><img src='img/enland.jpg' alt='' class='img-responsive'></a>
-                                //                 </div>
-                                //                 <a href='country.php?country=UK'><h4 style='text-align:center'>英国/Prices in British</h4></a>
-                                //             </div>
-                                //         </li><li>
-                                //         <div class='toprank'>
-                                //             <div >
-                                //                 <a href='country.php?country=CAN'><img src='img/caland.jpg' alt='' class='img-responsive'></a>
-                                //             </div>
-                                //             <a href='country.php?country=CAN'><h4 style='text-align:center'>加拿大/Prices in Canada</h4></a>
-                                //         </div>
-                                //     </li><li>
-                                //     <div class='toprank'>
-                                //         <div >
-                                //             <a href='country.php?country=AUS'><img src='img/auland.jpg' alt='' class='img-responsive'></a>
-                                //         </div>
-                                //         <a href='search.php?country=AUS'><h4 style='text-align:center'>澳大利亚/Prices in Australia</h4></a>
-                                //     </div>
-                                // </li>";
-                                        }
-                                    ?>
-                                </ul>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-                <br>
-            </div>
-            <br>
-        </div>
-
-        
-            
-            <?php
-            // echo "<footer style='text-align:center;'>当前在线".$users_online."人<footer>";
-            //require('include/rightbar.php');
-            ?>
 </div>
 </body>
 </html>

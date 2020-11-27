@@ -11,7 +11,7 @@
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>综合排名 - WillCloudy</title>
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/css.css">
 </head>
 <body>
     <div class="container">
@@ -34,7 +34,7 @@
                     require('include/leftbar.php');
                 }
             ?>
-            <div class="col-md-6" >
+            <div class="col-md-6 midbar" >
                 <div class="box" >
                     <h3 style='font-weight:bold;'>Ranking/综合排名</h3>
                     <hr class='hrmargin'>
@@ -69,12 +69,12 @@
                                                     @$uni_link = $uni_info['uni_link'];
                                                     echo "
                                                     <li>
-                                                        <div class='toprank'>
+                                                        <div class='uni-mini-info'>
                                                             <div style='float:left;'>
                                                                 <br>
                                                                 <a href='info.php?uni_name_zh=$uni_name_zh'><img src='$uni_icon' alt='' width='120px' height='120px' style='margin-left:10px'></a>
                                                             </div>
-                                                            <div class='rank-info'>
+                                                            <div class='uni-mini-word-info'>
                                                                 <br>
                                                                 <h4 style='margin-left:10px;display:inline-block'><a href='info.php?uni_name_zh=$uni_name_zh'>$uni_name_zh</a></h4>
                                                                 <span style='font-size:5px;color:grey'>$uni_name_en</span>
@@ -120,12 +120,12 @@
                                                 $uni_link = $uni_info['uni_link'];
                                                 echo "
                                                 <li>
-                                                    <div class='toprank'>
+                                                    <div class='uni-mini-info'>
                                                         <div style='float:left;'>
                                                             <br>
                                                             <a href='info.php?uni_name_zh=$uni_name_zh'><img src='$uni_icon' alt='' width='120px' height='120px' style='margin-left:10px'></a>
                                                         </div>
-                                                        <div class='rank-info'>
+                                                        <div class='uni-mini-word-info'>
                                                             <br>
                                                             <h4 style='margin-left:10px;display:inline-block'><a href='info.php?uni_name_zh=$uni_name_zh'>$uni_name_zh</a></h4>
                                                             <span style='font-size:5px;color:grey'>$uni_name_en</span>

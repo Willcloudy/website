@@ -1,50 +1,7 @@
-<!-- <a href="./admin/in_info.php" style='float:right'>Admin</a> --> 
-<style type="text/css">
-
-#sjrank{display:none}
-    #sjlogin{display:none}
-    #sjsearch{display:none}
-@media(max-width:1400px)
-{
-     /* 网页全屏显示 */
-    body {width:100%;} 
-
-    /* 正文全屏显示 */
-    #divMain{width:100%} 
-    .leftbar{left:100px}
-    /* 为了避免正文图片超出屏幕宽度 */
-    /* 正文图片宽度最多是屏幕宽度的90% */
-    /*img{max-width:90%} 
-
-    /* 隐藏头部、导航、侧栏、页脚 */
-}
-@media(max-width:990px)
-{
-     /* 网页全屏显示 */
-    body {width:100%;} 
-
-    /* 正文全屏显示 */
-    #divMain{width:100%} 
-    .leftbar{left:100px}
-    /* 为了避免正文图片超出屏幕宽度 */
-    /* 正文图片宽度最多是屏幕宽度的90% */
-    /*img{max-width:90%} 
-
-    /* 隐藏头部、导航、侧栏、页脚 */
-
-    #leftbar{display:none}
-    #tuijian{display:none}
-    
-    #sjrank{display:inline-block}
-    #sjlogin{display:inline-block}
-    #sjsearch{display:inline-block}
-}
-</style>
-<div class="logo">
-    <a id='logo'href="home.php">
-        <img class='img-responsive' width='60%' src="img/logo.png" alt="logo"/>
-    </a>
-</div>
+<link rel="stylesheet" href="css/signform.css">
+<a id='logo' href="home.php">
+    <img class='img-responsive logo' width='55%' src="img/logo.png" alt="logo"/>
+</a>
 
 <div class="col-md-3" role="navigation" id='leftbar'>
     <ul class="list-unstyled leftbar nav nav-pills nav-stacked">
@@ -81,13 +38,13 @@
         </li>
 
         <li id='sign'>
-            <a href="javascript:void(0);"data-toggle="modal" data-target="#myModal">
+            <a herf='' data-toggle="modal" data-target="#myModal">
                 <span>
                     登录/注册
                 </span>
             </a>
         </li>
-
+        
         <li id='profile' style='display:none;'>
             <a id='profileA'href="profile.php" class='popup'style='padding:2%'>
                 <img src="<?php echo $user_image?>" alt="avatar" width='50px' height='50px'/> 
@@ -98,7 +55,7 @@
     <br>
     <br>
 </div>
-
+<!-- 登陆注册浮窗界面 -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

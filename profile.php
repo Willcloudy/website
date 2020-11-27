@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title><?php echo $user_name?> - WillCloudy</title>
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/css.css">
     <style>
         .avatar{
             margin:0px;
@@ -58,7 +58,7 @@
                         document.getElementById('sign').style.display='none';
                     </script>";
             ?>
-            <div class="col-md-6" style='padding:0;'>
+            <div class="col-md-6 midbar" style='padding:0;'>
                 <div class="box" style='margin-top:0;position:relative'>
                     <img src="<?php echo $user_cover;?>" alt="cover" width='100%' height='100px'style='margin:0;padding:0;'>
                     <img src="<?php echo $user_image;?>" alt="avatar" width='15%' class='img-circle avatar'>

@@ -17,7 +17,7 @@
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>搜索结果 - WillCloudy</title>
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/css.css">
 </head>
 <body>
     <div class="container">
@@ -40,7 +40,7 @@
                     require('include/leftbar.php');
                 }
             ?>
-            <div class="col-md-6">
+            <div class="col-md-6 midbar">
                 <div class="box">
                     <h3 style='font-weight:bold;'>Result/搜索结果</h3>
                     <hr>
