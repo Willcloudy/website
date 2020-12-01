@@ -2,7 +2,7 @@
 <div class="col-md-3" id='rightbar' style='margin-top: 15px'>
     <form action="result.php" method="POST">
         <span>
-            <input class='form-control search' type="text" name='searchcontent' placeholder='搜索大学/文章/用户'/>
+            <input class='form-control search' type="text" name='searchcontent' placeholder='搜索大学/文章/用户' required='required'/>
         </span>
         <span class='span2'>
             <a href="result.php">
@@ -21,19 +21,19 @@
                 <div class='col-md-11' style='border:0px;box-shadow:none;'>
                     <ul style='list-style:none;padding-left:20px;'>
                         <li>
-                            <div class='unimini-info''>
+                            <div>
                                 <div >
                                     <a href='country.php?country=UK'><img src='img/enland.jpg' alt='' class='img-responsive'/></a>
                                 </div>
-                                    <a href="country.php?country=UK"><h4 style='text-align:center'>英国/Prices in British</h4></a>
+                                    <a href="country.php?country=UK" ><h4 style='text-align:center;margin:0px'>英国/Prices in British</h4></a>
                                 </div>
                         </li>
                         <li>
-                            <div class='uni-mini-info'>
+                            <div>
                                 <div>
                                     <a href='country.php?country=CAN'><img src='img/caland.jpg' alt='' class='img-responsive'/></a>
                                 </div>
-                                    <a href="country.php?country=CAN"><h4 style='text-align:center'>加拿大/Prices in Canada</h4></a>
+                                    <a href="country.php?country=CAN"><h4 style='text-align:center;margin:0px'>加拿大/Prices in Canada</h4></a>
                             </div>
                         </li>
                     </ul>
@@ -52,13 +52,13 @@
     $.fn.smartFloat = function() {
     var position = function(element) {
     var top = element.position().top, pos = element.css("position");
-    var more = top + 20;
+    var more = top + 100;
     $(window).scroll(function() {
     var scrolls = $(this).scrollTop();
     if (scrolls > more) {
         if (window.XMLHttpRequest) {
         element.css({
-        "width" : "22%",
+        "width" : "19%",
         "marginTop": "15px",
         position: "fixed",
         top: 0,

@@ -21,8 +21,9 @@
                     $get_user = "select * from users where user_email = '$user'";
                     $run_user = mysqli_query($con, $get_user);
                     $row = mysqli_fetch_array($run_user);
-                    $user_name = $row['user_name'];
-                    $user_image = $row['user_image'];
+                    $u_name = $row['user_name'];
+                    $u_image = $row['user_image'];
+                    $u_id = $row['user_id'];
                     require('include/leftbar.php');
                     echo "
                         <script>
@@ -47,7 +48,7 @@
                             <div id="myTabContent" class="tab-content">
                                 <div class="tab-pane fade in active" id="trend">
                                     <img src="img/toprankbc.jpg" alt="" class='img-responsive' style='margin:0;padding:0;'>
-                                    <h4 class='des'>搜索次数排名</h4>
+                                    <h4 class='searchRank'>搜索次数排名</h4>
                                     <div style='clear:both'></div>
                                     <div class="col-md-13">
                                         <ul style='list-style:none;padding-left:20px;padding-top:2px'>
@@ -98,7 +99,7 @@
 
                                 <div class="tab-pane fade" id="top100">
                                     <img src="img/toprankbc.jpg" alt="" class='img-responsive' style='margin:0;margin-top:1px;padding:0;'>
-                                    <h2 class='des'>QS大学排名</h2>
+                                    <h2 class='searchRank'>QS大学排名</h2>
                                     <div style='clear:both'></div>
                                     <div class="col-md-13">
                                         <ul style='list-style:none;padding-left:20px;padding-top:2px'>
@@ -160,7 +161,7 @@
 
 <script>
     var ele = document.getElementById("ranking");
-    ele.href="javascript:volid(0);";
+    ele.href="javascript:void(0);";
     ele.style.color ="#00BFFF";
     ele.onmouseover =  function () {
     this.style.backgroundColor = "white";

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css/signform.css">
+<link rel="stylesheet" href="css/css.css">
 <a id='logo' href="home.php">
     <img class='img-responsive logo' width='55%' src="img/logo.png" alt="logo"/>
 </a>
@@ -46,9 +46,9 @@
         </li>
         
         <li id='profile' style='display:none;'>
-            <a id='profileA'href="profile.php" class='popup'style='padding:2%'>
-                <img src="<?php echo $user_image?>" alt="avatar" width='50px' height='50px'/> 
-                <?php echo '&nbsp;&nbsp;&nbsp;'.$user_name; ?>
+            <a id='profileA' href=<?php echo "'profile.php?u_id=$u_id'"?> class='popup'style='padding:2%'>
+                <img src="<?php echo $u_image?>" alt="avatar" width='50px' height='50px'/> 
+                <?php echo '&nbsp;&nbsp;&nbsp;'.$u_name; ?>
             </a>
         </li>
     </ul>

@@ -1,7 +1,7 @@
 <?php  
     session_start();
     include('include/connection.php');
-    if (!isset($_GET['country'])) {
+    if (empty($_GET['country'])) {
         header('Location:home.php');
     }else {
         $country = $_GET['country'];
@@ -14,6 +14,8 @@
         }elseif ($country == 'Australia' || $country == 'AUS') {
             $en_country = 'Australia';
             $cn_country = '澳大利亚';
+        }else {
+            header('Location:home.php');
         }
     }
 ?>
@@ -36,8 +38,9 @@
                     $get_user = "select * from users where user_email = '$user'";
                     $run_user = mysqli_query($con, $get_user);
                     $row = mysqli_fetch_array($run_user);
-                    $user_name = $row['user_name'];
-                    $user_image = $row['user_image'];
+                    $u_name = $row['user_name'];
+                    $u_image = $row['user_image'];
+                    $u_id = $row['user_id'];
                     require('include/leftbar.php');
                     echo "
                         <script>

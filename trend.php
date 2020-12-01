@@ -21,8 +21,9 @@
                     $get_user = "select * from users where user_email = '$user'";
                     $run_user = mysqli_query($con, $get_user);
                     $row = mysqli_fetch_array($run_user);
-                    $user_name = $row['user_name'];
-                    $user_image = $row['user_image'];
+                    $u_name = $row['user_name'];
+                    $u_image = $row['user_image'];
+                    $u_id = $row['user_id'];
                     require('include/leftbar.php');
                     echo "
                         <script>
