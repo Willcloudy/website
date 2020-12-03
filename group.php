@@ -48,7 +48,7 @@
 </html>
 <script>
     var group = document.getElementById("group");
-    group.href="javascript:volid(0);";
+    group.href="javascript:void(0);";
     //ele.style.backgroundColor = "rgb(181,212,213)";
     group.style.color ="#00BFFF";
     group.onmouseover =  function () {

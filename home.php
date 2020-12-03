@@ -14,6 +14,63 @@
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>首页 - WillCloudy</title>
     <link rel="stylesheet" href="css/css.css">
+    <style>
+        #write-box{
+            margin-top:10px;
+            padding-left:15%;
+            border-bottom:1px solid #ccc;
+        }
+        .toolbar {
+            width:85%;
+            border-top:1px solid #ccc;
+            border-bottom:1px solid #ccc;
+        }
+        .text{
+            min-height:50px;
+            width:85%;
+        }
+        #goWrite{
+            position:absolute;
+            top: 20px;  
+            left: 500px;
+            font-weight:bold;
+            font-size:0.9em;
+            width:55px;
+            height:30px;
+            color:white;
+            background:#00BFFF;
+            border:1px solid #ccc;
+            border-radius:10px;
+        }
+        #goWrite:hover{
+            color:#00BFFF;
+            background:white;
+            border:2px solid #ccc;
+        }
+        #goWrite:focus{
+            outline:none;
+        }
+        #home-profile{
+            position:absolute;
+            left: 15px;
+            top: 14px;
+            border:1px solid #ccc;
+        }
+        #home-profile:hover{
+            opacity:0.5;
+        }
+        .content{
+            margin-top:10px;
+            border-top:1px solid #ccc; 
+        }
+        #article-title{
+            border:none;
+            padding:10px;
+        }
+        #article-title:focus{
+            outline:none;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -33,29 +90,41 @@
                         var profile = document.getElementById('profile');
                         profile.style.display='block';
                         document.getElementById('sign').style.display='none'; 
-                        var profileMo = document.getElementById('profileMo');
-                        profileMo.style.display='block';
+                        var profileA = document.getElementById('profileA');
+                        profileA.style.display='block';
                     </script>";
             }else {
                 require('include/leftbar.php');
-                echo "<script>document.getElementById('sign').click()</script>";
+                echo "<script>document.getElementById('login').click()</script>";
             }
         ?>
-        <div class="col-md-6 midbar">
-            <div class="box">
-                <nav id='hometop'>
-                    <span class='homespan'><a href='' id='active'>推荐</a></span>
-                    <span class='homespan'><a href="follow.php">关注</a></span>
-                    <span class='homespan'><a href="trend.php">趋势</a></span>
-                    <span class='homespan'id='sjrank'><a href='ranking'>大学排名</a></span>
-                    <span class='homespan'id='sjsearch'><a href="search.php">搜索</a></span> 
-                </nav>
-                <hr class='hrmargin'>
-
-                <div>
-                    
+        <div class="col-md-6 midbar" style='padding:0;'>
+            <?php require('include/pubulish.php');?>
+            <div class="content">
+                <p>dawdawdawd</p>
+                    <p>dawdawdawd</p>
+                    <p>dawdawdawd</p><p>dawdawdawd</p>
+                    <p>dawdawdawd</p>
+                    <p>dawdawdawd</p><p>dawdawdawd</p>
+                    <p>dawdawdawd</p>
+                    <p>dawdawdawd</p><p>dawdawdawd</p>
+                    <p>dawdawdawd</p>
+                    <p>dawdawdawd</p><p>dawdawdawd</p>
+                    <p>dawdawdawd</p>
+                    <p>dawdawdawd</p><p>dawdawdawd</p>
+                    <p>dawdawdawd</p>
+                    <p>dawdawdawd</p><p>dawdawdawd</p>
+                    <p>dawdawdawd</p>
+                    <p>dawdawdawd</p><p>dawdawdawd</p>
+                    <p>dawdawdawd</p>
+                    <p>dawdawdawd</p><p>dawdawdawd</p>
+                    <p>dawdawdawd</p>
+                    <p>dawdawdawd</p><p>dawdawdawd</p>
+                    <p>dawdawdawd</p>
+                    <p>dawdawdawd</p><p>dawdawdawd</p>
+                    <p>dawdawdawd</p>
+                    <p>dawdawdawd</p>
                 </div>
-            </div>  
         </div>
         <?php
             require('include/rightbar.php');
@@ -71,5 +140,4 @@
     home.onmouseover =  function () {
         this.style.backgroundColor = "white";
     }
-    document.getElementById("active").style.color = "#00BFFF";
 </script>

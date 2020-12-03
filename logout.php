@@ -24,5 +24,5 @@ session_destroy();
 </body>
 </html>
 <script>
-setTimeout("self.location = '/home.php'", 2000);
+setTimeout("self.location = '/website/home.php'", 2000);
 </script>

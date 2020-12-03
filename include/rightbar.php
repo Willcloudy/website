@@ -2,12 +2,12 @@
 <div class="col-md-3" id='rightbar' style='margin-top: 15px'>
     <form action="result.php" method="POST">
         <span>
-            <input class='form-control search' type="text" name='searchcontent' placeholder='搜索大学/文章/用户' required='required'/>
+            <input class='form-control search' type="text" name='searchcontent' placeholder='搜索大学/文章/用户' required='required' style='width:100'/>
         </span>
         <span class='span2'>
             <a href="result.php">
-                <button class='form-control btn btn-primary'type='submit'>
-                    <span class="glyphicon glyphicon-search"></span>
+                <span class="glyphicon glyphicon-search search-sm-icon"></span>
+                <button class='form-control btn btn-primary'type='submit' style='display:none'>
                 </button>
             </a>
         </span>

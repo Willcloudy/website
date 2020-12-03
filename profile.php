@@ -58,7 +58,7 @@
             position:absolute;
             top:70px;
             left:20px;
-            border:3px solid white;
+            border:2px solid white;
         }
         .info{
             color:black;
@@ -169,7 +169,7 @@
                 echo "<a><button class='follow_btn'>关注</button></a>";
             }
             ?>
-            <img src="<?php echo $user_image;?>" alt="avatar" width='14%' class='img-circle avatar'>
+            <img src="<?php echo $user_image;?>" alt="avatar" width='19%' class='img-circle avatar'>
             <div>
                 <span class='info'><?php echo $user_name;?></span>
                 <span class="des"><?php echo $user_des;?></span>
@@ -188,10 +188,10 @@
                         <span id='zk'>收起更多资料</span>
                     </button>
                     <div id="moredes" class="collapse">
-                        <br>
                         <span style='font-weight:bold;'>居住地: <?php echo $user_country;?></span>
-                        <span style='margin:30%;font-weight:bold;'>教育经历: <?php echo @$user_uni;?></span><br><br>
+                        <span style='margin:10%;font-weight:bold;'>教育经历: <?php echo @$user_uni;?></span><br><br>
                         <span style='font-weight:bold;'>性别: <?php echo $user_gender;?></span>
+                        <span style='margin:16%;font-weight:bold;'>教育经历: <?php echo @$user_uni;?></span><br><br>
                     </div>
                     <script>
                         window.onload = function(){
@@ -227,10 +227,7 @@
                 </nav> -->
                 <ul id="myTab" class="nav nav-tabs ">
                     <li class="active"><a href="#dt" data-toggle="tab">动态</a></li>
-                    <li><a href="#hd" data-toggle="tab">回答</a></li>
-
                     <li><a href="#wz" data-toggle="tab">文章</a></li>
-                    <li><a href="#sc" data-toggle="tab">收藏</a></li>
                     <li><a href="#gz" data-toggle="tab">关注</a></li>
                     <?php
 

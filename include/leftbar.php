@@ -17,16 +17,16 @@
             
         <li>
         
-            <a id='search' href="search.php">
+            <a id='search' href="explore.php">
                 <span class="glyphicon glyphicon-globe"></span> 
-                Search/搜索
+                Explore/探索
             </a>
         </li>
 
         <li>
-            <a id='ranking' href="ranking.php">
+            <a id='ranking' href="universities.php">
                 <span class="glyphicon glyphicon-edit"></span> 
-                Ranking/大学排名
+                Universities/院校库
             </a>
         </li>
 
@@ -38,8 +38,8 @@
         </li>
 
         <li id='sign'>
-            <a herf='' data-toggle="modal" data-target="#myModal">
-                <span>
+            <a herf=''  data-toggle="modal" data-target="#myModal">
+                <span id="login" >
                     登录/注册
                 </span>
             </a>
@@ -47,7 +47,7 @@
         
         <li id='profile' style='display:none;'>
             <a id='profileA' href=<?php echo "'profile.php?u_id=$u_id'"?> class='popup'style='padding:2%'>
-                <img src="<?php echo $u_image?>" alt="avatar" width='50px' height='50px'/> 
+                <img src="<?php echo $u_image?>" alt="avatar" width='60px' height='60px' class='img-circle' style='border:1px solid white'/> 
                 <?php echo '&nbsp;&nbsp;&nbsp;'.$u_name; ?>
             </a>
         </li>

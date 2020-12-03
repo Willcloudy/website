@@ -166,7 +166,107 @@
                 </div>
             </div>  
         </div>
+        <?php
+        echo"<div class='col-md-3' id='rightbar' style='margin-top: 15px'>
+        <form action='result.php' method='POST'>
+            <span>
+                <input class='form-control search' type='text' name='searchcontent' placeholder='搜索大学/文章/用户' required='required' style='width:100'/>
+            </span>
+            <span class='span2'>
+                <a href='result.php'>
+                    <span class='glyphicon glyphicon-search search-sm-icon'></span>
+                    <button class='form-control btn btn-primary'type='submit' style='display:none'>
+                    </button>
+                </a>
+            </span>
+            <div style='clear:both;'></div>
+            <br>
+        </form>
+        <div class='rightbar'>  
+        <div class='ulist'>
+        <h4 style='font-weight:bold;text-align:center;margin-top:20px;'>同样想去".$uni_name_zh."的同学</h4>
+        <div class='row'>
+    
+            <div class='col-md-11' style='border:0px;box-shadow:none;'>
+                <ul style='list-style:none;padding-left:20px;padding-top:2px'>";
+            $who_follow_query = "SELECT * FROM users where uni_interest ='$uni_name_zh'";
+            $run_who_follow = mysqli_query($con, $who_follow_query);
+            if (isset($run_who_follow)){
+                while($row = mysqli_fetch_array($run_who_follow)) {
+                    $uni_interest = $row['uni_interest'];
+                    $u_id = $row['user_id'];
+                    $user_image = $row['user_image'];
+                    $user_name = $row['user_name'];
+                    $user_des = $row['user_des'];
+                    if (strlen($user_des) > 5) {
+                        $user_des= mb_substr($user_des,0,5,'utf-8').'......';
+                    }
+                    echo "
+                    <li>
+                        <div class='uni-mini-info' style='border-radius:15px;margin:0;margin-top:5px;padding:6px'>
+                            <a href='profile.php?u_id=$u_id'><img src='$user_image' alt='user_profile' width='50px' height='50px' style='margin-left:10px' class='img-circle'></a>
+                            <span><a href='profile.php?u_id=$u_id'><b style='color:#00BFFF;font-size:1.5em;'>$user_name</b></a>
+                            <button class='btn btn-primary'style='font-size:5px;'>关注</button>
+                            <div style='clear:both'></div>
+                        </div>
+                    </li>
+                            ";   
+                }
+            }
+            echo "
+            </ul>
+            </div>
+            </div>
+        </div>
+        </div> 
+        <a id='about' href='about.php' style='color:grey'><span class='glyphicon glyphicon-question-sign'></span> About/关于我们</a>
+        <a href='#' style='color:grey'><span class='glyphicon glyphicon-question-sign'></span> 隐私政策</a>
+        </div>";
+            ?>
+    
+
+
+<script>
+    $.fn.smartFloat = function() {
+    var position = function(element) {
+    var top = element.position().top, pos = element.css("position");
+    var more = top + 100;
+    $(window).scroll(function() {
+    var scrolls = $(this).scrollTop();
+    if (scrolls > more) {
+        if (window.XMLHttpRequest) {
+        element.css({
+        "width" : "19%",
+        "marginTop": "15px",
+        position: "fixed",
+        top: 0,
+        left: 1050,
+        }); 
+        } else {
+        element.css({
+        top: scrolls
+        }); 
+        }
+    }else {
+        element.css({
+        position: pos,
+        left:0,
+        "width" : "25%",
+        }); 
+    }
+    });
+    };
+    return $(this).each(function() {
+    position($(this));      
+    });
+    };
+    $('#rightbar').smartFloat();
+
+
+</script>
 </div>
+
+
 </body>
 </html>
 <script>

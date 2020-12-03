@@ -139,68 +139,72 @@ body{
 .midbar{
     background-color:white;
     box-shadow: 0px 2px 5px rgb(181,212,213);
-    border:1px solid #e6e6e6;
+    /* border:1px solid #a39e9e; */
     margin-bottom:20px;
     margin:0 auto;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-top:75px;
 }
 /* 搜索页面搜索框样式 */
 .search{
-    margin-top:20px;
-    float:left;
+    color: rgb(91, 112, 131);
+    font-size: 1em;
     display:inline-block;
-    width:80%;
-    height:39px;
-    margin-right:0;
-    border-radius:15px 0px 0px 15px;
+    width:100%;
+    margin:20px 0 auto;
+    border-radius:15px 15px;
+    padding-left: 8%;
+    background-color:rgb(235, 238, 240);
 }
 /* 搜索页面搜索框选中样式 */
 .search:focus{
-    box-shadow: 0px 0px 5px rgb(181,212,213);
-    border:1px solid #e6e6e6;
+    border:1px solid #00BFFF;
+    background-color: white;
 }
 /* 搜索页面按钮样式 */
-.search-btn{
-    margin-top:20px;
-    float:right;
-    height:38.5px;
-    display:inline-block;
-    width:20%;
-    margin-left:0;
-    border-radius:0px 15px 15px 0px;
-    font-weight:bold;
-    background-color:#00BFFF;
+.glyphicon-search-explore,.glyphicon-search-uni,.glyphicon-search-result{
+    width: 8%;
+    color: rgb(91, 112, 131);
+    border: none;
+    background-color: transparent;
+    position:relative;
+    left: 6%;
+    top: -25px;
+    margin: 0;
+}
+/* .glyphicon-search-result{
+    width: 8%;
+    color: rgb(91, 112, 131);
+    border: none;
+    background-color: transparent;
+    position:absolute;
+    left: 6%;
+    top: 5.5%;
+} */
+.search-sm-icon{
+    width: 8%;
+    color: rgb(91, 112, 131);
+    border: none;
+    background-color: transparent;
+    position:absolute;
+    left: 10%;
+    top: 2.3%; 
 }
 /* 搜索页面按钮悬停样式 */
-.search-btn:hover{
-    background-color:#20738f;
+.search-btn{
+    display:none;
 }
 /* 右侧小型搜索栏 */
 .col-md-3 .search{
     font-size:1em;
-    width:80%;
-    float:left;
     display:inline-block;
     height:39px;
     margin-right:0;
-    border-radius:15px 0px 0px 15px;
+    border-radius:15px 15px;
     margin-top:0;
+    padding-left:12%;
 }
 /* 右侧小型搜索栏按钮 */
-.col-md-3 .btn{
-    float:right;
-    height:38.5px;
-    display:inline-block;
-    width:20%;
-    margin-left:0;
-    border-radius:0px 15px 15px 0px;
-    font-weight:bold;
-    background-color: #00BFFF;
-}
-.col-md-3 .btn:hover{
-    background-color:#20738f;
-}
 /* 右侧广告栏 */
 .col-md-3{
     margin-bottom:40px;
