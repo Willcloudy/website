@@ -1,9 +1,10 @@
 <link rel="stylesheet" href="css/css.css">
-<a id='logo' href="home.php">
-    <img class='img-responsive logo' width='55%' src="img/logo.png" alt="logo"/>
-</a>
-
+<script data-ad-client="ca-pub-2929558295093322" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta name="baidu-site-verification" content="code-QrKX38uGyq" />
 <div class="col-md-3" role="navigation" id='leftbar'>
+    <a id='logo' href="home.php">
+        <img class='logo' width='300px' height='100%;' src="img/logo.png" alt="logo"/>
+    </a>
     <ul class="list-unstyled leftbar nav nav-pills nav-stacked">
         <li>
             <a id='home' href="home.php">
@@ -31,9 +32,9 @@
         </li>
 
         <li>
-            <a id='group' href="group.php" style='font-size:19px'>
+            <a id='group' href="topic.php" style='font-size:19px'>
                 <span class="glyphicon glyphicon-user"></span> 
-                Group/兴趣组
+                #Topic/话题
             </a>
         </li>
 
@@ -67,21 +68,21 @@
                     <form action="" method='POST'>
 
                         <div class="form-header">
-                            <h2>Sign In/登录</h2>
+                            <h2>登录积云</h2>
                             <p>Login to Willcloudy</p>
                         </div>
 
                         <div class="form-group">
                             <label for="">Email/邮箱</label>
                             <input type="email" class="form-control sign"
-                            name="email" placeholder="anyemail@site.com"
+                            name="email" placeholder="请输入邮箱"
                             autocomplete="off" required/>
                         </div>
 
                         <div class="form-group">
                             <label for="">Password/密码</label>
                             <input type="password" class="form-control sign"
-                            name="password" placeholder="Password/密码"
+                            name="password" placeholder="请输入密码"
                             autocomplete="off" required/>
                         </div>
                         <div id="checkEmail"></div>
@@ -109,3 +110,43 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
 </div>
+
+<script>
+    // $.fn.smartFloat = function() {
+    // var position = function(element) {
+    // var top = element.position().top, pos = element.css("position");
+    // var more = top + 100;
+    // $(window).scroll(function() {
+    // var scrolls = $(this).scrollTop();
+    // if (scrolls > more) {
+    //     if (window.XMLHttpRequest) {
+    //     element.css({
+    //     "width" : "19%",
+    //     "marginTop": "15px",
+    //     position: "fixed",
+    //     top: 0,
+    //     left: 0,
+    //     }); 
+    //     } else {
+    //     element.css({
+    //     top: scrolls
+    //     }); 
+    //     }
+    // }else {
+    //     element.css({
+    //     position: pos,
+    //     left:0,
+    //     "width" : "25%",
+    //     }); 
+    // }
+    // });
+    // };
+    // return $(this).each(function() {
+    // position($(this));      
+    // });
+    // };
+    // $('#leftbar').smartFloat();
+
+
+
+</script>

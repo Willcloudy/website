@@ -27,9 +27,9 @@
         $cover = 'img/cover.jpg';
         
         $insert = "INSERT INTO users (user_name, 
-        user_des, user_password, user_email, user_image, user_cover, regtime, posts, token, token_exptime) values 
+        user_des, user_password, user_email, user_image, user_cover, regtime, posts, token, token_exptime, `status`) values 
         ('$user_name', '这个人很懒什么都没有留下', 
-        '$pass', '$email', '$profile_pic', '$cover', '$regtime', '$posts','$token','$token_exptime')";
+        '$pass', '$email', '$profile_pic', '$cover', '$regtime', '$posts','$token','$token_exptime','0')";
 
         $query = mysqli_query($con, $insert);
         if ($query) {

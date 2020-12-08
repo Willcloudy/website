@@ -34,11 +34,16 @@
     }else{
         //header('location:home.php');
     }
-    if ($u_id == $user_id) {
-        $status = 1;
+    if (!empty($u_id)) {
+        if ($u_id == $user_id) {
+            $status = 1;
+        }else {
+            $status = 2;
+        }
     }else {
         $status = 0;
     }
+        
     
 ?>
 <!DOCTYPE html>
@@ -56,7 +61,7 @@
             margin:0px;
             padding:0px;
             position:absolute;
-            top:70px;
+            top:47px;
             left:20px;
             border:2px solid white;
         }
@@ -147,12 +152,15 @@
 <div class="container">
     <?php
         require('include/leftbar.php');
-        echo "
+        if ($status == 2 or $status == 1) {
+            echo "
             <script>
                 var profile = document.getElementById('profile');
                 profile.style.display='block';
                 document.getElementById('sign').style.display='none';
             </script>";
+        }
+       
     ?>
     <div class="col-md-6 midbar" style='padding:0;'>
         <div class="box" style='margin-top:0;position:relative'>
@@ -165,6 +173,8 @@
             <?php
             if ($status == 1) {
                 echo "<a href='edit.php'><button class='editProfile'>编辑个人资料</button></a>";
+            }elseif($status == 2){
+                echo "<a><button class='follow_btn'>关注</button></a>";
             }elseif($status == 0){
                 echo "<a><button class='follow_btn'>关注</button></a>";
             }
@@ -187,11 +197,10 @@
                         </svg>
                         <span id='zk'>收起更多资料</span>
                     </button>
-                    <div id="moredes" class="collapse">
+                    <div id="moredes" style='margin-top:10px;' class="collapse">
                         <span style='font-weight:bold;'>居住地: <?php echo $user_country;?></span>
                         <span style='margin:10%;font-weight:bold;'>教育经历: <?php echo @$user_uni;?></span><br><br>
                         <span style='font-weight:bold;'>性别: <?php echo $user_gender;?></span>
-                        <span style='margin:16%;font-weight:bold;'>教育经历: <?php echo @$user_uni;?></span><br><br>
                     </div>
                     <script>
                         window.onload = function(){
@@ -251,6 +260,7 @@
     ?>
 </div>
 </body>
+<?php include_once("baidu_js_push.php") ?>
 </html>
 <?php
 if ($status ==1) {

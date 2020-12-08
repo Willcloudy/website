@@ -1,13 +1,4 @@
 /* 手机响应式设置 */
-#sjrank{
-    display:none;
-}
-#sjlogin{
-    display:none;
-}
-#sjsearch{
-    display:none;
-}
 @media(max-width:1400px)
 {
      /* 网页全屏显示 */
@@ -15,26 +6,20 @@
         width:100%;
     }
     /* 正文全屏显示 */
-    #divMain{
-        width:100%
-    } 
     .leftbar{
         left:100px
     }
 }
-@media(max-width:990px)
+@media(max-width:992px)
 {
      /* 网页全屏显示 */
     body {
         width:100%;
     }
     /* 正文全屏显示 */
-    #divMain{
-        width:100%
-    } 
     .leftbar{
         left:100px
-    }
+    } 
     /* 隐藏头部、导航、侧栏、页脚 */
     #leftbar{
         display:none
@@ -42,21 +27,11 @@
     #rightbar{
         display:none
     }
-    #sjrank{
-        display:inline-block
-    }
-    #sjlogin{
-        display:inline-block
-    }
-    #sjsearch{
-        display:inline-block
-    }
-    .logo{
-        width:100%;
-        position: fixed;
-        left:10px;
+    .container .midbar{
+        margin-top:5px;
     }
 }
+
 
 
 /* 设置全局hr横线的外边距 */
@@ -98,17 +73,15 @@ body{
 }
 /* 设置全局logo位置与大小 */
 #logo{
-    margin-bottom:20px;
-    position:fixed;
-    left:14%;
+    
 }
 /* 左侧导航栏整体样式 */
 .leftbar{
     overflow: hidden;
-    position: fixed;
+    /*position: fixed;
     top: 10%;
-    width: 17%;
-    left:200px;
+    left:200px;*/
+    width: 100%;
     background-color:white;
     border:1px solid #e6e6e6;
     box-shadow: 0px 2px 5px rgb(181,212,213);
@@ -143,7 +116,7 @@ body{
     margin-bottom:20px;
     margin:0 auto;
     border-radius: 15px;
-    margin-top:75px;
+    margin-top:60px;
 }
 /* 搜索页面搜索框样式 */
 .search{
@@ -186,9 +159,9 @@ body{
     color: rgb(91, 112, 131);
     border: none;
     background-color: transparent;
-    position:absolute;
-    left: 10%;
-    top: 2.3%; 
+    position: relative;
+    left: 5.5%;
+    top: -28px;
 }
 /* 搜索页面按钮悬停样式 */
 .search-btn{
@@ -308,6 +281,7 @@ body{
 .sign, .btn1{
     border-radius:7px;
     font-weight:bold;
+    text-decoration: none;
 }
 .btn1{
     border-radius:7px;
@@ -338,6 +312,7 @@ body{
 .signin-form{
     margin:50px auto 60px;
     width: 70%;
+    border:none;
 }
 .signin-form form{
     color: #999;
@@ -370,7 +345,5 @@ body{
 }
 
 .close{
-    position:absolute;
-    top:-42px;
-    left:390px;
+    margin-right:30px;
 }

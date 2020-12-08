@@ -5,12 +5,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <title>兴趣组 - WillCloudy</title>
+    <title>话题 - willcloudy</title>
     <link rel="stylesheet" href="css/css.css">
 </head>
 <body>
@@ -53,7 +54,6 @@
     group.style.color ="#00BFFF";
     group.onmouseover =  function () {
     this.style.backgroundColor = "white";
-    
     }
     
 </script>

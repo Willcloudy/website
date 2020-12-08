@@ -26,14 +26,7 @@
             $user_des = $row['user_des'];
             $user_country = $row['user_country'];
             $user_gender = $row['user_gender'];
-            echo $user_gender;
-            if ($user_gender = '1') {
-                echo '<script>document.getElementById("selector").options[0].selected=true</script>';
-            }elseif ($user_gender = '0') {
-                echo '<script>document.getElementById("selector").options[1].selected=true;</script>';
-            }elseif ($user_gender = '2') {
-                echo '<script>document.getElementById("selector").options[2].selected=true;</script>';
-            }
+            
         }else {
         header('location:home.php?from=login');
         }
@@ -238,13 +231,37 @@
                 <br>
                 <p class="des">个人简介<small style='color:grey'>(15个字)</small>:<input required name='edited_des' type="text" value='<?php echo $user_des;?>' maxlength=15></p>
                 <br>
-                <p class="des" >性别:
-                    <select id="selector" name='edited_gender'>
-                        <option value="1">男</option>
-                        <option value="0">女</option>
-                        <option selected value="2">保密</option>
-                    </select>
-                </p>
+                <?php
+                if ($user_gender == '1') {
+                    echo "
+                    <p class='des' >性别:
+                        <select id='selector' name='edited_gender'>
+                            <option selected='selected' value='1'>男</option>
+                            <option value='0'>女</option>
+                            <option value='2'>保密</option>
+                        </select>
+                    </p>";
+                }elseif ($user_gender == '0') {
+                    echo "
+                    <p class='des' >性别:
+                        <select id='selector' name='edited_gender'>
+                            <option value='1'>男</option>
+                            <option selected='selected'value='0'>女</option>
+                            <option value='2'>保密</option>
+                        </select>
+                    </p>";
+                }elseif ($user_gender == '2') {
+                    echo "
+                    <p class='des' >性别:
+                        <select id='selector' name='edited_gender'>
+                            <option value='1'>男</option>
+                            <option value='0'>女</option>
+                            <option selected='selected' value='2'>保密</option>
+                        </select>
+                    </p>";
+                }
+                
+                ?>
                 <br>
                 <p class="des">目前所在国家: <input type="text" name='edited_country' required value='<?php echo $user_country;?>'></p>
                 <br>

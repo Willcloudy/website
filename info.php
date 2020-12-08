@@ -17,12 +17,7 @@
     $uni_link = $row['uni_link'];
     $uni_icon = $row['uni_icon'];
     $uni_description = $row['uni_description'];
-
-    $rank_query = "SELECT * FROM `rank` where uni_name_zh = '$uni_name_zh' ";
-    $run_rank = mysqli_query($con, $rank_query);
-    $rank = mysqli_fetch_array($run_rank);
-    @$qs_rank = $rank['qs_rank'];
-    @$search_rank = $rank['search_rank'];
+    $uni_rank = $row['uni_rank'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -111,8 +106,8 @@
                             <br>
                         </div>
                         <div style='float:right;margin-right:120px;margin-top:20px'>
-                            <p class='info'style='font-weight:bold;margin-bottom:20px;border-left:5px solid #00BFFF' >&nbsp;QS大学排名: <?php echo $qs_rank?></p>
-                            <span class='info' style='font-weight:bold;margin-bottom:20px;border-left:5px solid #00BFFF'>&nbsp;搜索次数: <?php echo $search_rank?></span>
+                            <p class='info'style='font-weight:bold;margin-bottom:20px;border-left:5px solid #00BFFF' >&nbsp;QS大学排名: <?php echo $uni_rank?></p>
+                            <!-- <span class='info' style='font-weight:bold;margin-bottom:20px;border-left:5px solid #00BFFF'>&nbsp;搜索次数: <?php echo $search_rank?></span> -->
                         </div>
                         
                         <div style='clear:both'></div>

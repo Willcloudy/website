@@ -45,19 +45,15 @@
                 <div class="box">
                     <form action="result.php" method="POST">
                         <span>
-                            <input class='form-control search' type="text" name='searchcontent' placeholder='搜索你心仪大学(中英文名字都可)' required='required'>
+                            <input class='form-control search' type="text" name='searchcontent' value='<?php echo $input?>' required='required'>
                         </span>
                         <span class='span2'>
-                            <span class="glyphicon glyphicon-search glyphicon-search-result">
+                            <span class="glyphicon glyphicon-search glyphicon-search-explore" style='left: 3%;'>
                             <a href="result.php"><button class='form-control search-btn btn btn-primary'type='submit'></span></button></a>
                         </span>
                         <div style="clear:both;"></div>
                         <br>
-                    </form>
-                    
-                    
-                    <br>
-                    <br>    
+                    </form> 
                 </div>  
             </div>
             <?php
