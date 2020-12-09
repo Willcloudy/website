@@ -1,6 +1,5 @@
 <?php
-@session_start();
-include("include/connection.php");
+include("http://localhost:8080/website/include/connection.php");
     if (isset($_POST['sign_in'])) {
         $email = $_POST['email'];
         $pass = $_POST['password'];
@@ -15,7 +14,7 @@ include("include/connection.php");
             echo "<script>window.open('home.php', '_self')</script>";
         }else{
             echo "<script>alert('邮箱或者密码错误(或是账号妹有激活)')</script>";
-            echo "<script>window.open('home.php?from=login', '_self')</script>";
+            echo "<script>window.open('home.php', '_self')</script>";
         }
     }
 ?>

@@ -146,6 +146,21 @@
         #zk,svg{
             color:grey;
         }
+        @media(max-width:992px)
+        {
+            a .editProfile{
+                top:5%;
+                left:68%;
+            }
+            .avatar{
+                top: 60px;
+                left: 10px;
+                width:75px;
+            }
+            .info{
+                font-size:1.5em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -176,7 +191,7 @@
             }elseif($status == 2){
                 echo "<a><button class='follow_btn'>关注</button></a>";
             }elseif($status == 0){
-                echo "<a><button class='follow_btn'>关注</button></a>";
+                echo "<a href='home.php'><button class='follow_btn'>关注他</button></a>";
             }
             ?>
             <img src="<?php echo $user_image;?>" alt="avatar" width='19%' class='img-circle avatar'>

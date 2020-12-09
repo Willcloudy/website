@@ -27,7 +27,6 @@
             'head',
             'bold',
             'fontSize',
-            'fontName',
             'italic',
             'underline',
             'strikeThrough',

@@ -1,13 +1,11 @@
-<link rel="stylesheet" href="css/css.css">
-<script data-ad-client="ca-pub-2929558295093322" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <meta name="baidu-site-verification" content="code-QrKX38uGyq" />
 <div class="col-md-3" role="navigation" id='leftbar'>
     <a id='logo' href="home.php">
-        <img class='logo' width='300px' height='100%;' src="img/logo.png" alt="logo"/>
+        <img class='logo' width='300px' height='100%;' src="http://localhost:8080/website/img/logo.png" alt="logo"/>
     </a>
     <ul class="list-unstyled leftbar nav nav-pills nav-stacked">
         <li>
-            <a id='home' href="home.php">
+            <a id='home' href="http://localhost:8080/website/home.php">
                 <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-house" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
                     <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
@@ -18,21 +16,21 @@
             
         <li>
         
-            <a id='search' href="explore.php">
+            <a id='search' href="http://localhost:8080/website/explore">
                 <span class="glyphicon glyphicon-globe"></span> 
                 Explore/探索
             </a>
         </li>
 
         <li>
-            <a id='ranking' href="universities.php">
+            <a id='ranking' href="http://localhost:8080/website/universities.php">
                 <span class="glyphicon glyphicon-edit"></span> 
-                Universities/院校库
+                院校库
             </a>
         </li>
 
         <li>
-            <a id='group' href="topic.php" style='font-size:19px'>
+            <a id='group' href="http://localhost:8080/website/topic" style='font-size:19px'>
                 <span class="glyphicon glyphicon-user"></span> 
                 #Topic/话题
             </a>
@@ -47,8 +45,8 @@
         </li>
         
         <li id='profile' style='display:none;'>
-            <a id='profileA' href=<?php echo "'profile.php?u_id=$u_id'"?> class='popup'style='padding:2%'>
-                <img src="<?php echo $u_image?>" alt="avatar" width='60px' height='60px' class='img-circle' style='border:1px solid white'/> 
+            <a id='profileA' href=<?php echo "'http://localhost:8080/website/profile.php?u_id=$u_id'"?> class='popup'style='padding:2%'>
+                <img src="<?php echo "http://localhost:8080/website/".$u_image?>" alt="avatar" width='60px' height='60px' class='img-circle' style='border:1px solid white'/> 
                 <?php echo '&nbsp;&nbsp;&nbsp;'.$u_name; ?>
             </a>
         </li>
@@ -94,7 +92,12 @@
                             <button type="submit" 
                             class="btn1 btn btn-primary btn-block btn-lg" 
                             name="sign_in">登录</button>
-                            <?php include("include/login.php");?>
+                            <?php if($webpage == '1'){
+                                include("include/login.php");
+                            }else {
+                                include("../include/login.php");
+                            }
+                                ?>
                         </div>
                     </form>
                     <div class="text-center small" 
@@ -103,7 +106,7 @@
                     background: white;
                     padding:1px;margin-bottom:20px">
                     没有账号?
-                    <a href="signup.php">创建一个</a>
+                    <a href="http://localhost:8080/website/signup.php">创建一个</a>
                     </div>
                 </div>
             </div>
@@ -150,3 +153,4 @@
 
 
 </script>
+

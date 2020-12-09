@@ -1,6 +1,7 @@
 <?php
     session_start();
     include('include/connection.php');
+    $webpage = 1;
     if (isset($_SESSION['user_email'])) {
         $user = $_SESSION['user_email'];
         $get_user = "select * from users where user_email = '$user'";
@@ -40,7 +41,26 @@
     }else {
         header('location:home.php');
     }
-
+    function wordTime($time) {
+        $Stime = strtotime($time);
+        $int = time() - (int)$Stime;
+        $str = '';
+        if ($int <= 2){
+        $str = sprintf('刚刚', $int);
+        }elseif ($int < 60){
+        $str = sprintf('%d秒前', $int);
+        }elseif ($int < 3600){
+        $str = sprintf('%d分钟前', floor($int / 60));
+        }elseif ($int < 86400){
+        $str = sprintf('%d小时前', floor($int / 3600));
+        }elseif ($int < 2592000){
+        $str = sprintf('%d天前', floor($int / 86400));
+        }else{
+        $str = $time;
+        }
+        return $str;
+    }
+    $post_date = wordTime($post_date);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,15 +98,14 @@
                 </script>";
             }elseif ($login == 0) {
                 require('include/leftbar.php');
-                echo "<script>document.getElementById('login').click()</script>";
+                //echo "<script>document.getElementById('login').click()</script>";
             }
        ?>   
         <div class="col-md-6 midbar" style='padding:0;'>
             <div class="content">
             <?php
                 echo "
-                    <h3 style='font-weight:bold;margin-left:3%;padding:8px'>$title</h3>
-                    <hr>
+                    <h3 style='font-weight:bold;margin-left:1%;padding:8px'>$title</h3>
                     <a href='profile.php?u_id=$u_id'><img id='home-profile'src='$user_image' style='margin-left:4%'alt='profile' width='45px'class='img-circle'></a>
                     <a href='profile.php?u_id=$u_id' style='font-weight:bold;color:rgb(91, 112, 131);margin-left:1%;font-size:1.4em;margin-bottom:5px;'>$user_name</a>
                     <span style='font-size:0.8em;display:inline-block;color:rgb(91, 112, 131);margin-top:10px;'>$user_des</span>

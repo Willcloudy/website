@@ -1,6 +1,7 @@
 <?php
     session_start();
     include('include/connection.php');
+    $webpage = 1;
     if (isset($_SESSION['user_email'])) {
         $user = $_SESSION['user_email'];
         $get_user = "select * from users where user_email = '$user'";
@@ -18,7 +19,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script data-ad-client="ca-pub-2929558295093322" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <meta name="description" content="WillCloudy是一个可以帮助想要出国留学的学生快速获取心仪学校的环境和入学条件及各种信息的网站，并且有很多毕业大学生来分享他们个人的亲身经历，这是一个面向留学生的社交性质的交流平台。" />
     <meta name="keywords" content="加拿大留学,英国留学,欧洲留学,留学经验分享,IDY留学,留学申请,留学流程,留学费用,出国留学,留学论坛,留学网站,留学考试,GRE,TOEFL,IBT,GMAT,IELTS,SAT,VISA,文书,签证" />
     <meta charset="utf-8"/>
@@ -92,6 +92,15 @@
         #article-title:focus{
             outline:none;
         }
+        @media(max-width:992px)
+        {
+            #home-profile{
+                width:43px;
+                left: 5px;
+                top: 7px;
+            }
+
+        }
     </style>
 </head>
 <body>
@@ -134,3 +143,4 @@
         this.style.backgroundColor = "white";
     }
 </script>
+

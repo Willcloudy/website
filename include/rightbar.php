@@ -26,7 +26,7 @@
                             <li>
                                 <div>
                                     <div >
-                                        <a href='country.php?selectednation=UK'><img src='img/enland.jpg' alt='' class='img-responsive'/></a>
+                                        <a href='country.php?selectednation=UK'><img src='http://localhost:8080/website/img/enland.jpg' alt='' class='img-responsive'/></a>
                                     </div>
                                         <a href="country.php?selectednation=UK" ><h4 style='text-align:center;margin:0px'>英国</h4></a>
                                     </div>
@@ -34,7 +34,7 @@
                             <li>
                                 <div>
                                     <div>
-                                        <a href='country.php?selectednation=CAN'><img src='img/caland.jpg' alt='' class='img-responsive'/></a>
+                                        <a href='country.php?selectednation=CAN'><img src='http://localhost:8080/website/img/caland.jpg' alt='' class='img-responsive'/></a>
                                     </div>
                                         <a href="country.php?selectednation=CAN"><h4 style='text-align:center;margin:0px'>加拿大</h4></a>
                                 </div>
@@ -56,7 +56,7 @@
                             <li>
                                 <div>
                                     <div >
-                                        <a href='country.php?selectednation=UK'><img src='img/enland.jpg' alt='' class='img-responsive'/></a>
+                                        <a href='country.php?selectednation=UK'><img src='http://localhost:8080/website/img/enland.jpg' alt='' class='img-responsive'/></a>
                                     </div>
                                         <a href="country.php?selectednation=UK" ><h4 style='text-align:center;margin:0px'>#英国</h4></a>
                                     </div>
@@ -64,7 +64,7 @@
                             <li>
                                 <div>
                                     <div>
-                                        <a href='country.php?selectednation=CAN'><img src='img/caland.jpg' alt='' class='img-responsive'/></a>
+                                        <a href='country.php?selectednation=CAN'><img src='http://localhost:8080/website/img/caland.jpg' alt='' class='img-responsive'/></a>
                                     </div>
                                         <a href="country.php?selectednation=CAN"><h4 style='text-align:center;margin:0px'>#加拿大</h4></a>
                                 </div>

@@ -1,6 +1,7 @@
 <?php
     session_start();
-    include('include/connection.php');
+    include('../include/connection.php');
+    $webpage = 2;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +13,7 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>话题 - willcloudy</title>
-    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="../css/css.css">
 </head>
 <body>
     <div class="container">
@@ -25,7 +26,7 @@
                     $u_name = $row['user_name'];
                     $u_image = $row['user_image'];
                     $u_id = $row['user_id'];
-                    require('include/leftbar.php');
+                    require('../include/leftbar.php');
                     echo "
                         <script>
                             var profile = document.getElementById('profile');
@@ -33,7 +34,7 @@
                             document.getElementById('sign').style.display='none' 
                         </script>";
                 }else {
-                    require('include/leftbar.php');
+                    require('../include/leftbar.php');
                 }
             ?>
             <div class="col-md-6 midbar">
@@ -42,7 +43,7 @@
                 </div>  
             </div>
             <?php
-                require('include/rightbar.php');
+                require('../include/rightbar.php');
             ?>
     </div>
 </body>
