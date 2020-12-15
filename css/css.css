@@ -29,6 +29,7 @@
     }
     .container .midbar{
         margin-top:5px;
+        padding:0;
     }
 }
 
@@ -345,5 +346,105 @@ body{
 }
 
 .close{
-    margin-right:30px;
+    margin-right:15px;
+}
+.question-form{
+    margin:20px;
+}
+
+#post_img img{
+    height:90px;
+    border-radius:10px;
+    margin-right:20px;
+}
+.col-md-12 a{
+    color:#121212;
+}
+.col-md-12 a:hover{
+    text-decoration: none;
+    color:#068ab6;
+}
+.col-md-12 #content:hover{
+    text-decoration: none;
+    color:#646464;
+}
+.like button{
+    margin-left:10px;
+    padding:0;
+    background-color:transparent;
+    border:none;
+}
+.like button:hover{
+    color:#068ab6;
+}
+.like span button:focus{
+    outline:0;
+}
+#content{
+    font-size:1em;
+}
+#myTab{
+    padding:0;
+    text-align:center;
+}
+#myTab li{
+}
+#myTab li a{
+}
+@media(max-width:992px)
+{
+    #post-img img{
+        display:none;
+    }
+    #content{
+        font-size:0.9em;
+    }
+    #myTab li a{
+        font-size:0.6em;
+    }
+}
+
+.article-function{
+    list-style-type: none;
+}
+.article-function li{
+    float:left;
+    margin-left:5px;
+    width:25%;
+    color:#999;
+}
+.article-function li button{
+    background-color: transparent;
+    border: none;
+}
+.article-function li button a{
+    background-color: transparent;
+    border: none;
+    color:#999;
+}
+.article-function li button:focus{
+    outline:none;
+}
+.article-function li:hover,.article-function li button a:hover{
+    color:#0a58ca;
+    text-decoration: none;
+}
+
+.article-function li button a:after{
+    color:#0a58ca;
+    text-decoration: none;
+}
+.pagination a{
+    color:black;
+    float:left;
+    padding:8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border-radius:20px;
+}
+.page_input:focus{
+    outline:none;
+}
+.pagination a:hover:not(.active){
+    background-color: #ccc;
 }

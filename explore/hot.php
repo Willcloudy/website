@@ -105,14 +105,15 @@
                             <li class="active"><a href="#rb" data-toggle="tab">#热榜</a></li>
                             <li><a href="lastest.php">#最新</a></li>
                             <li><a href="oversealife.php">#海外生活</a></li>
-                            <li><a href="apply.php">#留学申请</a></li>
+                            <li><a href="question.php">#留学问答</a></li>
                         </ul>
                         <div id="myTabContent" class="tab-content">
                             <div class="tab-pane fade in active" id="rb">
-                                
+                                <?php
+                                    include('../include/get_post.php');
+                                    get_hot_posts();
+                                ?>
                             </div>
-
-                            
                         </div>
                     </div>
                 </div>  
