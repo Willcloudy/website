@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <title>大学专业 - WillCloudy</title>
+    <title>大学专业 - willcloudy</title>
     <link rel="stylesheet" href="css/css.css">
     <style>
         ul{
@@ -38,6 +38,8 @@
                         </script>";
                 }else {
                     require('include/leftbar.php');
+                                        echo "<script>document.getElementById('sign').style.display='block' </script>";
+
                 }
             ?>
             <div class="col-md-6 midbar">

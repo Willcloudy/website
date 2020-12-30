@@ -25,7 +25,7 @@
     //图片保存的路径
     $savepath = 'img/articleimg/'.$savename;
     //生成一个URL获取图片的地址
-    $url = "http://localhost:8080/website/" . $savepath;
+    $url = "/$savepath";
     //返回数据。wangeditor3 需要用到的数据 json格式的
     $data["errno"] = 0;
     $data["data"] = $savepath;

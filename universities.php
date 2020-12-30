@@ -6,13 +6,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="keywords" content="美国大学,澳洲大学,加拿大大学,英国大学" />
+<meta name="keywords" content="海外大学,美国大学,澳洲大学,加拿大大学,英国大学,积云,willcloudy" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <title>院校库-美国大学-澳洲大学-加拿大大学-英国大学 - willcloudy</title>
+    <title>院校库 - willcloudy - 美国大学 - 澳洲大学 - 加拿大大学 - 英国大学</title>
     <link rel="stylesheet" href="css/css.css">
 </head>
 <style>
@@ -26,7 +26,7 @@
         color:rgb(91, 112, 131);
     }
     .selectednation:focus{
-        border:1px solid #00BFFF;
+        border:1px solid #198754;
         background-color:white;
         box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
         outline:none;
@@ -48,7 +48,7 @@
             display:none;
         }
         .uni-mini-word-info{
-            margin-left:0;
+            margin-left:15px;
         }
         ul{
             padding-left:10px !important;
@@ -64,8 +64,10 @@
                 if (isset($_SESSION['user_email'])) {
                     $user = $_SESSION['user_email'];
                     $get_user = "select * from users where user_email = '$user'";
+                    mysqli_query($con, "set names 'utf8'");
                     $run_user = mysqli_query($con, $get_user);
                     $row = mysqli_fetch_array($run_user);
+                    mysqli_query($con, "set names 'utf8'");
                     $u_name = $row['user_name'];
                     $u_image = $row['user_image'];
                     $u_id = $row['user_id'];
@@ -78,6 +80,8 @@
                         </script>";
                 }else {
                     require('include/leftbar.php');
+                    echo "<script>document.getElementById('sign').style.display='block' </script>";
+
                 }
             ?>
             <div class="col-md-6 midbar" >
@@ -88,7 +92,7 @@
                             <input class='form-control search' autoComplete='off'type="text" name='searchcontent' placeholder='搜索你心仪大学(中英文名字都可)' style='width:60%;padding:2%;border-radius:15px 0px 0px 15px;'/>
                             <button class='uni-search-btn' 
                                 style='position:absolute;top:20px;height:34px;
-                                border:2px solid #00BFFF;background-color:white;font-weight:bold;color:#00BFFF;border-radius:0 15px 15px 0;font-size:1em'>
+                                border:2px solid #198754;background-color:white;font-weight:bold;color:#198754;border-radius:0 15px 15px 0;font-size:1em'>
                                 <span class="glyphicon glyphicon-search" ></span>搜索
                             </button>
                         </span>
@@ -97,16 +101,35 @@
                     <form action="country.php" method="GET">
                         <span>
                             <label for="searchcontent" style='display:inline;margin-top:5%;'>地理位置 : </label>
-                            <select class='selectednation' name="selectednation" required='required' style='width:40%' id="selectednation">
-                                <option disable>请选择一个国家</option>
-                                <option value="UK">英国</option>
-                                <option value="AUS">澳大利亚</option>
-                                <option value="CAN">加拿大</option>
+                            <select class='selectednation' name="selectednation" required='required' style='width:40%' id="selectednation" onchange="window.location=this.value">
+                                <option disable>更换国家</option>
+                                <option value="country.php?selectednation=UK">英国</option>
+                                <option value="country.php?selectednation=CAN">澳大利亚</option>
+                                <option value="country.php?selectednation=AUS">加拿大</option>
                             </select>
-                            <button class='uni-search-btn' style='height:34px;font-weight:bold;border-radius:15px;border:2px solid #00BFFF;background-color:white;color:#00BFFF;font-size:1.1em'><span class="glyphicon glyphicon-search"></span>搜索</button>
                         </span>
                         <div style="clear:both;"></div>
                     </form>
+                    <br>
+                    <label for="searchcontent" style='display:inline;margin-top:5%;'>排名顺序 : </label>
+                    <select class='selectednation' name="selectednation" required='required' style='width:22%;padding:8px;' id="selectednation" onchange="window.location=this.value">
+                        <?php
+                            if (@$_GET['rank'] == 'qs') {
+                        ?>
+                        <option value="universities.php?rank=qs">QS大学排名</option>
+                        <option value="universities.php?rank=all">全部</option>
+                        <?php
+                            }elseif (@$_GET['rank'] == 'all' or empty(@$_GET['rank'])) {
+                                # code...
+                            
+                        ?>
+                        <option value="universities.php?rank=all">全部</option>
+                        <option value="universities.php?rank=qs">QS大学排名</option>
+                        <?php
+                            }
+                        ?>
+
+                    </select>
                     <?php
                     include('include/get_post.php');
                     get_university();
@@ -214,7 +237,7 @@
 <script>
     var ele = document.getElementById("ranking");
     ele.href="javascript:void(0);";
-    ele.style.color ="#00BFFF";
+    ele.style.color ="#198754";
     ele.onmouseover =  function () {
     this.style.backgroundColor = "white";
     }

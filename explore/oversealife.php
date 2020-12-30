@@ -12,21 +12,9 @@
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <title>热榜 - willcloudy</title>
+    <title>海外生活 - willcloudy</title>
     <link rel="stylesheet" href="../css/css.css">
     <style>
-        #post_img img{
-            height:100px;
-            border-radius:10px;
-            margin-right:20px;
-        }
-        .col-md-12 a{
-            color:#121212;
-        }
-        .col-md-12 a:hover{
-            text-decoration: none;
-            color:#068ab6;
-        }
         .col-md-12 #content:hover{
             text-decoration: none;
             color:#646464;
@@ -74,6 +62,7 @@
                 if (isset($_SESSION['user_email'])) {
                     $user = $_SESSION['user_email'];
                     $get_user = "select * from users where user_email = '$user'";
+                    mysqli_query($con, "set names 'utf8'");
                     $run_user = mysqli_query($con, $get_user);
                     $row = mysqli_fetch_array($run_user);
                     $u_name = $row['user_name'];
@@ -88,11 +77,12 @@
                         </script>";
                 }else {
                     require('../include/leftbar.php');
+                    echo "<script>document.getElementById('sign').style.display='block' </script>";
                 }
             ?>
             <div class="col-md-6 midbar" style='padding:0'id='mid'>
                 <div class="box">
-                    <form action="result.php" method="POST">
+                    <form action="../result.php" method="POST">
                         <span>
                             <input style='margin:2% 3%;width:90%;margin-bottom: 0px;'class='form-control search' type="text" name='searchcontent' autocomplete="off" placeholder="关于留学的问题？" required='required'>
                         </span>
@@ -128,7 +118,7 @@
     var ele = document.getElementById("search");
     ele.href="javascript:void(0);";
     //ele.style.backgroundColor = "rgb(181,212,213)";
-    ele.style.color ="#00BFFF";
+    ele.style.color ="#198754";
     ele.onmouseover =  function () {
     this.style.backgroundColor = "white";
     }
@@ -136,6 +126,36 @@
     var rightbar = document.getElementById('topic');
     rightbar.style.display='block';
     document.getElementById('other').style.display='none'
-    document.getElementById('topic').style.marginTop= "60px"
+    document.getElementById('topic').style.marginTop= "70px"
     document.getElementById('search-small').style.display='none'
+
+    $(document).ready(function(){ 
+        $('.like_post').click(function(){ 
+            var clickBtnValue = $(this).attr("name"); 
+            console.log(clickBtnValue);
+            $.ajax({
+                type:"GET",
+                url: "../include/like.php", 
+                dataType:"JSON",
+                contentType:"application/json",
+                data:{id:clickBtnValue,}, 
+                success: function(status){
+                    $(this).style.color = '#198754';
+                    $(this).style.backgroundColor = 'white';
+                },
+                error:function(XMLHttpRequest, textStatus, errorThrown){
+                    // 状态码
+                    console.log(XMLHttpRequest.status);
+                    // 状态
+                    console.log(XMLHttpRequest.readyState);
+                    // 错误信息
+                    console.log(textStatus);
+                    alert("点赞失败");
+
+
+                }
+            }); 
+        }); 
+
+    }); 
 </script>

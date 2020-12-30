@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <title>关于我们 - WillCloudy</title>
+    <title>关于我们 - willcloudy</title>
     <link rel="stylesheet" href="css/css.css">
     <style>
     .willcloudy{
@@ -16,7 +16,7 @@
         margin-bottom:20px;
     }
     .willcloudy:hover{
-        border:1px solid  #00BFFF;
+        border:1px solid  #198754;
         box-shadow: 0px 2px 20px rgb(181,212,213);
         }
     </style>
@@ -58,5 +58,5 @@
 <script>
     var ele = document.getElementById("about");
     ele.href="javascript:volid(0);";
-    ele.style.color ="#00BFFF";
+    ele.style.color ="#198754";
 </script>

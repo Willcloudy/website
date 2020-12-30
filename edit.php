@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <title>编辑个人资料&nbsp;|&nbsp;Willcloudy</title>
+    <title>编辑个人资料&nbsp;|&nbsp;willcloudy</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
@@ -17,6 +17,7 @@
         if (isset($_SESSION['user_email'])) {
             $user = $_SESSION['user_email'];
             $get_user = "select * from users where user_email = '$user'";
+            mysqli_query($con, "set names 'utf8'");
             $run_user = mysqli_query($con, $get_user);
             $row = mysqli_fetch_array($run_user);
             $user_id = $row['user_id'];
@@ -28,7 +29,7 @@
             $user_gender = $row['user_gender'];
             
         }else {
-        header('location:home.php?from=login');
+            header('location:home.php?from=login');
         }
 
     ?>
@@ -81,13 +82,13 @@
     }
     .info input:focus, .des input:focus,.des select:focus{
         outline:none;
-        border-bottom:2px solid #00BFFF;
+        border-bottom:1px solid #198754;
         transition:0.5s;
     }
     .submit_btn{
         font-weight:bold;
-        color: #00BFFF;
-        border:1px solid #00BFFF;
+        color: #198754;
+        border:1px solid #198754;
         border-radius: 2px;
         background:white;
         font-size:1.5em;
@@ -99,7 +100,7 @@
         outline:none;
     }
     .submit_btn:hover{
-        background:#00BFFF;
+        background:#198754;
         color:white;
         border:1px solid white;
         border-radius: 2px;
@@ -126,7 +127,7 @@
     #cover_camera{
         display:none;
         position:absolute;
-        width: 23%;
+        width: 20%;
         position: absolute;
         left: 35%;
         top: -7%;
@@ -153,17 +154,19 @@
     <div class="col-md-4 midbar" style='padding:0;margin-left:33%;margin-top:1%;margin-bottom:3%'>
         <div class="box" style='margin-top:0;position:relative'>
             <div class="cover_area">   
-                <form action="" method='POST' enctype='multipart/form-data'>
-                    <label for="upload_cover" width='100%' >
-                        <div id="uploaded_cover" style='width:505px'>
-                        <img src="<?php echo $user_cover;?>" alt="cover" width='100%' height='100px'style='margin:0;padding:0;border-radius:10px 10px 0px 0px'>
+                <form action="" method='POST' enctype='multipart/form-data' style='width: 506px;'>
+                    <label for="upload_cover" style="width:100%">
+                        <div id="uploaded_cover">
                             <svg id='cover_camera' viewBox="0 0 16 16" class="bi bi-camera" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M15 12V6a1 1 0 0 0-1-1h-1.172a3 3 0 0 1-2.12-.879l-.83-.828A1 1 0 0 0 9.173 3H6.828a1 1 0 0 0-.707.293l-.828.828A3 3 0 0 1 3.172 5H2a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z"/>
                                 <path fill-rule="evenodd" d="M8 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
                                 <path d="M3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
                             </svg>
+                            <img src="<?php echo $user_cover;?>" alt="cover"style='width: 100%;margin:0;padding:0;border-radius:10px 10px 0px 0px'>
+
                         </div>
                     </label>
+
                     <input type="file" name='u_cover' class='form-control' id='upload_cover' accept="image/*" style='display:none'>
                 </form>
             </div> 
@@ -193,12 +196,12 @@
                 <form action="" method='POST' enctype='multipart/form-data'>
                     <label for="upload_image" >
                         <div id="uploaded_image">
-                            <img src="<?php echo $user_image;?>" alt="avatar" width='16%' class='img-circle avatar'>
                             <svg id='img_camera' viewBox="0 0 16 16" class="bi bi-camera" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M15 12V6a1 1 0 0 0-1-1h-1.172a3 3 0 0 1-2.12-.879l-.83-.828A1 1 0 0 0 9.173 3H6.828a1 1 0 0 0-.707.293l-.828.828A3 3 0 0 1 3.172 5H2a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z"/>
                                 <path fill-rule="evenodd" d="M8 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
                                 <path d="M3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
                             </svg>
+                            <img src="<?php echo $user_image;?>" alt="avatar" width='16%' class='img-circle avatar'>
                         </div>
                     </label>
                     <input type="file" name='u_image' class='form-control' id='upload_image' accept="image/*" style='display:none'>
@@ -227,7 +230,7 @@
                 </div>
             </div>
             <form action="" method='POST'>
-                <p class='info'>昵称:<input required name='edited_name'type="text" value='<?php echo $user_name;?>'></p>
+                <p class='info'>昵称:<input required name='edited_name'type="text" maxlength='15' value='<?php echo $user_name;?>'></p>
                 <br>
                 <p class="des">个人简介<small style='color:grey'>(15个字)</small>:<input required name='edited_des' type="text" value='<?php echo $user_des;?>' maxlength=15></p>
                 <br>
@@ -259,6 +262,15 @@
                             <option selected='selected' value='2'>保密</option>
                         </select>
                     </p>";
+                }else {
+                    echo "
+                    <p class='des' >性别:
+                        <select id='selector' name='edited_gender'>
+                            <option value='1'>男</option>
+                            <option value='0'>女</option>
+                            <option value='2'>保密</option>
+                        </select>
+                    </p>";
                 }
                 
                 ?>
@@ -281,7 +293,8 @@
                         echo "<script>alert('修改成功')</script>";
                         echo "<script>window.open('profile.php?u_id=$user_id','_self')</script>";
                     }else {
-                        echo "<script>alert('修改失败')</script>";
+                        echo mysqli_error($con);
+                        //echo "<script>alert('修改失败')</script>";
                     }
                 }
             ?>

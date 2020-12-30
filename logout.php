@@ -17,12 +17,12 @@ session_destroy();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>登出 - WillCloudy</title>
+    <title>登出 - willcloudy</title>
 </head>
 <body>
     已经成功登出,2秒后进行重定向,如果浏览器没有反应请点击这里返回 <a href="home.php">主页</a> 
 </body>
 </html>
 <script>
-setTimeout("self.location = '/website/home.php'", 2000);
+setTimeout("self.location = 'home.php'", 2000);
 </script>

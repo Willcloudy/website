@@ -26,11 +26,13 @@
         $profile_pic = "img/user.svg";
         $cover = 'img/cover.jpg';
         
+        mysqli_query($con, "set names 'utf8'");
         $insert = "INSERT INTO users (user_name, 
         user_des, user_password, user_email, user_image, user_cover, regtime, posts, token, token_exptime, `status`) values 
         ('$user_name', '这个人很懒什么都没有留下', 
         '$pass', '$email', '$profile_pic', '$cover', '$regtime', '$posts','$token','$token_exptime','0')";
-
+        
+        mysqli_query($con, "set names 'utf8'");
         $query = mysqli_query($con, $insert);
         if ($query) {
             require 'PHPMailer-master/src/Exception.php';
@@ -92,7 +94,8 @@
             }
         }
         else {
-            echo "<script>alert('注册失败,')</script>" . mysqli_error($con);
+            //echo mysqli_error($con);
+            echo "<script>alert('注册失败')</script>" . mysqli_error($con);
             echo "<script>window.open('signup.php', '_self')</script>";
         }
     }

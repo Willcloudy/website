@@ -6,10 +6,11 @@
     }else {
         $uni_name_zh = $_GET['uni_name_zh']; 
     }
+    $webpage = 1;
     $search_query = "SELECT * FROM `university` where zh = '$uni_name_zh' ";
+    mysqli_query($con, "set names 'utf8'");
     $run_search = mysqli_query($con, $search_query);
     $row = mysqli_fetch_array($run_search);
-
     $uni_name_en = $row['uni_name_en'];
     $uni_name_zh = $row['zh'];
     $uni_country = $row['uni_country'];
@@ -27,7 +28,7 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <title><?php echo $uni_name_zh.' - WillCloudy'?> </title>
+    <title><?php echo $uni_name_zh.' - willcloudy'?> </title>
     <link rel="stylesheet" href="css/css.css">
 <style>
     .info{
@@ -47,7 +48,7 @@
     .schoolmate::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
         border-radius: 5px;
         -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
-        background: #00BFFF;
+        background: #198754;
         }
     .schoolmate::-webkit-scrollbar-track {/*滚动条里面轨道*/
         -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
@@ -60,7 +61,7 @@
         width:250px;
         background-color:white;
         box-shadow: 0px 2px 5px rgb(181,212,213);
-        border:1px solid #00BFFF;
+        border:1px solid #198754;
         border-radius: 15px;
     }
     .uni_img img{
@@ -95,7 +96,9 @@
                             document.getElementById('sign').style.display='none' 
                         </script>";
                 }else {
-                    require('include/leftbar.php');
+                    require('include/leftbar.php');                    
+                    echo "<script>document.getElementById('sign').style.display='block' </script>";
+
                 }
             ?>
         <div class="col-md-6 midbar" style='padding:0px'>
@@ -111,24 +114,24 @@
                     <div class="uni_img"><img src='<?php echo $uni_icon;?>'></div>
                     <div class='list-group' >
                         <div style='float:left;margin-left:40px;margin-top:20px'>
-                            <p class='info' style='font-weight:bold;margin-bottom:20px;border-left:5px solid #00BFFF'>&nbsp;国家: <?php echo $uni_country?></p>
-                            <span class='info'style='font-weight:bold;margin-bottom:20px;border-left:5px solid #00BFFF'>&nbsp;城市: <?php echo $uni_location?><span>
+                            <p class='info' style='font-weight:bold;margin-bottom:20px;border-left:5px solid #198754'>&nbsp;国家: <?php echo $uni_country?></p>
+                            <span class='info'style='font-weight:bold;margin-bottom:20px;border-left:5px solid #198754'>&nbsp;城市: <?php echo $uni_location?><span>
                             <br>
                             <br>
                         </div>
                         <div style='float:right;margin-right:120px;margin-top:20px'>
-                            <p class='info'style='font-weight:bold;margin-bottom:20px;border-left:5px solid #00BFFF' >&nbsp;QS大学排名: <?php echo $qs_rank?></p>
-                            <!-- <span class='info' style='font-weight:bold;margin-bottom:20px;border-left:5px solid #00BFFF'>&nbsp;搜索次数: <?php echo $search_rank?></span> -->
+                            <p class='info'style='font-weight:bold;margin-bottom:20px;border-left:5px solid #198754' >&nbsp;QS大学排名: <?php echo $qs_rank?></p>
+                            <!-- <span class='info' style='font-weight:bold;margin-bottom:20px;border-left:5px solid #198754'>&nbsp;搜索次数:-->
                         </div>
                         
                         <div style='clear:both'></div>
                         <hr>
                     </div>
                     <div class="col-md-12">
-                        <h4 style='font-weight:bold;margin-left:1em;margin-bottom:20px;border-left:5px solid #00BFFF'>&nbsp;学校简介</h4>
+                        <h4 style='font-weight:bold;margin-left:1em;margin-bottom:20px;border-left:5px solid #198754'>&nbsp;学校简介</h4>
                         <p style='width:80%;margin:0 auto;font-weight:bold'><?php echo $uni_description;?></p>
                         <hr>
-                        <h4 style='font-weight:bold;margin-left:1em;margin-bottom:20px;border-left:5px solid #00BFFF'>&nbsp;校友/Schoolmate</h4>
+                        <h4 style='font-weight:bold;margin-left:1em;margin-bottom:20px;border-left:5px solid #198754'>&nbsp;校友/Schoolmate</h4>
                         <div class='schoolmate'>
                         <?php
                             for ($i=0; $i < 5; $i++) { 
@@ -189,16 +192,16 @@
         </form>
         <div class='rightbar'>  
         <div class='ulist'>
-        <h4 style='font-weight:bold;font-size:1em;text-align:center;margin-top:20px;'>同样想去".$uni_name_zh."的同学</h4>
+        <h4 style='font-weight:bold;font-size:1em;text-align:center;padding-top:10px;'>同样想去".$uni_name_zh."的同学</h4>
         <div class='row'>
     
             <div class='col-md-11' style='border:0px;box-shadow:none;'>
                 <ul style='list-style:none;padding-left:20px;padding-top:2px'>";
-            $who_follow_query = "SELECT * FROM users where uni_interest ='$uni_name_zh'";
+            $who_follow_query = "SELECT * FROM shoucang where uni_name_zh ='$uni_name_zh'";
             $run_who_follow = mysqli_query($con, $who_follow_query);
+            echo mysqli_error($con);
             if (isset($run_who_follow)){
                 while($row = mysqli_fetch_array($run_who_follow)) {
-                    $uni_interest = $row['uni_interest'];
                     $u_id = $row['user_id'];
                     $user_image = $row['user_image'];
                     $user_name = $row['user_name'];
@@ -210,7 +213,7 @@
                     <li>
                         <div class='uni-mini-info' style='border-radius:15px;margin:0;margin-top:5px;padding:6px'>
                             <a href='profile.php?u_id=$u_id'><img src='$user_image' alt='user_profile' width='50px' height='50px' style='margin-left:10px' class='img-circle'></a>
-                            <span><a href='profile.php?u_id=$u_id'><b style='color:#00BFFF;font-size:1.5em;'>$user_name</b></a>
+                            <span><a href='profile.php?u_id=$u_id'><b style='color:#198754;font-size:1.5em;'>$user_name</b></a>
                             <button class='btn btn-primary'style='font-size:5px;'>关注</button>
                             <div style='clear:both'></div>
                         </div>

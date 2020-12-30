@@ -28,11 +28,11 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <title><?php echo $cn_country?> - 积云</title>
+    <title><?php echo $cn_country?> - willcloudy</title>
     <link rel="stylesheet" href="css/css.css">
     <style>
         .selectednation{
-            border:1px solid  #00BFFF;
+            border:1px solid  #198754;
             color:rgb(91, 112, 131);
             border-radius:10px;
             padding:3px;
@@ -42,7 +42,19 @@
         }
         @media(max-width:992px){
             form{
-                margin-right:165px !important;
+                margin-right:105px !important;
+            }
+            #uni-img img{
+                display:none;
+            }
+            .uni-mini-word-info{
+                margin-left:15px;
+            }
+            ul{
+                padding-left:10px !important;
+            }
+            #uni_name{
+                margin-left:10px !important;
             }
         }
     </style>
@@ -53,6 +65,8 @@
                 if (isset($_SESSION['user_email'])) {
                     $user = $_SESSION['user_email'];
                     $get_user = "select * from users where user_email = '$user'";
+                    mysqli_query($con, "set names 'utf8'");
+
                     $run_user = mysqli_query($con, $get_user);
                     $row = mysqli_fetch_array($run_user);
                     $u_name = $row['user_name'];
@@ -67,18 +81,20 @@
                         </script>";
                 }else {
                     require('include/leftbar.php');
+                    echo "<script>document.getElementById('sign').style.display='block' </script>";
+
                 }
             ?>
             <div class="col-md-6 midbar">
                 <div class="box">
-                    <h3 style='font-weight:bold;float:left'><?php echo $cn_country."大学";?></h3>
+                    <h3 style='font-weight:bold;float:left;margin-left:10px;'><?php echo $cn_country."大学";?></h3>
                     <form style='float:right;margin-top:24px;margin-right:260px;'action="country.php" method="GET">
                         <span>
-                            <select class='selectednation' name="selectednation" required='required' id="selectednation">
+                            <select class='selectednation' name="selectednation" required='required' onchange="window.location=this.value" id="selectednation">
                                 <option disable>更换国家</option>
-                                <option value="UK">英国</option>
-                                <option value="AUS">澳大利亚</option>
-                                <option value="CAN">加拿大</option>
+                                <option value="country.php?selectednation=UK">英国</option>
+                                <option value="country.php?selectednation=CAN">加拿大</option>
+                                <option value="country.php?selectednation=AUS">澳大利亚</option>
                             </select>
                         </span>
                         <div style="clear:both;"></div>
@@ -104,4 +120,6 @@
 
     document.getElementById('search-small').style.display='block'
 
+    document.getElementById('other').style.display='none'
+    document.getElementById('topic').style.display='block'
 </script>
