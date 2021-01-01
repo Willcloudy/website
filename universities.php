@@ -1,7 +1,6 @@
 <?php 
     session_start();
     include('include/connection.php');
-    $webpage = 1;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +13,12 @@
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>院校库 - willcloudy - 美国大学 - 澳洲大学 - 加拿大大学 - 英国大学</title>
     <link rel="stylesheet" href="css/css.css">
+    <link rel="icon" type="image/x-ico" href="img/logo.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
 </head>
 <style>
     .selectednation{
@@ -117,13 +122,11 @@
                             if (@$_GET['rank'] == 'qs') {
                         ?>
                         <option value="universities.php?rank=qs">QS大学排名</option>
-                        <option value="universities.php?rank=all">全部</option>
+                        <option value="universities.php">全部</option>
                         <?php
                             }elseif (@$_GET['rank'] == 'all' or empty(@$_GET['rank'])) {
-                                # code...
-                            
                         ?>
-                        <option value="universities.php?rank=all">全部</option>
+                        <option value="universities.php">全部</option>
                         <option value="universities.php?rank=qs">QS大学排名</option>
                         <?php
                             }
@@ -133,6 +136,7 @@
                     <?php
                     include('include/get_post.php');
                     get_university();
+                    
                         // if (!empty($_GET['searchcontent'])) {
                         //     $input = $_GET['searchcontent'];
                         //     echo '<hr><h4 style="font-weight:bold;text-align:center"><small>搜索</small> "'.$input.'" <small>的结果</small></h4>';

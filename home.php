@@ -1,7 +1,6 @@
 <?php
     session_start();
-    include('include/connection.php');
-    $webpage = 1;
+    require('include/connection.php');
     if (isset($_SESSION['user_email'])) {
         $user = $_SESSION['user_email'];
         $get_user = "select * from users where user_email = '$user'";
@@ -15,6 +14,8 @@
     }else {
         $login=0;
     }
+    //查找有没有缓存文件的存在
+    
 ?>
 <!DOCTYPE html>
 <html>
@@ -40,11 +41,8 @@
            echo "主页 - willcloudy";} 
         ?>
     </title>
-    <link rel="stylesheet" href="css/css.css">
-    <style>
-        
-        
-    </style>
+    <link rel="stylesheet" href="css/css.css">  
+    <script src="ajax/function.js"></script>
 </head>
 <body>
     <div class="container">
@@ -68,10 +66,221 @@
        ?>   
         <div class="col-md-6 midbar" style='padding:0;'>
             <?php require('include/publish.php');?>
-            <hr style='padding: 5px;
-                background-color: rgb(235, 238, 240);margin: 0;'>
-            <div class="content" id='home_page_content'>
-           
+            <div>
+                <ul id="myTab" class="nav nav-tabs ">
+                    <li class="active"><a href="#rb" data-toggle="tab">
+                        <svg style='float:left;'t="1609467607415" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3630" data-spm-anchor-id="a313x.7781069.0.i2" width="20"><path d="M663.89 152.256s-63.456 64.454-111.92 15.988S531.956 8.36 531.956 8.36s-347.72 191.864-347.72 551.606v3.998c0 181.028 146.738 327.766 327.766 327.766 181.026 0 327.766-146.738 327.766-327.766v-3.998c-0.002-231.836-175.878-407.71-175.878-407.71z" fill="#FC6E51" p-id="3631"></path><path d="M663.89 152.256s-7.12 7.152-18.284 14.88c41.298 46.888 162.18 200.56 162.18 392.828v3.998c0 175.626-138.228 318.568-311.776 326.956 5.34 0.264 10.586 0.81 15.988 0.81 181.026 0 327.766-146.738 327.766-327.766v-3.998c0.002-231.834-175.874-407.708-175.874-407.708z" opacity=".2" p-id="3632"></path><path d="M216.21 563.962v-3.998c0-287.668 222.202-467.852 311.292-528.56 2.17-13.926 4.452-23.046 4.452-23.046s-347.72 191.864-347.72 551.606v3.998c0 181.028 146.738 327.766 327.766 327.766 5.402 0 10.648-0.546 15.988-0.81-173.548-8.386-311.778-151.33-311.778-326.956z" fill="#FFFFFF" opacity=".3" p-id="3633"></path><path d="M647.872 951.686l-31.978 31.978H408.042l-31.978-31.978v-111.92h271.808z" fill="#AAB2BD" p-id="3634"></path><path d="M408.042 839.766h-31.978v111.92l31.978 31.978h31.978l-31.978-31.978z" fill="#FFFFFF" opacity=".4" p-id="3635"></path><path d="M615.894 839.766h31.978v111.92l-31.978 31.978h-31.978l31.978-31.978z" opacity=".3" p-id="3636"></path><path d="M775.78 559.964c0-145.708-118.118-263.81-263.81-263.81s-263.812 118.104-263.812 263.81c0 95.916 51.354 179.624 127.908 225.792v54.008h271.806v-54.008c76.554-46.168 127.908-129.876 127.908-225.792z" fill="#FFCE54" p-id="3637"></path><path d="M511.968 296.154c5.402 0 10.696 0.438 16.004 0.812-138.214 8.306-247.838 122.694-247.838 263 0 142.32 95.93 225.792 95.93 225.792-76.554-46.17-127.908-129.876-127.908-225.792 0-145.708 118.12-263.812 263.812-263.812z" fill="#FFFFFF" opacity=".5" p-id="3638"></path><path d="M511.984 296.154c-5.402 0-10.696 0.438-16.004 0.812 138.212 8.306 247.838 122.694 247.838 263 0 142.32-95.932 225.792-95.932 225.792 76.554-46.17 127.908-129.876 127.908-225.792 0-145.708-118.116-263.812-263.81-263.812z" opacity=".2" p-id="3639"></path><path d="M440.02 983.664s15.988 31.976 71.95 31.976c55.958 0 71.948-31.976 71.948-31.976H440.02z" fill="#656D78" p-id="3640"></path><path d="M471.996 983.664H440.02s15.988 31.976 71.95 31.976c5.776 0 11.04-0.406 15.988-1.016-43-5.308-55.962-30.96-55.962-30.96z" fill="#FFFFFF" opacity=".4" p-id="3641"></path><path d="M551.94 983.664h31.976s-15.988 31.976-71.948 31.976c-5.778 0-11.04-0.406-15.988-1.016 43-5.308 55.96-30.96 55.96-30.96z" opacity=".3" p-id="3642"></path><path d="M376.064 823.778h271.806v15.988H376.064z" opacity=".2" p-id="3643"></path><path d="M471.98 168.246s-97.54 52.292-120.304 182.166l84.004-43.062 107.018-9.416c-89.656-52.244-70.718-129.688-70.718-129.688z" fill="#FFCE54" p-id="3644"></path><path d="M443.736 220.458c7.776 24.544 26.028 53.618 66.982 77.476h31.978c-57.866-33.726-70.498-77.944-72.168-105.066l-26.792 27.59z" opacity=".2" p-id="3645"></path><path d="M470.576 192.852c-0.89-14.818 1.404-24.608 1.404-24.608s-97.54 52.292-120.304 182.166l35.99-18.456c16.848-69.37 54.852-114.244 82.91-139.102z" fill="#FFFFFF" opacity=".5" p-id="3646"></path><path d="M432.01 575.954m-39.97 0a39.97 39.97 0 1 0 79.94 0 39.97 39.97 0 1 0-79.94 0Z" fill="#FFFFFF" opacity=".6" p-id="3647"></path><path d="M591.912 575.954m-39.972 0a39.972 39.972 0 1 0 79.944 0 39.972 39.972 0 1 0-79.944 0Z" fill="#FFFFFF" opacity=".6" p-id="3648"></path><path d="M551.94 727.846l-39.986-31.976-39.974 31.976v95.932h79.96z" fill="#FFFFFF" opacity=".6" p-id="3649"></path><path d="M615.878 991.658H408.028a7.99 7.99 0 0 1-5.652-2.342L370.4 957.338a7.986 7.986 0 0 1-2.344-5.652v-111.92a7.99 7.99 0 0 1 7.996-7.994h271.804a7.988 7.988 0 0 1 7.994 7.994v111.92a7.99 7.99 0 0 1-2.342 5.652l-31.976 31.978a7.998 7.998 0 0 1-5.654 2.342z m-204.54-15.99h201.23l27.292-27.292V847.76H384.044v100.616l27.294 27.292z" fill="#3A3847" p-id="3650"></path><path d="M360.06 895.726a7.992 7.992 0 0 1-0.42-15.972l303.782-15.988c4.498-0.296 8.182 3.152 8.4 7.556a7.994 7.994 0 0 1-7.556 8.4l-303.784 15.988c-0.14 0.016-0.28 0.016-0.422 0.016zM360.06 943.692a7.994 7.994 0 0 1-0.42-15.972l303.782-15.988c4.498-0.406 8.182 3.154 8.4 7.556a7.992 7.992 0 0 1-7.556 8.4l-303.784 15.988c-0.14 0.016-0.28 0.016-0.422 0.016zM647.856 847.76H376.05a7.99 7.99 0 0 1-7.996-7.994v-49.542c-80.192-50.122-127.908-135.856-127.908-230.258 0-149.876 121.93-271.804 271.806-271.804S783.76 410.088 783.76 559.964c0 94.402-47.716 180.136-127.91 230.258v49.542a7.99 7.99 0 0 1-7.994 7.996z m-263.812-15.988H639.86v-46.014a7.98 7.98 0 0 1 3.872-6.84c77.664-46.856 124.038-128.704 124.038-218.954 0-141.054-114.762-255.816-255.816-255.816-141.056 0-255.818 114.762-255.818 255.816 0 90.25 46.374 172.098 124.038 218.954a7.978 7.978 0 0 1 3.874 6.84v46.014zM511.954 1023.634c-60.208 0-78.352-34.912-79.1-36.396a8 8 0 0 1 3.574-10.726c3.952-1.952 8.712-0.39 10.698 3.514 0.624 1.202 15.144 27.622 64.828 27.622 49.76 0 64.234-26.498 64.828-27.622 2.044-3.874 6.838-5.45 10.742-3.436 3.904 2 5.496 6.73 3.53 10.648-0.752 1.484-18.894 36.396-79.1 36.396z" fill="#3A3847" p-id="3651"></path><path d="M471.98 815.784a7.99 7.99 0 0 1-7.994-7.994v-79.944a7.99 7.99 0 0 1 7.994-7.994 7.99 7.99 0 0 1 7.996 7.994v79.944a7.99 7.99 0 0 1-7.996 7.994zM551.94 815.784a7.99 7.99 0 0 1-7.994-7.994v-79.944c0-4.418 3.576-7.994 7.994-7.994s7.994 3.576 7.994 7.994v79.944a7.99 7.99 0 0 1-7.994 7.994z" fill="#3A3847" p-id="3652"></path><path d="M471.98 735.84a7.994 7.994 0 0 1-4.996-14.24l39.972-31.976c3.48-2.732 8.494-2.186 11.24 1.248a8.004 8.004 0 0 1-1.248 11.242l-39.97 31.978a8.06 8.06 0 0 1-4.998 1.748z" fill="#3A3847" p-id="3653"></path><path d="M551.94 735.84a8.058 8.058 0 0 1-4.996-1.748l-39.986-31.978a8.006 8.006 0 0 1-1.25-11.242 8.036 8.036 0 0 1 11.242-1.248l39.986 31.976a8.006 8.006 0 0 1 1.25 11.242 8 8 0 0 1-6.246 2.998zM551.94 703.864a7.99 7.99 0 0 1-7.994-7.994v-119.916c0-4.418 3.576-7.992 7.994-7.992s7.994 3.574 7.994 7.992v119.916a7.99 7.99 0 0 1-7.994 7.994zM471.98 703.864a7.99 7.99 0 0 1-7.994-7.994v-119.916a7.988 7.988 0 0 1 7.994-7.992 7.988 7.988 0 0 1 7.996 7.992v119.916a7.99 7.99 0 0 1-7.996 7.994z" fill="#3A3847" p-id="3654"></path><path d="M471.98 583.95a7.99 7.99 0 0 1-7.994-7.996c0-17.626-14.348-31.976-31.976-31.976s-31.976 14.35-31.976 31.976a7.99 7.99 0 0 1-7.994 7.996 7.99 7.99 0 0 1-7.994-7.996c0-26.45 21.516-47.964 47.964-47.964s47.966 21.516 47.966 47.964a7.99 7.99 0 0 1-7.996 7.996z" fill="#3A3847" p-id="3655"></path><path d="M432.01 623.92c-26.45 0-47.964-21.516-47.964-47.966a7.988 7.988 0 0 1 7.994-7.992 7.988 7.988 0 0 1 7.994 7.992c0 17.628 14.348 31.978 31.976 31.978 4.418 0 7.994 3.576 7.994 7.994s-3.576 7.994-7.994 7.994zM631.882 583.95a7.99 7.99 0 0 1-7.994-7.996c0-17.626-14.35-31.976-31.976-31.976-17.628 0-31.978 14.35-31.978 31.976 0 4.42-3.576 7.996-7.994 7.996s-7.994-3.576-7.994-7.996c0-26.45 21.516-47.964 47.966-47.964 26.45 0 47.964 21.516 47.964 47.964a7.99 7.99 0 0 1-7.994 7.996z" fill="#3A3847" p-id="3656"></path><path d="M591.912 623.92c-4.42 0-7.996-3.576-7.996-7.994s3.576-7.994 7.996-7.994c17.626 0 31.976-14.35 31.976-31.978a7.988 7.988 0 0 1 7.994-7.992 7.988 7.988 0 0 1 7.994 7.992c0 26.45-21.514 47.966-47.964 47.966zM519.948 623.92h-15.988c-4.42 0-7.994-3.576-7.994-7.994s3.574-7.994 7.994-7.994h15.988c4.418 0 7.994 3.576 7.994 7.994s-3.576 7.994-7.994 7.994z" fill="#3A3847" p-id="3657"></path><path d="M839.766 567.96a7.99 7.99 0 0 1-7.994-7.996c0-203.166-139.212-364.942-168.272-396.498-11.834 10.228-39.33 30.712-69.778 30.822h-0.266c-17.752 0-33.602-6.854-47.138-20.392-39.298-39.3-31.946-114.45-25.902-149.206C453.572 67.084 192.228 252.544 192.228 559.964a7.99 7.99 0 0 1-7.994 7.996 7.99 7.99 0 0 1-7.994-7.996C176.24 199.674 524.568 3.3 528.098 1.364a7.972 7.972 0 0 1 8.744 0.67 7.99 7.99 0 0 1 2.856 8.292c-0.264 1.078-26.73 107.612 17.926 152.268 10.57 10.57 22.296 15.708 35.834 15.708h0.14c33.008-0.094 64.298-31.338 64.61-31.666a8 8 0 0 1 5.652-2.374c2.232-0.124 4.17 0.828 5.684 2.342 1.78 1.78 178.216 180.902 178.216 413.36a7.99 7.99 0 0 1-7.994 7.996z" fill="#3A3847" p-id="3658"></path><path d="M344.088 849.586a8.014 8.014 0 0 1-4.106-1.124C238.992 788.146 176.24 677.6 176.24 559.964a7.988 7.988 0 0 1 7.994-7.994 7.99 7.99 0 0 1 7.994 7.994c0 112.032 59.754 217.314 155.966 274.758a8.02 8.02 0 0 1 2.764 10.976 8.004 8.004 0 0 1-6.87 3.888z" fill="#3A3847" p-id="3659"></path><path d="M679.894 849.57a8.004 8.004 0 0 1-6.87-3.886 8.02 8.02 0 0 1 2.764-10.976c96.182-57.444 155.936-162.71 155.936-274.742a7.988 7.988 0 0 1 7.994-7.994 7.99 7.99 0 0 1 7.994 7.994c0 117.622-62.736 228.166-163.71 288.482a8.034 8.034 0 0 1-4.108 1.122z" fill="#3A3847" p-id="3660"></path><path d="M360.108 320.136a7.994 7.994 0 0 1-7.558-10.602C391.882 195.6 465.704 162.28 468.828 160.92a7.968 7.968 0 0 1 8.26 1.14 8.004 8.004 0 0 1 2.748 7.884c-0.454 2.138-10.79 52.51 29.478 88.25a8 8 0 0 1 0.672 11.288 8.03 8.03 0 0 1-11.29 0.67c-32.696-29.026-36.958-66.108-36.272-87.156-22.062 14.6-67.466 52.698-94.76 131.75a7.994 7.994 0 0 1-7.556 5.39z" fill="#3A3847" p-id="3661"></path></svg>
+                        热榜</a></li>
+                    <li><a href="lastest.php">最新</a></li>
+                    <li><a href="oversealife.php">#海外生活</a></li>
+                    <li><a href="question.php">留学问答</a></li>
+                </ul>
+                <!-- <div id="myTabContent" class="tab-content"> -->
+                <div class="tab-pane fade in active" id="rb">
+                    <?php
+                        include('include/get_post.php');
+                        $get_posts = "select * from posts order by post_like DESC LIMIT 8";
+                        mysqli_query($con, "set names 'utf8'");
+                        echo mysqli_error($con);
+                        $run_posts = mysqli_query($con, $get_posts);
+                        echo mysqli_error($con);
+                        mysqli_query($con, "set names 'utf8'");
+                        $num = 1;
+                        while ($row = mysqli_fetch_array($run_posts)) {
+                            if ($num == 1) {
+                                $place ="<span style='font-size:35px;float:right'>🥇</span>";
+                            }elseif ($num == 2) {
+                                $place ="<span style='font-size:25px;float:right'>🥈</span>";
+                            } elseif ($num == 3) {
+                                $place ="<span style='font-size:20px;float:right'>🥉</span>";
+                            }else {
+                                $place ='';
+                            }
+                            $num ++;
+                            echo mysqli_error($con); 
+                            $post_id = $row['post_id'];
+                            $post_content = $row['post_content'];
+                            if(preg_match('/<\s*img\s+[^>]*?src\s*=\s*(\'|\")(.*?)\\1[^>]*?\/?\s*>/i',$post_content,$match)){
+                            $post_img = $match[0];
+                            }else {
+                                $post_img = null;
+                            }
+                            $post_content = strip_tags($post_content);
+                            if (strlen($post_content) > 50) {
+                                $post_content = mb_substr($post_content,0, 40)."..<a href='../post.php?post_id=$post_id' class='view_more' target='_blank'>查看全文</a>";
+                            }
+                    
+                            $post_title = $row['post_title'];
+                            $post_date = $row['post_date'];
+                            $user_id = $row['user_id'];
+                            $post_like = $row['post_like'];
+                            $post_view = $row['post_view'];
+                            $post_date = wordTime($post_date);
+                            $writer = "select * from users where user_id = '$user_id' AND posts ='yes'";
+                            mysqli_query($con, "set names 'utf8'");
+                            $run_writer = mysqli_query($con, $writer);
+                            $row_writer = mysqli_fetch_array($run_writer);
+                    
+                    
+                            $user_name = $row_writer['user_name'];
+                            $user_image = $row_writer['user_image'];
+                    
+                            if (isset($u_id)) {
+                                $count= mysqli_query($con, "SELECT post_like FROM posts WHERE post_id=$post_id "); 
+                                echo mysqli_error($con); 
+                                $countResult=mysqli_fetch_array($count);  
+                                $count_like=$countResult['post_like'];  
+                    
+                    
+                                $is_liked = "SELECT * from like_post where user_id ='$u_id' and post_id='$post_id'";
+                                $run_liked = mysqli_query($con, $is_liked);
+                                $liked= mysqli_fetch_row($run_liked); 
+                                if (isset($liked)) {
+                                    $showZan= "
+                                    <ul class='article-function'>
+                                    <li>
+                                        <button id='$post_id' name='$post_id' onclick='zanDel(this)' style='color:red;background-color:white;' class='btn btn-primary liked_post'>
+                                            <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-heart-fill' viewBox='0 0 16 16'>
+                                            <path fill-rule='evenodd' d='M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z'></path>
+                                            </svg>
+                                            <span id=$u_id>
+                                            $post_like
+                                            </span>
+                                        </button>
+                                    </li>
+                                    <li><a href='../post.php?post_id=$post_id' target='_blank'><button class='btn btn-outline-success'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-chat-dots' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M2.678 11.894a1 1 0 0 1 .287.801 10.97 10.97 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8.06 8.06 0 0 0 8 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105z'/><path d='M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z'/></svg>评论</button></a></li>
+                                    <li><a><button class='btn btn-outline-success'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-star' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z'/></svg>收藏</button></a></li>
+                                    
+                                        </ul>
+                                        <span style='float:right;margin-right:8%;margin-top:1%;font-size:0.1em;color:rgb(91, 112, 131);'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-eye' viewBox='0 -2 16 16'>
+                                            <path fill-rule='evenodd' d='M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z'/>
+                                            <path fill-rule='evenodd' d='M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z'/>
+                                            </svg>&nbsp;&nbsp;<span>$post_view</span>
+                                        </span>
+                                        <div style='clear:both'></div>
+                                    ";
+                                }else{
+                                    $showZan="
+                                    <ul class='article-function'>
+                                        <li>
+                                            <button onclick='zan(this)' id='$post_id' name='$post_id'  class='btn btn-primary like_post'>
+                                                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-heart-fill' viewBox='0 0 16 16'>
+                                                <path fill-rule='evenodd' d='M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z'></path>
+                                                </svg>
+                                                <span id=$u_id>
+                                                    $post_like
+                                                </span>
+                                            </button>
+                                        </li>
+                                        
+                                        <li>
+                                            <a href='post.php?post_id=$post_id' target='_blank'>
+                                                <button class='btn btn-outline-success'>
+                                                    <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-chat-dots' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M2.678 11.894a1 1 0 0 1 .287.801 10.97 10.97 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8.06 8.06 0 0 0 8 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105z'/><path d='M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z'/></svg>
+                                                    评论
+                                                </button>
+                                            </a>
+                                        </li>
+                    
+                                        <li>
+                                            <a>
+                                                <button class='btn btn-outline-success'>
+                                                    <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-star' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z'/></svg>
+                                                    收藏
+                                                </button>
+                                            </a>
+                                        </li>
+                                        
+                                    </ul>
+                    
+                                    <span style='float:right;margin-right:7%;margin-top:1%;font-size:0.1em;color:rgb(91, 112, 131);'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-eye' viewBox='0 -2 16 16'>
+                                        <path fill-rule='evenodd' d='M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z'/>
+                                        <path fill-rule='evenodd' d='M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z'/>
+                                        </svg>&nbsp;&nbsp;<span>$post_view</span>
+                                    </span>
+                    
+                                    <div style='clear:both'></div>
+                                    ";
+                                }
+                            }else{
+                                $showZan = "
+                                <ul class='article-function'>
+                                    <li>
+                                        <button data-toggle='modal' data-target='#myModal' id='$post_id' name='$post_id'  class='btn btn-primary like_post'>
+                                            <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-heart-fill' viewBox='0 0 16 16'>
+                                            <path fill-rule='evenodd' d='M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z'></path>
+                                            </svg>
+                                            <span>
+                                                $post_like
+                                            </span>
+                                        </button>
+                                    </li>
+                                    
+                                    <li>
+                                        <a data-toggle='modal' data-target='#myModal' href='post.php?post_id=$post_id' target='_blank'>
+                                            <button class='btn btn-outline-success'>
+                                                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-chat-dots' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M2.678 11.894a1 1 0 0 1 .287.801 10.97 10.97 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8.06 8.06 0 0 0 8 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105z'/><path d='M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z'/></svg>
+                                                评论
+                                            </button>
+                                        </a>
+                                    </li>
+                    
+                                    <li>
+                                        <a>
+                                            <button data-toggle='modal' data-target='#myModal'class='btn btn-outline-success'>
+                                                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-star' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z'/></svg>
+                                                收藏
+                                            </button>
+                                        </a>
+                                    </li>
+                                    
+                                </ul>
+                    
+                                <span style='float:right;margin-right:7%;margin-top:1%;font-size:0.1em;color:rgb(91, 112, 131);'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-eye' viewBox='0 -2 16 16'>
+                                    <path fill-rule='evenodd' d='M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z'/>
+                                    <path fill-rule='evenodd' d='M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z'/>
+                                    </svg>&nbsp;&nbsp;<span>$post_view</span>
+                                </span>
+                    
+                                <div style='clear:both'></div>
+                                ";
+                            }
+                    
+                    
+                            echo "
+                            <div class='col-md-12' style='padding:10px;padding-bottom:5px;border-top: 1px solid #f0f2f7;'>
+                                $place
+                                <div id='post-img'style='float:right;'>
+                                    <a id='post_img'href='../post.php?post_id=$post_id' target='_blank'><span>$post_img</span></a>
+                                </div>
+                                <div style='width:100%'>
+                                    <a href='../post.php?post_id=$post_id' target='_blank'>
+                                        <b style='line-height:1.4;font-size:1.3em;'>
+                                            $post_title
+                                        </b>
+                                    </a>
+                                    $post_date
+                                    <br>
+                                    <a id='image' href='../profile.php?u_id=$user_id' target='_blank' style='font-size:1em;'>
+                                        <img src='../$user_image' class='img-circle' style='width:20px;'> 
+                                    </a>
+                                    <a id='name' href='../profile.php?u_id=$user_id' target='_blank'style='font-size:1.1em;color:rgb(91, 112, 131)'>
+                                        $user_name  
+                                    </a>
+                                    :
+                                    <a id='content' href='../post.php?post_id=$post_id' target='_blank'>
+                                        <div style='display:inline'>$post_content</div>
+                                    </a>
+                                </div>
+                                <div style='clear:both'></div>
+                            </div>
+                            <div id='$post_id'>
+                                $showZan
+                            </div>";
+                            }
+                            
+                    ?>
+                </div>
             </div>
         </div>
         <?php
@@ -88,4 +297,6 @@
     home.onmouseover =  function () {
         this.style.backgroundColor = "white";
     }
+
+    
 </script>

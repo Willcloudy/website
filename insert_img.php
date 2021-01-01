@@ -17,6 +17,54 @@
 //     echo "no files";
 // }
 
+function compressedImage($imgsrc, $imgdst) {
+    list($width, $height, $type) = getimagesize($imgsrc);
+   
+    $new_width = $width;//压缩后的图片宽
+    $new_height = $height;//压缩后的图片高
+
+    if($width >= 600){
+        $per = 600 / $width;//计算比例
+        $new_width = $width * $per;
+        $new_height = $height * $per;
+    }
+
+    switch ($type) {
+        case 1:
+            $giftype = check_gifcartoon($imgsrc);
+            if ($giftype) {
+                header('Content-Type:image/gif');
+                $image_wp = imagecreatetruecolor($new_width, $new_height);
+                $image = imagecreatefromgif($imgsrc);
+                imagecopyresampled($image_wp, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+                //90代表的是质量、压缩图片容量大小
+                imagejpeg($image_wp, $imgdst, 90);
+                imagedestroy($image_wp);
+                imagedestroy($image);
+            }
+            break;
+        case 2:
+            header('Content-Type:image/jpeg');
+            $image_wp = imagecreatetruecolor($new_width, $new_height);
+            $image = imagecreatefromjpeg($imgsrc);
+            imagecopyresampled($image_wp, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+            //90代表的是质量、压缩图片容量大小
+            imagejpeg($image_wp, $imgdst, 90);
+            imagedestroy($image_wp);
+            imagedestroy($image);
+            break;
+        case 3:
+            header('Content-Type:image/png');
+            $image_wp = imagecreatetruecolor($new_width, $new_height);
+            $image = imagecreatefrompng($imgsrc);
+            imagecopyresampled($image_wp, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+            //90代表的是质量、压缩图片容量大小
+            imagejpeg($image_wp, $imgdst, 90);
+            imagedestroy($image_wp);
+            imagedestroy($image);
+            break;
+    }
+}
     header('Content-Type:application/json; charset=utf-8');
     //图片文件的生成
     $savename = date('YmdHis',time()).mt_rand(0,9999).'.jpeg';//localResizeIMG压缩后的图片都是jpeg格式
@@ -25,6 +73,7 @@
     //图片保存的路径
     $savepath = 'img/articleimg/'.$savename;
     //生成一个URL获取图片的地址
+    compressedImage($savepath, $savepath);
     $url = "/$savepath";
     //返回数据。wangeditor3 需要用到的数据 json格式的
     $data["errno"] = 0;

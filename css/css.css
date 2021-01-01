@@ -32,10 +32,43 @@
         padding: 10px;
         padding-top: 0px;
     }
+    .home_search{
+        width:65% !important;
+    }
+    .home_search span input{
+        padding-left:10%;
+    }
+    .article-function li{
+        margin-left:15px !important;
+        width:15% !important;
+    }
+    .form-header h2{
+        font-size:28px !important;
+    }
+    #post-img img{
+        display:none;
+    }
+    #content{
+        font-size:0.9em;
+    }
+    #myTab li a {
+        font-size:0.8em;
+    }
+    .signin-form{
+        width:75%;
+        margin: 30px auto !important;
+    }
+    .modal-content {
+        width: 90% !important;
+    }
 }
 
 
-
+.home_search{
+    float:left;
+    width:76%;
+    padding: 3px;
+}
 /* 设置全局hr横线的外边距 */
 .hrmargin{
     margin:0 0;
@@ -118,7 +151,7 @@ body{
     margin-bottom:20px;
     margin:0 auto;
     border-radius: 15px;
-    margin-top:70px;
+    margin-top:60px;
     margin-bottom:20px
 }
 /* 搜索页面搜索框样式 */
@@ -144,7 +177,7 @@ body{
     border: none;
     background-color: transparent;
     position:relative;
-    left: 6%;
+    left: 4%;
     top: -25px;
     margin: 0;
 }
@@ -361,7 +394,7 @@ a{
     margin-right: 20px;
 }
 #post_img img{
-    max-width:120px !important;
+    max-width:100px !important;
     border-radius:10px;
     margin-right:20px;  
 }
@@ -394,6 +427,7 @@ a{
 }
 #content{
     font-size:1em;
+    width:60%;
 }
 #myTab{
     padding:0;
@@ -402,18 +436,6 @@ a{
 #myTab li{
 }
 #myTab li a{
-}
-@media(max-width:992px)
-{
-    #post-img img{
-        display:none;
-    }
-    #content{
-        font-size:0.9em;
-    }
-    #myTab li a{
-        font-size:0.6em;
-    }
 }
 
  .article-function{
@@ -508,8 +530,6 @@ a{
 }
 
 #write-box{
-    margin-top:10px;
-    padding-left:2%;
 }
 .post {
     width:85%;
@@ -528,7 +548,7 @@ a{
     border-bottom:1px solid #00BFFF; */
     /* border:1px solid #   ; */
 }
-#goWrite,#question{
+.go_write,#question{
     /* position:absolute;
     top: 5px;  
     left: 510px; */
@@ -546,26 +566,26 @@ a{
     left:490px; */
     width:70px;
     height:35px;
-    margin-right:4%;
-    margin-top:1%;
-    float:right;
+    margin-top:10%;
+    margin-right:6px;
 }
 #write{
     float:right;
-    margin-right:6.5%;
+    margin-top: 13%;
     color:grey;
+    margin-right:10px;
 }
 #write:hover{
     color:#198754;
     text-decoration:underline;
 }
-#goWrite:hover,#question:hover{
+.go_write:hover,#question:hover{
     color:#198754;
     background:white;
     border:2px solid #ccc;
     transition:0.5s
 }
-#goWrite:focus,#question:focus{
+.go_write:focus,#question:focus{
     outline:none;
 }
 #home-profile{
@@ -595,7 +615,7 @@ a{
     #home-profile{
         /* display:none; */
     }
-    #question,#goWrite{
+    #question,.go_write{
         
         width:53px;
     }

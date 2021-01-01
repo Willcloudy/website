@@ -37,6 +37,12 @@
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>搜索'<?php echo $input?>'结果 - willcloudy</title>
     <link rel="stylesheet" href="css/css.css">
+    <link rel="icon" type="image/x-ico" href="img/logo.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
 </head>
 <body>
     <div class="container">
@@ -84,6 +90,7 @@
                             <hr style='margin:0 5px;height:3px;color:black'>
                             <div class="tab-pane fade in active" id="zh" style='min-height:250px'>
                                 <?php
+                                
                                     $zh_select = "SELECT * FROM `posts` WHERE `post_title` like '%$input%' or `post_content` like '%$input%'";
                                     $run_posts = mysqli_query($con, $zh_select);
                                     echo mysqli_error($con);

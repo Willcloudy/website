@@ -1,9 +1,5 @@
 <?php
-if($webpage == 'home'){
     include("include/connection.php");
-}elseif ($webpage == 2) {
-    include("../include/connection.php");
-}
 
 if (isset($_POST['sign_in'])) {
     $email = $_POST['email'];

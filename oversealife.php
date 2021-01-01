@@ -1,7 +1,6 @@
 <?php
     session_start();
-    include('../include/connection.php');
-    $webpage = 2;
+    include('include/connection.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +12,13 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>海外生活 - willcloudy</title>
-    <link rel="stylesheet" href="../css/css.css">
+    <link rel="icon" type="image/x-ico" href="img/logo.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="stylesheet" href="css/css.css">
     <style>
         .col-md-12 #content:hover{
             text-decoration: none;
@@ -50,9 +55,6 @@
             #content{
                 font-size:0.9em;
             }
-            #myTab li a{
-                font-size:0.5em;
-            }
         }
     </style>
 </head>
@@ -68,7 +70,7 @@
                     $u_name = $row['user_name'];
                     $u_image = $row['user_image'];
                     $u_id = $row['user_id'];
-                    require('../include/leftbar.php');
+                    require('include/leftbar.php');
                     echo "
                         <script>
                             var profile = document.getElementById('profile');
@@ -76,39 +78,28 @@
                             document.getElementById('sign').style.display='none' 
                         </script>";
                 }else {
-                    require('../include/leftbar.php');
+                    require('include/leftbar.php');
                     echo "<script>document.getElementById('sign').style.display='block' </script>";
                 }
             ?>
             <div class="col-md-6 midbar" style='padding:0'id='mid'>
-                <div class="box">
-                    <form action="../result.php" method="POST">
-                        <span>
-                            <input style='margin:2% 3%;width:90%;margin-bottom: 0px;'class='form-control search' type="text" name='searchcontent' autocomplete="off" placeholder="关于留学的问题？" required='required'>
-                        </span>
-                            <span class="glyphicon glyphicon-search glyphicon-search-explore"></span>
-                            <a href="result.php"><button class='form-control search-btn btn btn-primary'type='submit'></button></a>
-                        
-                    </form>
-                    <div>
-                        <ul id="myTab" class="nav nav-tabs ">
-                            <li><a href="hot.php">#热榜</a></li>
-                            <li><a href="lastest.php">#最新</a></li>
-                            <li class="active"><a href="#sq" data-toggle="tab">#海外生活</a></li>
-                            <li><a href="question.php">#留学问答</a></li>
-                        </ul>
-                        <div id="myTabContent" class="tab-content">
-                            <div class="tab-pane fade in active" id="sq">
-                                
-                            </div>
-
+                <?php require('include/publish.php');?>
+                <div>
+                    <ul id="myTab" class="nav nav-tabs ">
+                        <li><a href="home.php">热榜</a></li>
+                        <li><a href="lastest.php">最新</a></li>
+                        <li class="active"><a href="#sq" data-toggle="tab">#海外生活</a></li>
+                        <li><a href="question.php">留学问答</a></li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade in active" id="sq">
                             
                         </div>
                     </div>
-                </div>  
+                </div>
             </div>
             <?php
-                require('../include/rightbar.php');
+                require('include/rightbar.php');
             ?>
             
     </div>
@@ -135,7 +126,7 @@
             console.log(clickBtnValue);
             $.ajax({
                 type:"GET",
-                url: "../include/like.php", 
+                url: "include/like.php", 
                 dataType:"JSON",
                 contentType:"application/json",
                 data:{id:clickBtnValue,}, 

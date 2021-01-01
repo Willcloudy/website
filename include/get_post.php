@@ -51,6 +51,7 @@ function get_university(){
                 $uni_icon = $row['icon'];
                 $uni_link = $row['uni_link'];
                 $qs_rank = $row['qs_rank'];
+                $fee = $row['fee'];
                 echo "
                 <div class='col-md-13'>
                 <ul style='list-style:none;padding-left:20px;padding-top:2px'>
@@ -65,7 +66,7 @@ function get_university(){
                                 <ul style='list-style:none'>
                                     <li><p>所在地/Location: $uni_location</p></li>
                                     <li><p>国家:<a href='country.php?selectednation=$uni_country'>$uni_country</a></p></li>
-                                    <li><p>官网: <a href='$uni_link' target='_blank'>$uni_link</a></p></li>
+                                    <li><p>费用: $fee</p></li>
                                     <li><br></li>
                                 </ul>
                                 <div style='clear:both'></div>
@@ -120,7 +121,7 @@ function get_university(){
                                 <ul style='list-style:none'>
                                     <li><p>国家/Country:<a href='country.php?selectednation=$uni_country'>$uni_country</a></p></li>
                                     <li><p>所在地/Location: $uni_location</p></li>
-                                    <li><p>官网: <a href='$uni_link' target='_blank'>$uni_link</a></p></li>
+                                    <li><p>费用: $fee</p></li>
                                     <li><br></li>
                                 </ul>   
                                 <div style='clear:both'></div>
@@ -198,7 +199,7 @@ function get_university(){
             </div>";
         }
         }
-    } else {
+    }else {
         echo '
         <hr>';
         $uni_info_query = "SELECT * FROM `university` LIMIT $start_from, $per_page";
@@ -232,7 +233,7 @@ function get_university(){
                                 <ul style='list-style:none'>
                                     <li><p>国家/Country:<a href='country.php?selectednation=$uni_country'>$uni_country</a></p></li>
                                     <li><p>所在地/Location: $uni_location</p></li>
-                                    <li><p>官网: <a href='$uni_link' target='_blank'>$uni_link</a></p></li>
+                                    <li><p>费用: $fee</p></li>
                                     <li><br></li>
                                 </ul>   
                                 <div style='clear:both'></div>
@@ -330,13 +331,7 @@ function get_country($cn_country){
             $uni_country = $row['uni_country'];
             $uni_location = $row['uni_location'];
             $uni_icon = $row['icon'];
-            $uni_link = $row['uni_link'];
-            $local_rank = $row['local_rank'];
-            if ($local_rank == 0) {
-                $local_rank = null;
-            }else {
-                $local_rank = $row['local_rank'];
-            }
+            $fee = $row['fee'];
             // $insert_search_num = "UPDATE rank SET search_rank = search_rank + 1 WHERE uni_name_zh = '$uni_name_zh'";
             // $run_query = mysqli_query($con, $insert_search_num);
             // echo mysqli_error($con);
@@ -353,10 +348,9 @@ function get_country($cn_country){
                                 <div class='rank-info'>
                                     <br>
                                     <h4 style='margin-left:38px'><a href='topics.php?uni_name_zh=$uni_name_zh'> $uni_name_en $uni_name_zh</a></h4>
-                                    <div><h5 style='float:right;margin-right: 52px;'><b>$local_rank</b></h5></div>
                                     <ul style='list-style:none'>
                                         <li><p>所在地/Location: $uni_location in <a href='country.php?selectednation=$uni_country'>$uni_country</a></p></li>
-                                        <li><p>官网: <a href='$uni_link' target='_blank'>$uni_link</a></p></li>
+                                        <li><p>费用: $fee</p></li>
                                         <li><br></li>
                                     </ul>
                                     <div style='clear:both'></div>
@@ -429,7 +423,4 @@ function get_country($cn_country){
             <br>";
     
 }
-
-
-
 ?>

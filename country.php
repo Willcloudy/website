@@ -30,6 +30,12 @@
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title><?php echo $cn_country?> - willcloudy</title>
     <link rel="stylesheet" href="css/css.css">
+    <link rel="icon" type="image/x-ico" href="img/logo.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
     <style>
         .selectednation{
             border:1px solid  #198754;
@@ -120,6 +126,5 @@
 
     document.getElementById('search-small').style.display='block'
 
-    document.getElementById('other').style.display='none'
-    document.getElementById('topic').style.display='block'
+    document.getElementById('other').style.display='block'
 </script>
