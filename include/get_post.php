@@ -85,51 +85,49 @@ function get_university(){
         
     }elseif (!empty($_GET['rank'])) {
         if ($_GET['rank'] == 'qs') {
-            # code...
-        
-        echo '
-        <hr>';
-        $uni_info_query = "SELECT * FROM `university`where qs_rank != 0 order by qs_rank asc LIMIT $start_from, $per_page";
-        mysqli_query($con, "set names 'utf8'");
-        $run_uni_info = mysqli_query($con, $uni_info_query);
-        echo mysqli_error($con);
-        while($uni_info = mysqli_fetch_array($run_uni_info)){
-            $qs_rank = $uni_info['qs_rank'];
-            $uni_name_en = $uni_info['uni_name_en'];
-            $uni_country = $uni_info['uni_country'];
-            $uni_location = $uni_info['uni_location'];
-            $uni_icon = $uni_info['icon'];
-            $uni_link = $uni_info['uni_link'];
-            $uni_name_zh = $uni_info['zh'];
-            $toefl_request = $uni_info['toefl_request'];
-            $ielt_request = $uni_info['ielt_request'];
-            $fee = $uni_info['fee'];
-            echo "
-            <div class='col-md-13'>
-                <ul style='list-style:none;padding-left:20px;padding-top:2px'>
-                    <li>
-                        <div class='uni-mini-info'>
-                            <div style='float:left;'>
-                                <br>
-                                <a id='uni-img' href='topics.php?uni_name_zh=$uni_name_zh'><img src='$uni_icon'></a>
+            echo '
+            <hr>';
+            $uni_info_query = "SELECT * FROM `university`where qs_rank != 0 order by qs_rank asc LIMIT $start_from, $per_page";
+            mysqli_query($con, "set names 'utf8'");
+            $run_uni_info = mysqli_query($con, $uni_info_query);
+            echo mysqli_error($con);
+            while($uni_info = mysqli_fetch_array($run_uni_info)){
+                $qs_rank = $uni_info['qs_rank'];
+                $uni_name_en = $uni_info['uni_name_en'];
+                $uni_country = $uni_info['uni_country'];
+                $uni_location = $uni_info['uni_location'];
+                $uni_icon = $uni_info['icon'];
+                $uni_link = $uni_info['uni_link'];
+                $uni_name_zh = $uni_info['zh'];
+                $toefl_request = $uni_info['toefl_request'];
+                $ielt_request = $uni_info['ielt_request'];
+                $fee = $uni_info['fee'];
+                echo "
+                <div class='col-md-13'>
+                    <ul style='list-style:none;padding-left:20px;padding-top:2px'>
+                        <li>
+                            <div class='uni-mini-info'>
+                                <div style='float:left;'>
+                                    <br>
+                                    <a id='uni-img' href='topics.php?uni_name_zh=$uni_name_zh'><img src='$uni_icon'></a>
+                                </div>
+                                <div class='uni-mini-word-info'>
+                                    <br>
+                                    <h4 style='display:inline-block'><a href='topics.php?uni_name_zh=$uni_name_zh'>$uni_name_zh</a></h4>
+                                    <span style='font-size:5px;color:grey'>$uni_name_en</span>
+                                    <div><h5 style='float:right;margin-right: 52px;'><b>排名:$qs_rank</b></h5></div>
+                                    <ul style='list-style:none'>
+                                        <li><p>国家/Country:<a href='country.php?selectednation=$uni_country'>$uni_country</a></p></li>
+                                        <li><p>所在地/Location: $uni_location</p></li>
+                                        <li><p>费用: $fee</p></li>
+                                        <li><br></li>
+                                    </ul>   
+                                    <div style='clear:both'></div>
+                                </div>
                             </div>
-                            <div class='uni-mini-word-info'>
-                                <br>
-                                <h4 style='display:inline-block'><a href='topics.php?uni_name_zh=$uni_name_zh'>$uni_name_zh</a></h4>
-                                <span style='font-size:5px;color:grey'>$uni_name_en</span>
-                                <div><h5 style='float:right;margin-right: 52px;'><b>排名:$qs_rank</b></h5></div>
-                                <ul style='list-style:none'>
-                                    <li><p>国家/Country:<a href='country.php?selectednation=$uni_country'>$uni_country</a></p></li>
-                                    <li><p>所在地/Location: $uni_location</p></li>
-                                    <li><p>费用: $fee</p></li>
-                                    <li><br></li>
-                                </ul>   
-                                <div style='clear:both'></div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>";
+                        </li>
+                    </ul>
+                </div>";
             }
             
             $query = "select * from university where qs_rank != 0";
@@ -139,27 +137,25 @@ function get_university(){
             echo mysqli_error($con);
             $total_pages = ceil($total_posts / $per_page);
             if ($total_pages == 1 or $total_pages == 0) {
-                # code...
+                
             }else {
-                # code...
-            
-            echo mysqli_error($con);
-            echo "
-            <center>
-                <div class='pagination'>
-                <a href='universities.php?page=1'>首页</a>
-            ";
-            if ($page == 1) {
-                for ($i=1; $i <= 3; $i++) { 
-                    if ($i == $page) {
-                        echo "<a href='universities.php?page=$i' style='color:#198754'>$i</a>";
-                    }else {
-                        echo "<a href='universities.php?page=$i'>$i</a>";
+                echo mysqli_error($con);
+                echo "
+                <center>
+                    <div class='pagination'>
+                    <a href='universities.php?page=1'>首页</a>
+                ";
+                if ($page == 1) {
+                    for ($i=1; $i <= 3; $i++) { 
+                        if ($i == $page) {
+                            echo "<a href='universities.php?page=$i' style='color:#198754'>$i</a>";
+                        }else {
+                            echo "<a href='universities.php?page=$i'>$i</a>";
+                        }
+                    if ($i == $total_pages) {
+                        break;
                     }
-                if ($i == $total_pages) {
-                    break;
                 }
-            }
             }elseif ($page == 2) {
                 for ($i=1; $i <= $total_pages; $i++) { 
                     if ($i == $page) {
@@ -178,8 +174,7 @@ function get_university(){
                 echo "<a href='universities.php?page=$pre2' >$pre2</a>";
                 echo "<a href='universities.php?page=$pre1' >$pre1</a>";
                 echo "<a style='color:#198754'>$page</a>";
-            }
-            else {
+            }else {
                 $bac1 = $page + 1;
                 $pre2 = $page - 2;
                 $pre1 = $page - 1;
@@ -192,13 +187,11 @@ function get_university(){
                     echo "<a href='universities.php?page=$bac2' >$bac2</a>";
                 }
             }
-            
-            
             echo "<a href='universities.php?page=$total_pages'>尾页</a>";
             echo "<a>共 $total_pages 页</a>
-            </div>";
+                    </div>";
         }
-        }
+    }
     }else {
         echo '
         <hr>';
@@ -244,7 +237,7 @@ function get_university(){
             </div>";
             }
             
-            $query = "select * from university where qs_rank != 0";
+            $query = "select * from university";
             $result = mysqli_query($con, $query);
             echo mysqli_error($con);
             $total_posts = mysqli_num_rows($result);

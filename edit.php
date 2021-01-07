@@ -1,3 +1,8 @@
+<?php
+
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,11 +23,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.js" integrity="sha512-oqBsjjSHWqkDx4UKoU+5IUZN2nW2qDp2GFSKw9+mcFm+ZywqfBKp79nfWmGPco2wzTWuE46XpjtCjZ9tFmI12g==" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.css" integrity="sha512-949FvIQOibfhLTgmNws4F3DVlYz3FmCRRhJznR22hx76SKkcpZiVV5Kwo0iwK9L6BFuY+6mpdqB2+vDIGVuyHg==" crossorigin="anonymous" />
     <?php
-        session_start();
         include('include/connection.php');
         if (isset($_SESSION['user_email'])) {
             $user = $_SESSION['user_email'];
             $get_user = "select * from users where user_email = '$user'";
+            echo mysqli_error($con);
             mysqli_query($con, "set names 'utf8'");
             $run_user = mysqli_query($con, $get_user);
             $row = mysqli_fetch_array($run_user);
@@ -33,9 +38,8 @@
             $user_des = $row['user_des'];
             $user_country = $row['user_country'];
             $user_gender = $row['user_gender'];
-            
         }else {
-            header('location:home.php?from=login');
+            header('location:home.php');
         }
 
     ?>

@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script type="text/javascript" src="https://unpkg.com/wangeditor/dist/wangEditor.min.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">  
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
@@ -15,6 +16,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
     <link rel="manifest" href="/site.webmanifest">
 
     <link rel="stylesheet" href="css/css.css">
@@ -73,7 +75,7 @@
                 $u_name = $row['user_name'];
                 $u_image = $row['user_image'];
                 $u_id = $row['user_id'];
-                require('include/leftbar.php');
+                include('include/leftbar.php');
                 echo "
                     <script>
                         var profile = document.getElementById('profile');
@@ -81,13 +83,12 @@
                         document.getElementById('sign').style.display='none' 
                     </script>";
             }else {
-                require('include/leftbar.php');
+                include('include/leftbar.php');
                 echo "<script>document.getElementById('sign').style.display='block' </script>";
-
             }
         ?>
         <div class="col-md-6 midbar" style='padding:0'id='mid'>
-            <?php require('include/publish.php');?>
+            <?php include('include/publish.php');?>
             <div>
                 <ul id="myTab" class="nav nav-tabs ">
                     <li><a href="home.php">热榜</a></li>
@@ -131,7 +132,7 @@
                                     $run_answer = mysqli_query($con, $answer);
                                     $row_answer = mysqli_num_rows($run_answer);
                                     echo mysqli_error($con);
-                                    $qu_content = '回答'.$row_answer;
+                                    $qu_content = $row_answer.'个回答';
                                 }
                                 $post_date = wordTime($qu_date);
                                 $writer = "select * from users where user_id = '$user_id'";
@@ -152,7 +153,7 @@
                                         <div style='width:100%'>
                                     
                                             <a id='image' href='profile.php?u_id=$user_id' target='_blank' style='font-size:1em;'>
-                                                <img src='$user_image' class='img-circle' style='width:30px;'> 
+                                                <img src='$user_image' class='img-circle' style='width:30px;border:1px solid #CCCC99;'> 
                                             </a>
                                 
                                             <a id='name' href='profile.php?u_id=$user_id' target='_blank'style='rgb(91, 112, 131);font-size:1em;font-weight:bold'>
@@ -263,14 +264,13 @@
             </div>
         </div>
         <?php
-            require('include/rightbar.php');
+            include('include/rightbar.php');
         ?> 
     </div>
 </body>
 </html>
 <script>
     var ele = document.getElementById("search");
-    ele.href="javascript:void(0);";
     //ele.style.backgroundColor = "rgb(181,212,213)";
     ele.style.color ="#198754";
     ele.onmouseover =  function () {

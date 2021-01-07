@@ -23,7 +23,16 @@
         $uni_require = $row['uni_require'];
         $uni_require = str_replace('>',"<p style='width:80%;margin:0 auto;font-weight:bold'>>",$uni_require);
         $uni_require = str_replace('。',"<br>",$uni_require);
-        $uni_require = str_replace('I',"<br>I",$uni_require);
+        $uni_require = str_replace('本科',"",$uni_require);
+        $uni_require = str_replace('，',"<br>",$uni_require);
+        $uni_require = str_replace('语言要求',"语言要求<br>",$uni_require);
+        $uni_require = str_replace('学历要求',"学历要求<br>",$uni_require);
+        $uni_require = str_replace('申请材料',"申请材料<br>",$uni_require);
+        $uni_require = str_replace('申请费',"申请费<br>",$uni_require);
+        $uni_require = str_replace('申请方式',"申请方式<br>",$uni_require);
+        $uni_require = str_replace('申请时间',"申请时间<br>",$uni_require);
+
+
 
 
 
@@ -101,8 +110,10 @@
         }
     .col-md-5{
         margin:10px 4.1%;
-        border:1px solid #198754;
+        background-color:white;
         border-radius:10px;
+        box-shadow: 0px 2px 5px rgb(181,212,213);
+
     }
 </style>
 </head>
@@ -216,7 +227,7 @@
                                 <div class='row'>
                                     <div class='col-md-11' style='border:0px;box-shadow:none;'>
                                         <ul style='list-style:none;padding-left:20px;padding-top:2px'>";
-                                        $who_follow_query = "SELECT * FROM shoucang where uni_name_zh ='$uni_name_zh'";
+                                        $who_follow_query = "SELECT * FROM uni_shou where uni_name_zh ='$uni_name_zh'";
                                         $run_who_follow = mysqli_query($con, $who_follow_query);
                                         echo mysqli_error($con);
                                         if (isset($run_who_follow)){
@@ -250,28 +261,47 @@
                         <a href='#' style='color:grey'><span class='glyphicon glyphicon-question-sign'></span> 隐私政策</a>
                     </div>";
         }elseif ($page == 'index') {
-    ?>
-            <div class="col-md-6 midbar" style='padding:0px'>
-                <div class="box">
-                    <div class="col-md-5">
-                    <a href="" style='float:right;'>查看更多</a>
-                        <h4 style='font-weight:bold;'>海外留学</h4>
-                        <hr>
-                        <div>
-                            <h4 style='font-weight:bold;'>title</h5>
-                            <span>name：</span><span>content</span>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <h4 style='font-weight:bold;'>海外留学</h4>
-                        <hr>
-                        <div>
-                            <h4 style='font-weight:bold;'>title</h5>
-                            <span>name：</span><span>content</span>
-                        </div>
-                    </div>
+    ?>   
+        <div class='col-md-6 midbar' style='padding:0px;'>
+            <h3 style='font-weight:bold;margin-left:20px;'> 话题中心</h3> 
+            <hr>           
+            <div class='box'>
+    <?php
+        $tag_select = "SELECT * FROM tag";
+        $tag_query = mysqli_query($con,$tag_select);
+        while($tag_row = mysqli_fetch_array($tag_query)){
+            
+            $tag_name = $tag_row['tag_name'];
+            if ($tag_name == '海外生活') {
+                $info = "<a href='oversealife.php' style='float:right;margin-top:10px;'>查看更多</a>
+                <a href='oversealife.php'><h4 style='font-weight:bold;'>$tag_name</h4></a>
+                <div><small>$tag_des</small></div>";
+            }else {
+                $info = "
+                <a href='topics.php?tag_id=$tag_id' style='float:right;margin-top:10px;'>查看更多</a>
+                <a href='topics.php?tag_id=$tag_id'><h4 style='font-weight:bold;'>$tag_name</h4></a>
+                <div><small>$tag_des</small></div>";
+            }
+            $tag_id = $tag_row['id'];
+            $tag_des = $tag_row['tag_des'];
+            
+            $get_post = "SELECT * FROM posts where tag ";
+            echo "
+            <div class='col-md-5'>
+                $info
+                <small>回答</small>
+                <hr>
+                <div>
+                    <h4 style='font-weight:bold;'>title</h5>
+                    <span>name：</span><span>content</span>
                 </div>
-            </div>
+            </div>";    
+        }
+    ?>
+                    
+                    
+        </div>
+    </div>
     <?php
     require('include/rightbar.php');                    
         }

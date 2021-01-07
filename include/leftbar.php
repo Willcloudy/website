@@ -1,8 +1,8 @@
-
+<script data-ad-client="ca-pub-2929558295093322" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <meta name="baidu-site-verification" content="code-QrKX38uGyq" />
 <div class="col-md-3" role="navigation" id='leftbar'>
     <a id='logo' href="/home.php">
-        <img class='logo' width='300px' height='100%;' src="/img/logo.png" alt="logo"/>
+        <img class='logo' width='100%' height='100%;' src="/img/logo.png" alt="logo"/>
     </a>
     <ul class="list-unstyled leftbar nav nav-pills nav-stacked">
         <li>
@@ -40,17 +40,10 @@
         <li id='profile' style='display:none;'>
         <?php 
         if (!empty($u_id)) {
-            if ($webpage =='home') {
-                echo "
-                <a id='profileA' href='profile.php?u_id=$u_id' class='popup'style='padding:2%'>";
-            }else {
-                echo "
-                <a id='profileA' href='../profile.php?u_id=$u_id' class='popup'style='padding:2%'>";
-            }
-        
+            echo "<a id='profileA' href='../profile.php?u_id=$u_id' class='popup'style='padding:2%'>";
         ?>
-                <img src="<?php echo '/'.$u_image?>" alt="avatar" width='60px' height='60px' class='img-circle' style='border:1px solid white'/> 
-                <?php echo '&nbsp;&nbsp;&nbsp;'.$u_name;}  ?>
+                <img src="<?php echo '/'.$u_image?>" alt="avatar" width='60px' class='img-thumbnail img-circle'/> 
+                <span style='width: 70%;font-size: 0.8em;float: right;margin-top:5px;'><?php echo     $u_name;}  ?></span>
             </a>
         </li>
     </ul>

@@ -1,3 +1,4 @@
+
 /* 手机响应式设置 */
 @media(max-width:1400px)
 {
@@ -39,7 +40,7 @@
         padding-left:10%;
     }
     .article-function li{
-        margin-left:15px !important;
+        margin-left:45px  !important;
         width:15% !important;
     }
     .form-header h2{
@@ -66,7 +67,7 @@
 
 .home_search{
     float:left;
-    width:76%;
+    width:70%;
     padding: 3px;
 }
 /* 设置全局hr横线的外边距 */
@@ -152,7 +153,8 @@ body{
     margin:0 auto;
     border-radius: 15px;
     margin-top:60px;
-    margin-bottom:20px
+    margin-bottom:20px;
+    min-height:650px;
 }
 /* 搜索页面搜索框样式 */
 .search{
@@ -172,12 +174,12 @@ body{
 }
 /* 搜索页面按钮样式 */
 .glyphicon-search-explore,.glyphicon-search-uni,.glyphicon-search-result{
-    width: 8%;
+    width: 1%;
     color: rgb(91, 112, 131);
     border: none;
     background-color: transparent;
     position:relative;
-    left: 4%;
+    left: 6%;
     top: -25px;
     margin: 0;
 }
@@ -532,15 +534,133 @@ a{
 #write-box{
 }
 .post {
-    width:85%;
     border-top:1px solid #ccc;
     border-bottom:1px solid #ccc;
     z-index: 2 !important;
 }
+.avatar{
+    margin:0px;
+    padding:0px;
+    position:absolute;
+    top:47px;
+    left:20px;
+    border:2px solid white;
+}
+.info{
+    color:black;
+    font-weight: bold;
+    font-size:1.5em;
+    margin-left:25%;
+}
+.des{
+    color:grey;
+    font-weight:normal;
+    font-size:1em;
+    position:relative;
+}
+a .editProfile{
+    position:absolute;
+    top: 70%;
+    left: 70%;
+    font-weight:bold;
+    color: #198754;
+    border:1px solid #198754;
+    border-radius: 10px;
+    background:white;
+}
+a .followed_btn{
+    position:absolute;
+    top:70%;
+    left:80%;
+    font-weight:bold;
+    border-radius: 10px;
+    border:0;
+}
+a .followed_btn:focus{
+    outline:none;
+}
+a .followed_btn:hover{
+    color:white;
+    border:0;
+    border-radius: 10px;
+}
+a .follow_btn{
+    position:absolute;
+    top:70%;
+    left:80%;
+    font-weight:bold;
+    color: #198754;
+    border:1px solid #198754;
+    border-radius: 10px;
+    background:white;
+}
+
+a .editProfile:focus, a .follow_btn:focus{
+    outline:none;
+}
+a .editProfile:hover, a .follow_btn:hover{
+    background:#198754;
+    color:white;
+    border:1px solid white;
+    border-radius: 10px;
+}
+#userFunction{
+    font-size:1em;
+    font-weight:bold;
+    padding:0px;
+}
+#userFunction li{
+    text-decoration: none;  /*去掉前面的圆点*/
+    list-style: none;
+    border: 1px solid #FFFFFF;
+    display: inline-block;
+    width:10%;
+    text-align:center;
+    padding:0px;
+    height:10px;
+}
+#userFunction li a{
+    color:#040404;
+    text-decoration: none;
+    margin:0px;
+    height:10%; 
+    line-height:40px; 
+    padding:0px;
+}
+#userFunction li:hover{
+}
+#col-moredes,#col-closedes{
+    background-color:white;
+    outline: none;
+    border:none;
+}
+#col-closedes{
+    display:none;
+}
+.more{
+    margin-left:24%;
+}
+@media(max-width:992px)
+{
+    a .editProfile{
+        top: 10px;
+        left: 70%;
+    }
+    .avatar{
+        top: 60px;
+        left: 10px;
+        width:75px;
+    }
+    .info{
+        font-size:1.3em;
+    }
+}
 .text{
     min-height:50px;
-    width:85%;
     z-index: 1 !important;
+}
+.img-thumbnail{
+    padding:0;
 }
 .text:hover{
     /* border-left:1px solid #00BFFF;
@@ -548,7 +668,7 @@ a{
     border-bottom:1px solid #00BFFF; */
     /* border:1px solid #   ; */
 }
-.go_write,#question{
+.go_write,.question_btn{
     /* position:absolute;
     top: 5px;  
     left: 510px; */
@@ -561,7 +681,7 @@ a{
     border:1px solid #ccc;
     border-radius:10px;
 }
-#question{
+.question_btn{
     /* top:20px;
     left:490px; */
     width:70px;
@@ -579,13 +699,13 @@ a{
     color:#198754;
     text-decoration:underline;
 }
-.go_write:hover,#question:hover{
+.go_write:hover,.question_btn:hover{
     color:#198754;
     background:white;
     border:2px solid #ccc;
     transition:0.5s
 }
-.go_write:focus,#question:focus{
+.go_write:focus,.question_btn:focus{
     outline:none;
 }
 #home-profile{
@@ -615,11 +735,17 @@ a{
     #home-profile{
         /* display:none; */
     }
-    #question,.go_write{
+    .question_btn,.go_write{
         
         width:53px;
     }
     #write-box{
         padding-left:1%;
     }
+}
+.shou_list{
+    margin:10px;
+    font-size:18px;
+    font-weight:bold;
+    
 }

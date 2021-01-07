@@ -42,7 +42,12 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-
+    <style>
+        .user-info::after {
+            background-image:url(<?php echo $user_cover ?>);
+            opacity: 0.5;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -74,7 +79,7 @@
                 <div class="box">
                     <form action="result.php" method="POST">
                         <span>
-                            <input style='margin:2% 3%;width:90%;margin-bottom: 0px;'class='form-control search' type="text" name='searchcontent' autocomplete="off" value="<?php echo $input ?>" required='required'>
+                            <input style='margin:2% 3%;width:93%;margin-bottom: 0px;'class='form-control search' type="text" name='searchcontent' autocomplete="off" value="<?php echo $input ?>" required='required'>
                         </span>
                         <span class="glyphicon glyphicon-search glyphicon-search-explore"></span>
                         <a href="result.php"><button class='form-control search-btn btn btn-primary'type='submit'></button></a>
@@ -201,7 +206,7 @@
                                             $user_image = $row['user_image'];
                                             $user_cover = $row['user_cover'];
                                             echo "
-                                            <div class='col-md-12' style='padding:10px;border-top: 1px solid #f0f2f7;background-image:url($user_cover)'>
+                                            <div class='col-md-12 user-info' style='padding:10px;border-bottom: 1px solid #f0f2f7;'>
                                                 <div style='float:left;margin-left:20px;'>
                                                     <a id='image' href='profile.php?u_id=$user_id' target='_blank'><span><img class='img-circle'src='$user_image' width='60px'></span></a>
                                                 </div>
@@ -210,11 +215,13 @@
                                                         <b style='line-height:1.4;font-size:1.3em;color:black;'>
                                                             $user_name
                                                         </b>
-                                                        <small>
-                                                            $user_des
-                                                        </small>
                                                     </a>
                                                 </div>
+                                                <br>
+                                                <br>
+                                                <span style='margin-left:30px;margin-top:15px;'>
+                                                    <small>$user_des</small>
+                                                </span>
                                                 <div style='clear:both'></div>
                                             </div>";
                                         }

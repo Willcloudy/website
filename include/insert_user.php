@@ -24,7 +24,7 @@
         $token_exptime = time()+60*60*24;//过期时间为24小时后
 
         $profile_pic = "img/user.svg";
-        $cover = 'img/cover.jpg';
+        $cover = 'img/bcimg/1609761242.png';
         
         mysqli_query($con, "set names 'utf8'");
         $insert = "INSERT INTO users (user_name, 
@@ -35,9 +35,9 @@
         mysqli_query($con, "set names 'utf8'");
         $query = mysqli_query($con, $insert);
         if ($query) {
-            require 'PHPMailer-master/src/Exception.php';
-            require 'PHPMailer-master/src/PHPMailer.php';
-            require 'PHPMailer-master/src/SMTP.php';
+            require './PHPMailer-master/src/Exception.php';
+            require './PHPMailer-master/src/PHPMailer.php';
+            require './PHPMailer-master/src/SMTP.php';
             //echo "<script>window.open('home.php', '_self')</script>";
             $emailtype = "HTML"; //信件类型，文本:text；网页：HTML
             $smtpemailto = $email;
@@ -49,7 +49,7 @@
             // $headers .= "Content-Transfer-Encoding: 8bit\r\n"; 
             
             $emailbody = "
-            $user_name ：感谢您在我站注册了新帐号。请点击链接激活您的帐号。
+            $user_name , 感谢您在我站注册了新帐号。请点击链接激活您的帐号。
             <br>
             <br>
             https://www.willcloudy.com/active.php?verify=$token

@@ -26,7 +26,7 @@
                 <h4 style='margin-top:0;font-weight:bold;text-align:center;padding-top:15px;'>🏷️推荐话题</h4>
                 <div class="row">
                     <div class='col-md-11' style='border:0px;box-shadow:none;'>
-                        <ul class='tuij'style='list-style:none;float:left;padding-left:20px;'>
+                        <ul class='tuij'style='list-style:none;float:left;padding-left:10px;'>
                             <li>
                                 <div>
                                     <a href="country.php?selectednation=UK" ><h4 style='font-weight:bold;text-align:center;margin:0px'><span>#</span>英国</h4></a>
@@ -45,7 +45,7 @@
                                 </div>
                             </li>
                         </ul>
-                        <ul style='list-style:none;float:right;padding-left:20px;' class='tuij'>
+                        <ul style='list-style:none;float:right;padding-left:10px;' class='tuij'>
                             <li>
                                 <div>
                                     <a href="oversealife.php" ><h4 style='font-weight:bold;text-align:center;margin:0px'><span>#</span>海外留学</h4></a>
@@ -128,26 +128,52 @@
                     <div class='col-md-11' style='border:0px;box-shadow:none;'>
                         <ul style='list-style:none;padding-left:20px;'>
                             <?php
-                                $user_query = 'Select * from `users` order by rand() limit 2';
-                                $run_user = mysqli_query($con, $user_query);
-                                while($row_user = mysqli_fetch_array($run_user)){
-                                    $user_id = $row_user['user_id'];
-                                    $user_name = $row_user['user_name'];
-                                    $user_image = $row_user['user_image'];
-                                    $user_des = $row_user['user_des'];
+                                if (isset($u_id)) {
+                                    $user_query = "Select * from `users` where user_id != $u_id order by rand() limit 2";
+                                    $run_user = mysqli_query($con, $user_query);
+                                    while($row_user = mysqli_fetch_array($run_user)){
+                                        
+                                        $user_id = $row_user['user_id'];
+                                        $user_name = $row_user['user_name'];
+                                        $user_image = $row_user['user_image'];
+                                        $user_des = $row_user['user_des'];
 
-                                    echo "
-                                        <li>
-                                            <div>
-                                                <a href='../profile.php?u_id=$user_id'><img src='../$user_image' class='img-circle' style='float:left;margin-left:5px;width:45px'></a>
-                                                <div style='margin-left:65px;'>
-                                                <a href='../profile.php?u_id=$user_id'><h5>$user_name</h5></a>
-                                                <small style='color:rgb(91, 112, 131)'>$user_des</small>
+                                        echo "
+                                            <li>
+                                                <div>
+                                                    <a href='../profile.php?u_id=$user_id'><img src='../$user_image' class='img-thumbnail img-circle' style='float:left;margin-left:5px;width:45px'></a>
+                                                    <div style='margin-left:65px;'>
+                                                    <a href='../profile.php?u_id=$user_id'><h5>$user_name</h5></a>
+                                                    <small style='color:rgb(91, 112, 131)'>$user_des</small>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </li>
-                                    ";
+                                            </li>
+                                        ";
+                                    }
+                                }else {
+                                    $user_query = "Select * from `users` order by rand() limit 2";
+                                    $run_user = mysqli_query($con, $user_query);
+                                    while($row_user = mysqli_fetch_array($run_user)){
+                                        
+                                        $user_id = $row_user['user_id'];
+                                        $user_name = $row_user['user_name'];
+                                        $user_image = $row_user['user_image'];
+                                        $user_des = $row_user['user_des'];
+
+                                        echo "
+                                            <li>
+                                                <div>
+                                                    <a href='../profile.php?u_id=$user_id'><img src='../$user_image' class='img-circle' style='border:1px solid #CCCC99;float:left;margin-left:5px;width:45px'></a>
+                                                    <div style='margin-left:65px;'>
+                                                    <a href='../profile.php?u_id=$user_id'><h5>$user_name</h5></a>
+                                                    <small style='color:rgb(91, 112, 131)'>$user_des</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        ";
+                                    }
                                 }
+                                
                             ?>
                         </ul>
                     </div>           
@@ -175,7 +201,7 @@
         $('#search-small').css('display','block');
         $('#topic').css('marginTop','0px');
         element.css({
-        "width" : "19%",
+        "width" : "20%",
         "marginTop": "15px",
         position: "fixed",
         top: 0,

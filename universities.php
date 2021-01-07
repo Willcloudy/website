@@ -39,6 +39,10 @@
     .uni-search-btn:focus{
         outline:none;
     }
+    .uni-search-btn:hover{
+        background-color:#198754 !important;
+        color:white !important;
+    }
     #uni-img img{
         width:120px !important;
         height:120px;
@@ -97,7 +101,7 @@
                             <input class='form-control search' autoComplete='off'type="text" name='searchcontent' placeholder='搜索你心仪大学(中英文名字都可)' style='width:60%;padding:2%;border-radius:15px 0px 0px 15px;'/>
                             <button class='uni-search-btn' 
                                 style='position:absolute;top:20px;height:34px;
-                                border:2px solid #198754;background-color:white;font-weight:bold;color:#198754;border-radius:0 15px 15px 0;font-size:1em'>
+                                border:1px solid #198754;background-color:white;font-weight:bold;color:#198754;border-radius:0 15px 15px 0;font-size:0.95em'>
                                 <span class="glyphicon glyphicon-search" ></span>搜索
                             </button>
                         </span>

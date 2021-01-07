@@ -6,7 +6,6 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    
     <meta name="viewport" content="width=device-width, initial-scale=1">  
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
@@ -17,8 +16,10 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-
     <link rel="stylesheet" href="css/css.css">
+    <script src="ajax/function.js"></script>
+
+
     <style>
         .col-md-12 #content:hover{
             text-decoration: none;
@@ -58,7 +59,7 @@
         }
     </style>
 </head>
-<body>
+<body >
     <div class="container">
             <?php 
                 if (isset($_SESSION['user_email'])) {
@@ -70,7 +71,7 @@
                     $u_name = $row['user_name'];
                     $u_image = $row['user_image'];
                     $u_id = $row['user_id'];
-                    require('include/leftbar.php');
+                    include('include/leftbar.php');
                     echo "
                         <script>
                             var profile = document.getElementById('profile');
@@ -78,12 +79,12 @@
                             document.getElementById('sign').style.display='none' 
                         </script>";
                 }else {
-                    require('include/leftbar.php');
+                    include('include/leftbar.php');
                     echo "<script>document.getElementById('sign').style.display='block' </script>";
                 }
             ?>
             <div class="col-md-6 midbar" style='padding:0'id='mid'>
-                <?php require('include/publish.php');?>
+                <?php include('include/publish.php');?>
                 <div>
                     <ul id="myTab" class="nav nav-tabs ">
                         <li><a href="home.php">热榜</a></li>
@@ -105,9 +106,12 @@
     </div>
 </body>
 </html>
+<script type="text/javascript" src="https://unpkg.com/wangeditor/dist/wangEditor.min.js"></script>
+
 <script>
+$(window).load(function(){
+    
     var ele = document.getElementById("search");
-    ele.href="javascript:void(0);";
     //ele.style.backgroundColor = "rgb(181,212,213)";
     ele.style.color ="#198754";
     ele.onmouseover =  function () {
@@ -119,34 +123,7 @@
     document.getElementById('other').style.display='none'
     document.getElementById('topic').style.marginTop= "70px"
     document.getElementById('search-small').style.display='none'
+});
+    
 
-    $(document).ready(function(){ 
-        $('.like_post').click(function(){ 
-            var clickBtnValue = $(this).attr("name"); 
-            console.log(clickBtnValue);
-            $.ajax({
-                type:"GET",
-                url: "include/like.php", 
-                dataType:"JSON",
-                contentType:"application/json",
-                data:{id:clickBtnValue,}, 
-                success: function(status){
-                    $(this).style.color = '#198754';
-                    $(this).style.backgroundColor = 'white';
-                },
-                error:function(XMLHttpRequest, textStatus, errorThrown){
-                    // 状态码
-                    console.log(XMLHttpRequest.status);
-                    // 状态
-                    console.log(XMLHttpRequest.readyState);
-                    // 错误信息
-                    console.log(textStatus);
-                    alert("点赞失败");
-
-
-                }
-            }); 
-        }); 
-
-    }); 
 </script>
